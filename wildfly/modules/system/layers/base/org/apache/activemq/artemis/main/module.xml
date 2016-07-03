@@ -24,7 +24,7 @@
 
 <module xmlns="urn:jboss:module:1.3" name="org.apache.activemq.artemis">
     <resources>
-        <resource-root path="lib"/>
+        <!--resource-root path="lib"/-->
         <resource-root path="artemis-core-client-1.1.0.wildfly-011.jar"/>
         <resource-root path="artemis-selector-1.1.0.wildfly-011.jar"/>
         <resource-root path="artemis-server-1.1.0.wildfly-011.jar"/>
