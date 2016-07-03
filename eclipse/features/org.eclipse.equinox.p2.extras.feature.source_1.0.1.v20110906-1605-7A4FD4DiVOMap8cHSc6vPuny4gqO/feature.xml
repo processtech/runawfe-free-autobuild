@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.eclipse.equinox.p2.extras.feature.source" version="1.0.1.v20110906-1605-7A4FD4DiVOMap8cHSc6vPuny4gqO" label="%featureName"   provider-name="%providerName" image="eclipse_update_120.jpg"    >
+	<description >
+		%description
+	</description>
+	<copyright url="%copyrightURL">
+		%copyright
+	</copyright>
+	<license url="%licenseURL">
+      %license
+  	</license>
+	<plugin id="org.eclipse.equinox.p2.director.app.source" version="1.0.300.v20111126-0153"     unpack="false"/>
+	<plugin id="org.eclipse.equinox.p2.directorywatcher.source" version="1.0.300.v20110815-1419"     unpack="false"/>
+	<plugin id="org.eclipse.equinox.p2.reconciler.dropins.source" version="1.1.100.v20110815-1419"     unpack="false"/>
+	<plugin id="org.eclipse.equinox.p2.publisher.source" version="1.2.0.v20110815-1419"     unpack="false"/>
+	<plugin id="org.eclipse.equinox.p2.extensionlocation.source" version="1.2.100.v20110815-1419"     unpack="false"/>
+	<plugin id="org.eclipse.equinox.p2.repository.tools.source" version="2.0.100.v20110815-1438"     unpack="false"/>
+	<plugin id="org.eclipse.equinox.p2.publisher.eclipse.source" version="1.0.0.v20110815-1438"     unpack="false"/>
+</feature>

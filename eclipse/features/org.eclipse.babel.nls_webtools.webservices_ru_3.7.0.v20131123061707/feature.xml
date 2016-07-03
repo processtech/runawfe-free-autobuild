@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feature
+	id="org.eclipse.babel.nls_webtools.webservices_ru"
+	label="Babel Language Pack for webtools.webservices in Russian (73.61%)"
+	image="eclipse_update_120.jpg"
+	provider-name="%providerName"
+	version="3.7.0.v20131123061707">
+	<copyright>
+		%copyright
+	</copyright>
+	<license url="%licenseURL">
+		%license
+	</license>
+	<description>Babel Language Pack for webtools.webservices in Russian</description>
+	<plugin fragment="true" id="org.eclipse.jst.ws.annotations.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1373" install-size="1373" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.axis.consumption.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="4342" install-size="4342" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.axis.consumption.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="5192" install-size="5192" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.axis.creation.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="4379" install-size="4379" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.axis.infopop.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1354" install-size="1354" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.axis.ui.doc.user.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1424" install-size="1424" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.axis2.consumption.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2857" install-size="2857" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.axis2.consumption.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1424" install-size="1424" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.axis2.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2695" install-size="2695" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.axis2.creation.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2825" install-size="2825" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.axis2.creation.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1380" install-size="1380" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.axis2.ui.doc.user.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1357" install-size="1357" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.axis2.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1375" install-size="1375" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.consumption.infopop.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1402" install-size="1402" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.consumption.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="5431" install-size="5431" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.consumption.ui.doc.user.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1440" install-size="1440" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.consumption.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="12474" install-size="12474" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.creation.ejb.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1555" install-size="1555" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.creation.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3211" install-size="3211" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.cxf.consumption.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2339" install-size="2339" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.cxf.consumption.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1378" install-size="1378" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.cxf.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1371" install-size="1371" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.cxf.creation.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1376" install-size="1376" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.cxf.creation.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2783" install-size="2783" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.cxf.doc.user.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1373" install-size="1373" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.cxf.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2861" install-size="2861" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.doc.user.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1378" install-size="1378" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.infopop.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1397" install-size="1397" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.jaxb.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2633" install-size="2633" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.jaxrs.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1376" install-size="1376" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.jaxrs.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2615" install-size="2615" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.jaxws.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2733" install-size="2733" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.jaxws.doc.isv.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1375" install-size="1375" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.jaxws.doc.user.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1375" install-size="1375" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.jaxws.dom.doc.isv.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1377" install-size="1377" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.jaxws.dom.integration.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3046" install-size="3046" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.jaxws.dom.runtime.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1380" install-size="1380" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.jaxws.dom.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1978" install-size="1978" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.jaxws.testutils.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1379" install-size="1379" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.jaxws.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3224" install-size="3224" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.jaxws.utils.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1377" install-size="1377" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="4264" install-size="4264" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.uddiregistry.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2953" install-size="2953" />
+	<plugin fragment="true" id="org.eclipse.jst.ws.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="4088" install-size="4088" />
+	<plugin fragment="true" id="org.eclipse.wst.command.env.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2796" install-size="2796" />
+	<plugin fragment="true" id="org.eclipse.wst.command.env.doc.user.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1356" install-size="1356" />
+	<plugin fragment="true" id="org.eclipse.wst.command.env.infopop.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1399" install-size="1399" />
+	<plugin fragment="true" id="org.eclipse.wst.command.env.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="5380" install-size="5380" />
+	<plugin fragment="true" id="org.eclipse.wst.command.env.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3533" install-size="3533" />
+	<plugin fragment="true" id="org.eclipse.wst.ws.api.doc.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1369" install-size="1369" />
+	<plugin fragment="true" id="org.eclipse.wst.ws.explorer.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="21401" install-size="21401" />
+	<plugin fragment="true" id="org.eclipse.wst.ws.infopop.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1378" install-size="1378" />
+	<plugin fragment="true" id="org.eclipse.wst.ws.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2937" install-size="2937" />
+	<plugin fragment="true" id="org.eclipse.wst.ws.parser.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3400" install-size="3400" />
+	<plugin fragment="true" id="org.eclipse.wst.ws.service.policy.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1569" install-size="1569" />
+	<plugin fragment="true" id="org.eclipse.wst.ws.service.policy.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2947" install-size="2947" />
+	<plugin fragment="true" id="org.eclipse.wst.ws.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3345" install-size="3345" />
+	<plugin fragment="true" id="org.eclipse.wst.wsdl.doc.isv.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1371" install-size="1371" />
+	<plugin fragment="true" id="org.eclipse.wst.wsdl.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1365" install-size="1365" />
+	<plugin fragment="true" id="org.eclipse.wst.wsdl.ui.doc.user.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1409" install-size="1409" />
+	<plugin fragment="true" id="org.eclipse.wst.wsdl.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="6221" install-size="6221" />
+	<plugin fragment="true" id="org.eclipse.wst.wsdl.validation.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="9659" install-size="9659" />
+	<plugin fragment="true" id="org.eclipse.wst.wsi.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="6350" install-size="6350" />
+	<plugin fragment="true" id="org.eclipse.wst.wsi.ui.doc.user.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1428" install-size="1428" />
+	<plugin fragment="true" id="org.eclipse.wst.wsi.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="4365" install-size="4365" />
+</feature>

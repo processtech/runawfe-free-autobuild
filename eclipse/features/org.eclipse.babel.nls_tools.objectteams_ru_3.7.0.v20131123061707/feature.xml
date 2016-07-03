@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feature
+	id="org.eclipse.babel.nls_tools.objectteams_ru"
+	label="Babel Language Pack for tools.objectteams in Russian (5.51%)"
+	image="eclipse_update_120.jpg"
+	provider-name="%providerName"
+	version="3.7.0.v20131123061707">
+	<copyright>
+		%copyright
+	</copyright>
+	<license url="%licenseURL">
+		%license
+	</license>
+	<description>Babel Language Pack for tools.objectteams in Russian</description>
+	<plugin fragment="true" id="org.eclipse.objectteams.eclipse.monitor.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2296" install-size="2296" />
+	<plugin fragment="true" id="org.eclipse.objectteams.otdt.debug.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2666" install-size="2666" />
+	<plugin fragment="true" id="org.eclipse.objectteams.otdt.refactoring.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3380" install-size="3380" />
+	<plugin fragment="true" id="org.eclipse.objectteams.otdt.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="5377" install-size="5377" />
+</feature>

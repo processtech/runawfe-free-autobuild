@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feature
+	id="org.eclipse.babel.nls_technology.dltk_ru"
+	label="Babel Language Pack for technology.dltk in Russian (66.86%)"
+	image="eclipse_update_120.jpg"
+	provider-name="%providerName"
+	version="3.7.0.v20131123061707">
+	<copyright>
+		%copyright
+	</copyright>
+	<license url="%licenseURL">
+		%license
+	</license>
+	<description>Babel Language Pack for technology.dltk in Russian</description>
+	<plugin fragment="true" id="org.eclipse.dltk.console.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1350" install-size="1350" />
+	<plugin fragment="true" id="org.eclipse.dltk.console.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2428" install-size="2428" />
+	<plugin fragment="true" id="org.eclipse.dltk.core.doc.isv.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1355" install-size="1355" />
+	<plugin fragment="true" id="org.eclipse.dltk.core.index.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1352" install-size="1352" />
+	<plugin fragment="true" id="org.eclipse.dltk.core.manipulation.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="34587" install-size="34587" />
+	<plugin fragment="true" id="org.eclipse.dltk.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="6441" install-size="6441" />
+	<plugin fragment="true" id="org.eclipse.dltk.debug.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3317" install-size="3317" />
+	<plugin fragment="true" id="org.eclipse.dltk.debug.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="12986" install-size="12986" />
+	<plugin fragment="true" id="org.eclipse.dltk.formatter.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2328" install-size="2328" />
+	<plugin fragment="true" id="org.eclipse.dltk.itcl.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1351" install-size="1351" />
+	<plugin fragment="true" id="org.eclipse.dltk.itcl.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1348" install-size="1348" />
+	<plugin fragment="true" id="org.eclipse.dltk.itcl.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1350" install-size="1350" />
+	<plugin fragment="true" id="org.eclipse.dltk.javascript.core.dom.support.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1364" install-size="1364" />
+	<plugin fragment="true" id="org.eclipse.dltk.javascript.core.manipulation.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="33151" install-size="33151" />
+	<plugin fragment="true" id="org.eclipse.dltk.javascript.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2475" install-size="2475" />
+	<plugin fragment="true" id="org.eclipse.dltk.javascript.debug.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1356" install-size="1356" />
+	<plugin fragment="true" id="org.eclipse.dltk.javascript.debug.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3474" install-size="3474" />
+	<plugin fragment="true" id="org.eclipse.dltk.javascript.formatter.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3240" install-size="3240" />
+	<plugin fragment="true" id="org.eclipse.dltk.javascript.jsjdtdebugger.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1364" install-size="1364" />
+	<plugin fragment="true" id="org.eclipse.dltk.javascript.launching.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1360" install-size="1360" />
+	<plugin fragment="true" id="org.eclipse.dltk.javascript.parser.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2307" install-size="2307" />
+	<plugin fragment="true" id="org.eclipse.dltk.javascript.rhino.dbgp.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1359" install-size="1359" />
+	<plugin fragment="true" id="org.eclipse.dltk.javascript.rhino.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1355" install-size="1355" />
+	<plugin fragment="true" id="org.eclipse.dltk.javascript.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="23999" install-size="23999" />
+	<plugin fragment="true" id="org.eclipse.dltk.launching.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3234" install-size="3234" />
+	<plugin fragment="true" id="org.eclipse.dltk.logconsole.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1352" install-size="1352" />
+	<plugin fragment="true" id="org.eclipse.dltk.logconsole.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1353" install-size="1353" />
+	<plugin fragment="true" id="org.eclipse.dltk.mylyn.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1841" install-size="1841" />
+	<plugin fragment="true" id="org.eclipse.dltk.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1345" install-size="1345" />
+	<plugin fragment="true" id="org.eclipse.dltk.python.activestatedebugger.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1362" install-size="1362" />
+	<plugin fragment="true" id="org.eclipse.dltk.python.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1353" install-size="1353" />
+	<plugin fragment="true" id="org.eclipse.dltk.python.debug.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1354" install-size="1354" />
+	<plugin fragment="true" id="org.eclipse.dltk.python.debug.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3236" install-size="3236" />
+	<plugin fragment="true" id="org.eclipse.dltk.python.launching.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1357" install-size="1357" />
+	<plugin fragment="true" id="org.eclipse.dltk.python.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2876" install-size="2876" />
+	<plugin fragment="true" id="org.eclipse.dltk.rse.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1352" install-size="1352" />
+	<plugin fragment="true" id="org.eclipse.dltk.rse.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1351" install-size="1351" />
+	<plugin fragment="true" id="org.eclipse.dltk.ruby.abstractdebugger.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1359" install-size="1359" />
+	<plugin fragment="true" id="org.eclipse.dltk.ruby.activestatedebugger.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1361" install-size="1361" />
+	<plugin fragment="true" id="org.eclipse.dltk.ruby.basicdebugger.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1356" install-size="1356" />
+	<plugin fragment="true" id="org.eclipse.dltk.ruby.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1954" install-size="1954" />
+	<plugin fragment="true" id="org.eclipse.dltk.ruby.debug.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1353" install-size="1353" />
+	<plugin fragment="true" id="org.eclipse.dltk.ruby.debug.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3234" install-size="3234" />
+	<plugin fragment="true" id="org.eclipse.dltk.ruby.fastdebugger.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1356" install-size="1356" />
+	<plugin fragment="true" id="org.eclipse.dltk.ruby.formatter.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2543" install-size="2543" />
+	<plugin fragment="true" id="org.eclipse.dltk.ruby.launching.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1356" install-size="1356" />
+	<plugin fragment="true" id="org.eclipse.dltk.ruby.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1349" install-size="1349" />
+	<plugin fragment="true" id="org.eclipse.dltk.ruby.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="4995" install-size="4995" />
+	<plugin fragment="true" id="org.eclipse.dltk.ssh.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1351" install-size="1351" />
+	<plugin fragment="true" id="org.eclipse.dltk.tcl.activestatedebugger.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2795" install-size="2795" />
+	<plugin fragment="true" id="org.eclipse.dltk.tcl.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1373" install-size="1373" />
+	<plugin fragment="true" id="org.eclipse.dltk.tcl.debug.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1351" install-size="1351" />
+	<plugin fragment="true" id="org.eclipse.dltk.tcl.debug.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="4350" install-size="4350" />
+	<plugin fragment="true" id="org.eclipse.dltk.tcl.doc.user.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1759" install-size="1759" />
+	<plugin fragment="true" id="org.eclipse.dltk.tcl.formatter.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1376" install-size="1376" />
+	<plugin fragment="true" id="org.eclipse.dltk.tcl.launching.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1356" install-size="1356" />
+	<plugin fragment="true" id="org.eclipse.dltk.tcl.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1347" install-size="1347" />
+	<plugin fragment="true" id="org.eclipse.dltk.tcl.parser.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2998" install-size="2998" />
+	<plugin fragment="true" id="org.eclipse.dltk.tcl.tclchecker.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3238" install-size="3238" />
+	<plugin fragment="true" id="org.eclipse.dltk.tcl.tcllib.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1353" install-size="1353" />
+	<plugin fragment="true" id="org.eclipse.dltk.tcl.testing.tcltest.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1357" install-size="1357" />
+	<plugin fragment="true" id="org.eclipse.dltk.tcl.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="6365" install-size="6365" />
+	<plugin fragment="true" id="org.eclipse.dltk.tcl.validators.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1354" install-size="1354" />
+	<plugin fragment="true" id="org.eclipse.dltk.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="69517" install-size="69517" />
+	<plugin fragment="true" id="org.eclipse.dltk.validators.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2955" install-size="2955" />
+	<plugin fragment="true" id="org.eclipse.dltk.validators.externalchecker.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3492" install-size="3492" />
+	<plugin fragment="true" id="org.eclipse.dltk.validators.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3369" install-size="3369" />
+	<plugin fragment="true" id="org.eclipse.dltk.xotcl.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1352" install-size="1352" />
+	<plugin fragment="true" id="org.eclipse.dltk.xotcl.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1349" install-size="1349" />
+	<plugin fragment="true" id="org.eclipse.dltk.xotcl.testing.xounit.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1359" install-size="1359" />
+	<plugin fragment="true" id="org.eclipse.dltk.xotcl.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1351" install-size="1351" />
+</feature>

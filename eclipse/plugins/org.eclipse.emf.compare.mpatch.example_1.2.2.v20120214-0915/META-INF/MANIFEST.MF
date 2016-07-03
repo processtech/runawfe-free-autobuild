@@ -1,0 +1,55 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.emf.compare.mpatch.example
+Created-By: 17.0-b16 (Sun Microsystems Inc.)
+Bundle-Version: 1.2.2.v20120214-0915
+Bundle-ManifestVersion: 2
+
+Name: generalization/customer.umlclass
+SHA1-Digest: O047kj0i+QS7z3rwOQQsfW/7pEk=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: 09gN05tobgS/MdtqyTNQhOhB73M=
+
+Name: generalization/changed.uml
+SHA1-Digest: mMksPmdOCHmfek9Ye7yb5FNne7o=
+
+Name: library/library.ecorediag
+SHA1-Digest: 2TWC17KyvpDQ7mPH9Y9hPPws/70=
+
+Name: library/library_karl.ecorediag
+SHA1-Digest: DnHGJl2ykCvpCu2QkCt4l1MMxkk=
+
+Name: generalization/unchanged.umlclass
+SHA1-Digest: NeWMFpeYMhlFaO4BwP7YGYArzFE=
+
+Name: about.html
+SHA1-Digest: ztzTKONYJdfqz4aa9yHkuSdsVnE=
+
+Name: plugin.properties
+SHA1-Digest: ddUW55JVI4PIBQOIidQ6pA5KkBI=
+
+Name: generalization/unchanged.uml
+SHA1-Digest: gOq29+HvowxcT5V51EkiSFdBoTc=
+
+Name: generalization/changed.umlclass
+SHA1-Digest: uZoA1SdSc/mVULX7rq8L9sU/bA8=
+
+Name: library/library_eve.ecore
+SHA1-Digest: P+I9ehYrS1jCJuuex2qYYOaUGgU=
+
+Name: generalization/customer.uml
+SHA1-Digest: 25kiOHQNOaZ6inoWlL1it6wdjuw=
+
+Name: library/library.ecore
+SHA1-Digest: 1E2G2P7gEwCAfjQnS4RPHfcMefE=
+
+Name: library/library_eve.ecorediag
+SHA1-Digest: TuQkwkKHyUBoNtomDdlc/YzFuUI=
+
+Name: library/library_karl.ecore
+SHA1-Digest: iIzF1rg0q8Dim8Qd5S3ZzJWOvb4=
+

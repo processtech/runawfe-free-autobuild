@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feature
+	id="org.eclipse.babel.nls_webtools.libra_ru"
+	label="Babel Language Pack for webtools.libra in Russian (21.88%)"
+	image="eclipse_update_120.jpg"
+	provider-name="%providerName"
+	version="3.7.0.v20131123061707">
+	<copyright>
+		%copyright
+	</copyright>
+	<license url="%licenseURL">
+		%license
+	</license>
+	<description>Babel Language Pack for webtools.libra in Russian</description>
+	<plugin fragment="true" id="org.eclipse.libra.facet.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1367" install-size="1367" />
+	<plugin fragment="true" id="org.eclipse.libra.facet.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2459" install-size="2459" />
+	<plugin fragment="true" id="org.eclipse.libra.warproducts.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1373" install-size="1373" />
+	<plugin fragment="true" id="org.eclipse.libra.warproducts.help.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1374" install-size="1374" />
+	<plugin fragment="true" id="org.eclipse.libra.warproducts.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2656" install-size="2656" />
+</feature>

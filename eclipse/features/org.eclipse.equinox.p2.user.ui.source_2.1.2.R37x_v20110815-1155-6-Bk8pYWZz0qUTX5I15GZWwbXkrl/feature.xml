@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.eclipse.equinox.p2.user.ui.source" version="2.1.2.R37x_v20110815-1155-6-Bk8pYWZz0qUTX5I15GZWwbXkrl" label="%featureName"   provider-name="%providerName" image="eclipse_update_120.jpg"    >
+	<description >
+		%description
+	</description>
+	<copyright >
+		%copyright
+	</copyright>
+	<license url="%licenseURL">
+      %license
+  	</license>
+	<includes id="org.eclipse.equinox.p2.core.feature.source" version="1.0.1.v20110906-1605-8290FZ9FVKHVRKtmx3fpNuo02129"/>
+	<includes id="org.eclipse.equinox.p2.extras.feature.source" version="1.0.1.v20110906-1605-7A4FD4DiVOMap8cHSc6vPuny4gqO"/>
+	<includes id="org.eclipse.equinox.p2.rcp.feature.source" version="1.0.1.v20110906-1605-782EqBqNKGVkiV-PUsgz-uny4gqO"/>
+	<plugin id="org.eclipse.ecf.source" version="3.1.300.v20110531-2218"     unpack="false"/>
+	<plugin id="org.eclipse.ecf.ssl.source" version="1.0.100.v20110531-2218"     unpack="false"/>
+	<plugin id="org.eclipse.ecf.identity.source" version="3.1.100.v20110531-2218"     unpack="false"/>
+	<plugin id="org.eclipse.ecf.filetransfer.source" version="5.0.0.v20110531-2218"     unpack="false"/>
+	<plugin id="org.eclipse.ecf.provider.filetransfer.source" version="3.2.0.v20110531-2218"     unpack="false"/>
+	<plugin id="org.eclipse.ecf.provider.filetransfer.ssl.source" version="1.0.0.v20110531-2218"     unpack="false"/>
+	<plugin id="org.eclipse.ecf.provider.filetransfer.httpclient.source" version="4.0.0.v20110531-2218"     unpack="false"/>
+	<plugin id="org.eclipse.ecf.provider.filetransfer.httpclient.ssl.source" version="1.0.0.v20110531-2218"     unpack="false"/>
+	<plugin id="org.apache.commons.codec.source" version="1.3.0.v201101211617"     unpack="false"/>
+	<plugin id="org.apache.commons.httpclient.source" version="3.1.0.v201012070820"     unpack="false"/>
+	<plugin id="org.eclipse.equinox.p2.updatesite.source" version="1.0.300.v20110815-1419"     unpack="false"/>
+	<plugin id="org.eclipse.equinox.p2.ui.importexport.source" version="1.0.1.R37x_v20111103"     unpack="false"/>
+</feature>

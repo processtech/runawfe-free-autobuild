@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feature
+	id="org.eclipse.babel.nls_technology.stem_ru"
+	label="Babel Language Pack for technology.stem in Russian (30.02%)"
+	image="eclipse_update_120.jpg"
+	provider-name="%providerName"
+	version="3.7.0.v20131123061707">
+	<copyright>
+		%copyright
+	</copyright>
+	<license url="%licenseURL">
+		%license
+	</license>
+	<description>Babel Language Pack for technology.stem in Russian</description>
+	<plugin fragment="true" id="org.eclipse.stem.analysis.automaticexperiment.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3950" install-size="3950" />
+	<plugin fragment="true" id="org.eclipse.stem.analysis.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2463" install-size="2463" />
+	<plugin fragment="true" id="org.eclipse.stem.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3452" install-size="3452" />
+	<plugin fragment="true" id="org.eclipse.stem.data.geography.infrastructure.transportation.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1376" install-size="1376" />
+	<plugin fragment="true" id="org.eclipse.stem.definitions.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2675" install-size="2675" />
+	<plugin fragment="true" id="org.eclipse.stem.diseasemodels.example.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2427" install-size="2427" />
+	<plugin fragment="true" id="org.eclipse.stem.diseasemodels.experimental.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1666" install-size="1666" />
+	<plugin fragment="true" id="org.eclipse.stem.diseasemodels.externaldatasource.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2444" install-size="2444" />
+	<plugin fragment="true" id="org.eclipse.stem.diseasemodels.forcing.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2429" install-size="2429" />
+	<plugin fragment="true" id="org.eclipse.stem.diseasemodels.globalinfluenzamodel.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2421" install-size="2421" />
+	<plugin fragment="true" id="org.eclipse.stem.diseasemodels.multipopulation.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2484" install-size="2484" />
+	<plugin fragment="true" id="org.eclipse.stem.diseasemodels.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1906" install-size="1906" />
+	<plugin fragment="true" id="org.eclipse.stem.diseasemodels.vector.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1663" install-size="1663" />
+	<plugin fragment="true" id="org.eclipse.stem.diseases.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1349" install-size="1349" />
+	<plugin fragment="true" id="org.eclipse.stem.graphgenerators.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1801" install-size="1801" />
+	<plugin fragment="true" id="org.eclipse.stem.graphsynchronizer.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1594" install-size="1594" />
+	<plugin fragment="true" id="org.eclipse.stem.internal.data.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1353" install-size="1353" />
+	<plugin fragment="true" id="org.eclipse.stem.interventions.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1850" install-size="1850" />
+	<plugin fragment="true" id="org.eclipse.stem.jobs.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2221" install-size="2221" />
+	<plugin fragment="true" id="org.eclipse.stem.populationmodels.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1884" install-size="1884" />
+	<plugin fragment="true" id="org.eclipse.stem.sample.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1392" install-size="1392" />
+	<plugin fragment="true" id="org.eclipse.stem.sequencers.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2358" install-size="2358" />
+	<plugin fragment="true" id="org.eclipse.stem.solvers.fd.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1672" install-size="1672" />
+	<plugin fragment="true" id="org.eclipse.stem.solvers.rk.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1672" install-size="1672" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1351" install-size="1351" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.definitions.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1355" install-size="1355" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.diseasemodels.example.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1360" install-size="1360" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.diseasemodels.experimental.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1364" install-size="1364" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.diseasemodels.externaldatasource.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1371" install-size="1371" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.diseasemodels.forcing.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1362" install-size="1362" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.diseasemodels.multipopulation.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1368" install-size="1368" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.diseasemodels.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1401" install-size="1401" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.graphgenerators.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1382" install-size="1382" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.internal.data.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1355" install-size="1355" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.interventions.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1378" install-size="1378" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.jobs.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1352" install-size="1352" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.populationmodels.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1383" install-size="1383" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.transport.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1354" install-size="1354" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1350" install-size="1350" />
+	<plugin fragment="true" id="org.eclipse.stem.tests.util.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2425" install-size="2425" />
+	<plugin fragment="true" id="org.eclipse.stem.transport.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1658" install-size="1658" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.diseasemodels.example.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3404" install-size="3404" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.diseasemodels.experimental.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2264" install-size="2264" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.diseasemodels.externaldatasource.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2249" install-size="2249" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.diseasemodels.forcing.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3416" install-size="3416" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.diseasemodels.globalinfluenzamodel.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3611" install-size="3611" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.diseasemodels.multipopulation.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3429" install-size="3429" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.diseasemodels.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3255" install-size="3255" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.diseasemodels.vector.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2232" install-size="2232" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.ge.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2178" install-size="2178" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.grapheditor.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1420" install-size="1420" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.graphgenerators.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3449" install-size="3449" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.interventions.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3293" install-size="3293" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="6802" install-size="6802" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.populationmodels.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3599" install-size="3599" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.reports.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2368" install-size="2368" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.solvers.fd.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2197" install-size="2197" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.solvers.rk.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2197" install-size="2197" />
+	<plugin fragment="true" id="org.eclipse.stem.ui.transport.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3195" install-size="3195" />
+	<plugin fragment="true" id="org.eclipse.stem.util.analysis.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2713" install-size="2713" />
+	<plugin fragment="true" id="org.eclipse.stem.util.loggers.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1389" install-size="1389" />
+</feature>

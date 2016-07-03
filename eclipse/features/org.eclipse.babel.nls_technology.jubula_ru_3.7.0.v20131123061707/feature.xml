@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feature
+	id="org.eclipse.babel.nls_technology.jubula_ru"
+	label="Babel Language Pack for technology.jubula in Russian (10.7%)"
+	image="eclipse_update_120.jpg"
+	provider-name="%providerName"
+	version="3.7.0.v20131123061707">
+	<copyright>
+		%copyright
+	</copyright>
+	<license url="%licenseURL">
+		%license
+	</license>
+	<description>Babel Language Pack for technology.jubula in Russian</description>
+	<plugin fragment="true" id="org.eclipse.jubula.app.cmd.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2170" install-size="2170" />
+	<plugin fragment="true" id="org.eclipse.jubula.app.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2612" install-size="2612" />
+	<plugin fragment="true" id="org.eclipse.jubula.client.archive.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2275" install-size="2275" />
+	<plugin fragment="true" id="org.eclipse.jubula.client.cmd.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2204" install-size="2204" />
+	<plugin fragment="true" id="org.eclipse.jubula.client.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2474" install-size="2474" />
+	<plugin fragment="true" id="org.eclipse.jubula.client.ua.cheatsheets.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1401" install-size="1401" />
+	<plugin fragment="true" id="org.eclipse.jubula.client.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="5078" install-size="5078" />
+	<plugin fragment="true" id="org.eclipse.jubula.toolkit.provider.base.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2909" install-size="2909" />
+	<plugin fragment="true" id="org.eclipse.jubula.toolkit.provider.concrete.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2480" install-size="2480" />
+	<plugin fragment="true" id="org.eclipse.jubula.toolkit.provider.html.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2403" install-size="2403" />
+	<plugin fragment="true" id="org.eclipse.jubula.tools.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3641" install-size="3641" />
+</feature>

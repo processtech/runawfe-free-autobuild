@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feature
+	id="org.eclipse.babel.nls_technology.egit_ru"
+	label="Babel Language Pack for technology.egit in Russian (16.83%)"
+	image="eclipse_update_120.jpg"
+	provider-name="%providerName"
+	version="3.7.0.v20131123061707">
+	<copyright>
+		%copyright
+	</copyright>
+	<license url="%licenseURL">
+		%license
+	</license>
+	<description>Babel Language Pack for technology.egit in Russian</description>
+	<plugin fragment="true" id="org.eclipse.egit.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1939" install-size="1939" />
+	<plugin fragment="true" id="org.eclipse.egit.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="6890" install-size="6890" />
+</feature>

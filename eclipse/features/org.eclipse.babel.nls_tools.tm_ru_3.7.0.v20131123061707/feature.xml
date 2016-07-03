@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feature
+	id="org.eclipse.babel.nls_tools.tm_ru"
+	label="Babel Language Pack for tools.tm in Russian (19.17%)"
+	image="eclipse_update_120.jpg"
+	provider-name="%providerName"
+	version="3.7.0.v20131123061707">
+	<copyright>
+		%copyright
+	</copyright>
+	<license url="%licenseURL">
+		%license
+	</license>
+	<description>Babel Language Pack for tools.tm in Russian</description>
+	<plugin fragment="true" id="org.eclipse.rse.connectorservice.ssh.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2628" install-size="2628" />
+	<plugin fragment="true" id="org.eclipse.rse.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2469" install-size="2469" />
+	<plugin fragment="true" id="org.eclipse.rse.dstore.security.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2409" install-size="2409" />
+	<plugin fragment="true" id="org.eclipse.rse.examples.tutorial.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1699" install-size="1699" />
+	<plugin fragment="true" id="org.eclipse.rse.files.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3584" install-size="3584" />
+	<plugin fragment="true" id="org.eclipse.rse.importexport.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="4526" install-size="4526" />
+	<plugin fragment="true" id="org.eclipse.rse.processes.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3138" install-size="3138" />
+	<plugin fragment="true" id="org.eclipse.rse.services.dstore.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1643" install-size="1643" />
+	<plugin fragment="true" id="org.eclipse.rse.services.files.ftp.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2405" install-size="2405" />
+	<plugin fragment="true" id="org.eclipse.rse.services.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2868" install-size="2868" />
+	<plugin fragment="true" id="org.eclipse.rse.shells.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2693" install-size="2693" />
+	<plugin fragment="true" id="org.eclipse.rse.subsystems.files.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2730" install-size="2730" />
+	<plugin fragment="true" id="org.eclipse.rse.subsystems.files.dstore.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1385" install-size="1385" />
+	<plugin fragment="true" id="org.eclipse.rse.subsystems.files.ftp.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1383" install-size="1383" />
+	<plugin fragment="true" id="org.eclipse.rse.subsystems.wince.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1355" install-size="1355" />
+	<plugin fragment="true" id="org.eclipse.rse.terminals.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2462" install-size="2462" />
+	<plugin fragment="true" id="org.eclipse.rse.tests.framework.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1452" install-size="1452" />
+	<plugin fragment="true" id="org.eclipse.rse.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="6436" install-size="6436" />
+	<plugin fragment="true" id="org.eclipse.rse.useractions.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3489" install-size="3489" />
+	<plugin fragment="true" id="org.eclipse.tm.terminal.local.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2634" install-size="2634" />
+	<plugin fragment="true" id="org.eclipse.tm.terminal.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2449" install-size="2449" />
+	<plugin fragment="true" id="org.eclipse.tm.terminal.serial.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2340" install-size="2340" />
+	<plugin fragment="true" id="org.eclipse.tm.terminal.ssh.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2998" install-size="2998" />
+	<plugin fragment="true" id="org.eclipse.tm.terminal.telnet.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2198" install-size="2198" />
+	<plugin fragment="true" id="org.eclipse.tm.terminal.view.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3239" install-size="3239" />
+</feature>

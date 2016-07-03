@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- contextQualifierLength=14 -->
+<!-- contextQualifierLength=14 -->
+<feature
+      id="org.eclipse.graphiti.sdk.plus.feature"
+      label="%featureName"
+      version="0.9.1.v20120919-0732"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes
+         id="org.eclipse.graphiti.sdk.feature"
+         version="0.9.1.v20120919-0732"/>
+
+   <includes
+         id="org.eclipse.graphiti.export.feature"
+         version="0.9.1.v20120919-0732"/>
+
+</feature>

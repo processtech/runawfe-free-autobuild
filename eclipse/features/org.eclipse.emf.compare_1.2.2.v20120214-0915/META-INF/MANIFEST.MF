@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Created-By: 1.6.0 (IBM Corporation)
+
+Name: epl-v10.html
+SHA1-Digest: X2o3XdUsmEVEXLId47fxtZKgoAo=
+
+Name: modeling32.png
+SHA1-Digest: ADlLWFV0eQ74YnLvHnPFkYLeLrs=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: 09gN05tobgS/MdtqyTNQhOhB73M=
+
+Name: license.html
+SHA1-Digest: /vLZjlHkZSXMSfPrWwNqOUDqqbM=
+
+Name: copyright.txt
+SHA1-Digest: L4Vzio8nb+SIJv+iFzDWrDy47BI=
+
+Name: feature.properties
+SHA1-Digest: vkjSBqpEuRgGEik3mXDAvnGPBgA=
+
+Name: feature.xml
+SHA1-Digest: PafUgSzRVeM+0M5+cQb0FWc9LNc=
+

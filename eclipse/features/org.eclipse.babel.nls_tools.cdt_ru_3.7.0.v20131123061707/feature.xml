@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feature
+	id="org.eclipse.babel.nls_tools.cdt_ru"
+	label="Babel Language Pack for tools.cdt in Russian (27.66%)"
+	image="eclipse_update_120.jpg"
+	provider-name="%providerName"
+	version="3.7.0.v20131123061707">
+	<copyright>
+		%copyright
+	</copyright>
+	<license url="%licenseURL">
+		%license
+	</license>
+	<description>Babel Language Pack for tools.cdt in Russian</description>
+	<plugin fragment="true" id="org.eclipse.cdt.build.crossgcc.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1354" install-size="1354" />
+	<plugin fragment="true" id="org.eclipse.cdt.codan.checkers.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1639" install-size="1639" />
+	<plugin fragment="true" id="org.eclipse.cdt.codan.checkers.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1582" install-size="1582" />
+	<plugin fragment="true" id="org.eclipse.cdt.codan.core.cxx.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1582" install-size="1582" />
+	<plugin fragment="true" id="org.eclipse.cdt.codan.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2581" install-size="2581" />
+	<plugin fragment="true" id="org.eclipse.cdt.codan.ui.cxx.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1594" install-size="1594" />
+	<plugin fragment="true" id="org.eclipse.cdt.codan.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3638" install-size="3638" />
+	<plugin fragment="true" id="org.eclipse.cdt.core.lrparser.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1352" install-size="1352" />
+	<plugin fragment="true" id="org.eclipse.cdt.core.lrparser.xlc.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1354" install-size="1354" />
+	<plugin fragment="true" id="org.eclipse.cdt.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="5782" install-size="5782" />
+	<plugin fragment="true" id="org.eclipse.cdt.core.parser.upc.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1353" install-size="1353" />
+	<plugin fragment="true" id="org.eclipse.cdt.debug.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="4849" install-size="4849" />
+	<plugin fragment="true" id="org.eclipse.cdt.debug.edc.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2869" install-size="2869" />
+	<plugin fragment="true" id="org.eclipse.cdt.debug.edc.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2593" install-size="2593" />
+	<plugin fragment="true" id="org.eclipse.cdt.debug.gdbjtag.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1355" install-size="1355" />
+	<plugin fragment="true" id="org.eclipse.cdt.debug.gdbjtag.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1354" install-size="1354" />
+	<plugin fragment="true" id="org.eclipse.cdt.debug.gdbjtag.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2611" install-size="2611" />
+	<plugin fragment="true" id="org.eclipse.cdt.debug.mi.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2565" install-size="2565" />
+	<plugin fragment="true" id="org.eclipse.cdt.debug.mi.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3324" install-size="3324" />
+	<plugin fragment="true" id="org.eclipse.cdt.debug.ui.memory.memorybrowser.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2569" install-size="2569" />
+	<plugin fragment="true" id="org.eclipse.cdt.debug.ui.memory.search.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2775" install-size="2775" />
+	<plugin fragment="true" id="org.eclipse.cdt.debug.ui.memory.traditional.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2835" install-size="2835" />
+	<plugin fragment="true" id="org.eclipse.cdt.debug.ui.memory.transport.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2663" install-size="2663" />
+	<plugin fragment="true" id="org.eclipse.cdt.debug.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="13171" install-size="13171" />
+	<plugin fragment="true" id="org.eclipse.cdt.doc.isv.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1349" install-size="1349" />
+	<plugin fragment="true" id="org.eclipse.cdt.doc.user.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1349" install-size="1349" />
+	<plugin fragment="true" id="org.eclipse.cdt.dsf.gdb.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="4340" install-size="4340" />
+	<plugin fragment="true" id="org.eclipse.cdt.dsf.gdb.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="7034" install-size="7034" />
+	<plugin fragment="true" id="org.eclipse.cdt.dsf.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1347" install-size="1347" />
+	<plugin fragment="true" id="org.eclipse.cdt.dsf.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="12479" install-size="12479" />
+	<plugin fragment="true" id="org.eclipse.cdt.errorparsers.xlc.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1355" install-size="1355" />
+	<plugin fragment="true" id="org.eclipse.cdt.examples.dsf.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1353" install-size="1353" />
+	<plugin fragment="true" id="org.eclipse.cdt.examples.dsf.pda.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1354" install-size="1354" />
+	<plugin fragment="true" id="org.eclipse.cdt.examples.dsf.pda.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2759" install-size="2759" />
+	<plugin fragment="true" id="org.eclipse.cdt.gdb.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1347" install-size="1347" />
+	<plugin fragment="true" id="org.eclipse.cdt.gdb.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1349" install-size="1349" />
+	<plugin fragment="true" id="org.eclipse.cdt.launch.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3728" install-size="3728" />
+	<plugin fragment="true" id="org.eclipse.cdt.launch.remote.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2505" install-size="2505" />
+	<plugin fragment="true" id="org.eclipse.cdt.make.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2948" install-size="2948" />
+	<plugin fragment="true" id="org.eclipse.cdt.make.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="6737" install-size="6737" />
+	<plugin fragment="true" id="org.eclipse.cdt.make.xlc.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1353" install-size="1353" />
+	<plugin fragment="true" id="org.eclipse.cdt.managedbuilder.bupc.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2133" install-size="2133" />
+	<plugin fragment="true" id="org.eclipse.cdt.managedbuilder.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3083" install-size="3083" />
+	<plugin fragment="true" id="org.eclipse.cdt.managedbuilder.gnu.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3372" install-size="3372" />
+	<plugin fragment="true" id="org.eclipse.cdt.managedbuilder.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="3295" install-size="3295" />
+	<plugin fragment="true" id="org.eclipse.cdt.managedbuilder.xlc.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1358" install-size="1358" />
+	<plugin fragment="true" id="org.eclipse.cdt.managedbuilder.xlc.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2619" install-size="2619" />
+	<plugin fragment="true" id="org.eclipse.cdt.managedbuilder.xlupc.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1450" install-size="1450" />
+	<plugin fragment="true" id="org.eclipse.cdt.msw.build.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1385" install-size="1385" />
+	<plugin fragment="true" id="org.eclipse.cdt.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1705" install-size="1705" />
+	<plugin fragment="true" id="org.eclipse.cdt.p2.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1346" install-size="1346" />
+	<plugin fragment="true" id="org.eclipse.cdt.sdk.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1347" install-size="1347" />
+	<plugin fragment="true" id="org.eclipse.cdt.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="59636" install-size="59636" />
+	<plugin fragment="true" id="org.eclipse.cdt.util.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1347" install-size="1347" />
+	<plugin fragment="true" id="org.eclipse.tm.tcf.cdt.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1586" install-size="1586" />
+	<plugin fragment="true" id="org.eclipse.tm.tcf.core.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1349" install-size="1349" />
+	<plugin fragment="true" id="org.eclipse.tm.tcf.debug.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1350" install-size="1350" />
+	<plugin fragment="true" id="org.eclipse.tm.tcf.debug.ui.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1474" install-size="1474" />
+	<plugin fragment="true" id="org.eclipse.tm.tcf.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="1346" install-size="1346" />
+	<plugin fragment="true" id="org.eclipse.tm.tcf.rse.nl_ru" unpack="false" version="3.7.0.v20131123061707" download-size="2519" install-size="2519" />
+</feature>

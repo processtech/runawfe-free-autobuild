@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * <copyright>
+ *
+ * Copyright (c) 2005, 2010 IBM Corporation, Zeligsoft Inc. and others.
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *   IBM - Initial API and implementation
+ *   Zeligsoft - Bug 262540
+ *
+ * </copyright>
+ */
+-->
+<feature
+      id="org.eclipse.emf.query.sdk"
+      label="%featureName"
+      version="1.5.0.v20110502-1600-67O-95GFz03DQEiNLXRMK_NPj507"
+      provider-name="%providerName"
+      image="modeling32.png">
+
+   <description>
+      %description
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2005, 2010 IBM Corporation, Zeligsoft Inc. and others.
+All rights reserved.   This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%updateSiteName" url="http://download.eclipse.org/modeling/emf/updates/"/>
+      <discovery label="%updateSiteName" url="http://download.eclipse.org/modeling/emf/updates/"/>
+   </url>
+
+   <includes
+         id="org.eclipse.emf.query"
+         version="1.5.0.v20110502-1600-218Z7w311A142A1142"/>
+
+   <includes
+         id="org.eclipse.emf.query.ocl"
+         version="1.5.0.v20110502-1600-3--7w311A232602735"/>
+
+   <includes
+         id="org.eclipse.emf.query.doc"
+         version="1.5.0.v20110502-1600-33-8s733L466A3AE72"/>
+
+   <includes
+         id="org.eclipse.emf.query.source"
+         version="1.5.0.v20110502-1600-218Z7w311A142A1142"/>
+
+   <includes
+         id="org.eclipse.emf.query.ocl.source"
+         version="1.5.0.v20110502-1600-3--7w311A232602735"/>
+
+</feature>
