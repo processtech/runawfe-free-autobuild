@@ -1,15 +1,20 @@
 rem First parameter is a path to JDK7 and second parameter is a path to JDK8
+rem Third parameter is a path to results dir (it will be recreated)
 rem Copy to jdk folder files jre-7u80-windows-i586.exe jre-7u80-windows-x64.exe jre-8u92-windows-i586.exe jre-8u92-windows-x64.exe
+
+if %1 == "" exit
+if %2 == "" exit
+if %3 == "" exit
 
 set wfeVersion=4.3.0
 
 rem Clean artifacts from previous builds
 rd /S /Q build
-rd /S /Q results
+rd /S /Q %3
 
 rem Create folders for artifacts from new build
 mkdir build
-mkdir results
+mkdir %3
 
 rem Copy required zip files and folders (jboss, eclipse and so on) into build directory
 move jboss7 jboss
@@ -61,12 +66,12 @@ cd ..\..\installer\windows\
 rem Build distr
 call mvn clean package -Declipse.home.dir=../../../../eclipse -Djdk.dir="%~dp0jdk" -l build.log -Djava.home.7=%1 -Djava.home.8=%2
 
-xcopy /E /Q target\test-result ..\..\..\..\..\results\test-result\
-mkdir ..\..\..\..\..\results\Execution\jboss7
-copy target\artifacts\Installer32\jboss7\RunaWFE-Installer.exe ..\..\..\..\..\results\Execution\jboss7\RunaWFE-Jboss-java7_32.exe
-copy target\artifacts\Installer64\jboss7\RunaWFE-Installer.exe ..\..\..\..\..\results\Execution\jboss7\RunaWFE-Jboss-java7_64.exe
-mkdir ..\..\..\..\..\results\Execution\wildfly
-copy target\artifacts\Installer32\wildfly\RunaWFE-Installer.exe ..\..\..\..\..\results\Execution\wildfly\RunaWFE-Wildfly-java8_32.exe
-copy target\artifacts\Installer64\wildfly\RunaWFE-Installer.exe ..\..\..\..\..\results\Execution\wildfly\RunaWFE-Wildfly-java8_64.exe
-mkdir ..\..\..\..\..\results\ISO
-copy target\*.iso ..\..\..\..\..\results\ISO\
+xcopy /E /Q target\test-result %3\test-result\
+mkdir %3\Execution\jboss7
+copy target\artifacts\Installer32\jboss7\RunaWFE-Installer.exe %3\Execution\jboss7\RunaWFE-Jboss-java7_32.exe
+copy target\artifacts\Installer64\jboss7\RunaWFE-Installer.exe %3\Execution\jboss7\RunaWFE-Jboss-java7_64.exe
+mkdir %3\Execution\wildfly
+copy target\artifacts\Installer32\wildfly\RunaWFE-Installer.exe %3\Execution\wildfly\RunaWFE-Wildfly-java8_32.exe
+copy target\artifacts\Installer64\wildfly\RunaWFE-Installer.exe %3\Execution\wildfly\RunaWFE-Wildfly-java8_64.exe
+mkdir %3\ISO
+copy target\*.iso %3\ISO\
