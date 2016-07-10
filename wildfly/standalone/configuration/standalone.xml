@@ -92,25 +92,63 @@
                     <named-formatter name="COLOR-PATTERN"/>
                 </formatter>
             </console-handler>
-            <periodic-rotating-file-handler name="FILE" autoflush="true">
+            <size-rotating-file-handler name="FILE">
+                <level name="DEBUG"/>
                 <formatter>
-                    <named-formatter name="PATTERN"/>
+                    <pattern-formatter pattern="%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%E%n"/>
                 </formatter>
                 <file relative-to="jboss.server.log.dir" path="server.log"/>
-                <suffix value=".yyyy-MM-dd"/>
+                <rotate-size value="100m"/>
+                <max-backup-index value="10"/>
                 <append value="true"/>
-            </periodic-rotating-file-handler>
+            </size-rotating-file-handler>
+            <logger category="ru.runa">
+                <level name="DEBUG"/>
+            </logger>
+            <logger category="org.hibernate">
+                <level name="INFO"/>
+            </logger>
+            <logger category="net.sf">
+                <level name="INFO"/>
+            </logger>
             <logger category="com.arjuna">
                 <level name="WARN"/>
             </logger>
-            <logger category="org.jboss.as.config">
-                <level name="DEBUG"/>
+            <logger category="org.apache">
+                <level name="INFO"/>
+            </logger>
+            <logger category="org.springframework">
+                <level name="INFO"/>
+            </logger>
+            <logger category="org.hornetq">
+                <level name="INFO"/>
+            </logger>
+            <logger category="javax">
+                <level name="INFO"/>
+            </logger>
+            <logger category="net.bull">
+                <level name="INFO"/>
+            </logger>
+            <logger category="org.jboss">
+                <level name="INFO"/>
             </logger>
             <logger category="sun.rmi">
                 <level name="WARN"/>
             </logger>
+            <logger category="jacorb">
+                <level name="WARN"/>
+            </logger>
+            <logger category="jacorb.config">
+                <level name="ERROR"/>
+            </logger>
+            <logger category="org.hornetq.ra.inflow.HornetQMessageHandler">
+                <level name="FATAL"/>
+            </logger>
+            <logger category="org.jboss.ejb3.invocation">
+                <level name="FATAL"/>
+            </logger>
             <root-logger>
-                <level name="INFO"/>
+                <level name="DEBUG"/>
                 <handlers>
                     <handler name="CONSOLE"/>
                     <handler name="FILE"/>
@@ -328,6 +366,7 @@
                 <jms-queue name="DLQ" entries="java:/jms/queue/DLQ"/>
                 <jms-queue name="bpmMessages" entries="queue/bpmMessages java:jboss/exported/queue/bpmMessages"/>
                 <jms-queue name="email" entries="queue/email java:jboss/exported/queue/email"/>
+                <jms-queue name="nodeAsyncExecution" entries="queue/nodeAsyncExecution java:jboss/exported/queue/nodeAsyncExecution"/>
                 <connection-factory name="InVmConnectionFactory" connectors="in-vm" entries="java:/ConnectionFactory"/>
                 <connection-factory name="RemoteConnectionFactory" connectors="http-connector" entries="java:jboss/exported/jms/RemoteConnectionFactory"/>
                 <pooled-connection-factory name="activemq-ra" transaction="xa" connectors="in-vm" entries="java:/JmsXA java:jboss/DefaultJMSConnectionFactory"/>
