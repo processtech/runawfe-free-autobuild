@@ -67,7 +67,7 @@ call mvn versions:set -DnewVersion=%wfeVersion%
 cd ..\..\..\..\
 jar -cMf source.zip source
 mkdir %3\source
-copy source.zip %3\source\source-%4.zip
+move source.zip %3\source\source-%4.zip
 
 cd source\projects\installer\windows\
 rem Build distr
