@@ -64,16 +64,21 @@ call mvn versions:set -DnewVersion=%wfeVersion%
 cd ../gpd/plugins
 call mvn versions:set -DnewVersion=%wfeVersion%
 
-cd ..\..\installer\windows\
+cd ..\..\..\..\
+jar -cMf source.zip source
+mkdir %3\source
+copy source.zip %3\source\source-%4.zip
+
+cd source\projects\installer\windows\
 rem Build distr
 call mvn clean package -Declipse.home.dir=../../../../eclipse -Djdk.dir="%~dp0jdk" -l build.log -Djava.home.7=%1 -Djava.home.8=%2
 
 xcopy /E /Q target\test-result %3\test-result\
 mkdir %3\Execution\jboss7
-copy target\artifacts\Installer32\jboss7\RunaWFE-Installer.exe %3\Execution\jboss7\RunaWFE-Jboss-java7_32.exe
-copy target\artifacts\Installer64\jboss7\RunaWFE-Installer.exe %3\Execution\jboss7\RunaWFE-Jboss-java7_64.exe
+copy target\artifacts\Installer32\jboss7\RunaWFE-Installer.exe %3\Execution\jboss7\RunaWFE-%4-Jboss-java7_32.exe
+copy target\artifacts\Installer64\jboss7\RunaWFE-Installer.exe %3\Execution\jboss7\RunaWFE-%4-Jboss-java7_64.exe
 mkdir %3\Execution\wildfly
-copy target\artifacts\Installer32\wildfly\RunaWFE-Installer.exe %3\Execution\wildfly\RunaWFE-Wildfly-java8_32.exe
-copy target\artifacts\Installer64\wildfly\RunaWFE-Installer.exe %3\Execution\wildfly\RunaWFE-Wildfly-java8_64.exe
+copy target\artifacts\Installer32\wildfly\RunaWFE-Installer.exe %3\Execution\wildfly\RunaWFE-%4-Wildfly-java8_32.exe
+copy target\artifacts\Installer64\wildfly\RunaWFE-Installer.exe %3\Execution\wildfly\RunaWFE-%4-Wildfly-java8_64.exe
 mkdir %3\ISO
 copy target\*.iso %3\ISO\
