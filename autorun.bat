@@ -82,3 +82,19 @@ copy target\artifacts\Installer32\wildfly\RunaWFE-Installer.exe %3\Execution\wil
 copy target\artifacts\Installer64\wildfly\RunaWFE-Installer.exe %3\Execution\wildfly\RunaWFE-%4-Wildfly-java8_64.exe
 mkdir %3\ISO
 copy target\*.iso %3\ISO\
+
+mkdir %3\bin
+; Create bin file for jboss server
+jar xf target\artifacts\jboss7\app-simulation\wfe-appserver-full-%4.zip 
+xcopy /E /Q target\artifacts\jboss7\simulation-data jboss
+jar -cMf runawfe-jboss-java7-%4.zip jboss
+rd /S /Q jboss
+move runawfe-jboss-java7-%4.zip %3\bin\runawfe-jboss-java7-%4.zip
+
+; Create bin file for wildfly server
+jar xf target\artifacts\wildfly\app-simulation\wfe-appserver-full-%4.zip 
+xcopy /E /Q target\artifacts\wildfly\simulation-data jboss
+move jboss wildfly
+jar -cMf runawfe-wildfly-java8-%4.zip wildfly
+rd /S /Q wildfly
+move runawfe-wildfly-java8-%4.zip %3\bin\runawfe-wildfly-java8-%4.zip
