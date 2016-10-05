@@ -64,16 +64,15 @@
                     <pattern-formatter pattern="%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%E%n"/>
                 </formatter>
             </console-handler>
-            <size-rotating-file-handler name="FILE">
+            <periodic-rotating-file-handler name="FILE">
                 <level name="DEBUG"/>
                 <formatter>
                     <pattern-formatter pattern="%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%E%n"/>
                 </formatter>
                 <file relative-to="jboss.server.log.dir" path="server.log"/>
-                <rotate-size value="100m"/>
-                <max-backup-index value="10"/>
+                <suffix value=".yyyy-MM-dd"/>
                 <append value="true"/>
-            </size-rotating-file-handler>
+            </periodic-rotating-file-handler>
             <logger category="ru.runa">
                 <level name="DEBUG"/>
             </logger>
@@ -306,6 +305,9 @@
                         <entries>
                             <entry name="java:/JmsXA"/>
                         </entries>
+                        <client-failure-check-period>2147483646</client-failure-check-period>
+                        <connection-ttl>-1</connection-ttl>
+                        <reconnect-attempts>-1</reconnect-attempts>
                     </pooled-connection-factory>
                 </jms-connection-factories>
 
@@ -314,7 +316,7 @@
                         <entry name="queue/bpmMessages"/>
                         <entry name="java:jboss/exported/queue/bpmMessages"/>
                     </jms-queue>
-		    <jms-queue name="email">
+                    <jms-queue name="email">
                         <entry name="queue/email"/>
                         <entry name="java:jboss/exported/queue/email"/>
                     </jms-queue>

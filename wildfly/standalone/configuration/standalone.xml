@@ -1,6 +1,7 @@
-<?xml version="1.0" ?>
+<?xml version='1.0' encoding='UTF-8'?>
 
 <server xmlns="urn:jboss:domain:4.0">
+
     <extensions>
         <extension module="org.jboss.as.clustering.infinispan"/>
         <extension module="org.jboss.as.connector"/>
@@ -11,7 +12,6 @@
         <extension module="org.jboss.as.jdr"/>
         <extension module="org.jboss.as.jmx"/>
         <extension module="org.jboss.as.jpa"/>
-        <!-- extension module="org.jboss.as.jsf"/ -->
         <extension module="org.jboss.as.jsr77"/>
         <extension module="org.jboss.as.logging"/>
         <extension module="org.jboss.as.mail"/>
@@ -32,6 +32,8 @@
         <extension module="org.wildfly.extension.undertow"/>
         <extension module="org.wildfly.iiop-openjdk"/>
     </extensions>
+
+
     <management>
         <security-realms>
             <security-realm name="ManagementRealm">
@@ -67,12 +69,12 @@
             </logger>
         </audit-log>
         <management-interfaces>
-            <http-interface security-realm="ManagementRealm" http-upgrade-enabled="true">
-                <socket-binding http="management-http"/>
-            </http-interface>
             <native-interface security-realm="ManagementRealm">
                 <socket-binding native="management-native"/>
             </native-interface>
+            <http-interface security-realm="ManagementRealm" http-upgrade-enabled="true">
+                <socket-binding http="management-http"/>
+            </http-interface>
         </management-interfaces>
         <access-control provider="simple">
             <role-mapping>
@@ -84,6 +86,7 @@
             </role-mapping>
         </access-control>
     </management>
+
     <profile>
         <subsystem xmlns="urn:jboss:domain:logging:3.0">
             <console-handler name="CONSOLE">
@@ -141,7 +144,7 @@
             <logger category="jacorb.config">
                 <level name="ERROR"/>
             </logger>
-            <logger category="org.hornetq.ra.inflow.HornetQMessageHandler">
+            <logger category="org.apache.activemq.artemis.ra">
                 <level name="FATAL"/>
             </logger>
             <logger category="org.jboss.ejb3.invocation">
@@ -191,9 +194,12 @@
             </datasources>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:deployment-scanner:2.0">
-            <deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" runtime-failure-causes-rollback="${jboss.deployment.scanner.rollback.on.failure:false}"/>
+            <deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" runtime-failure-causes-rollback="${jboss.deployment.scanner.rollback.on.failure:false}" deployment-timeout="300" />
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:ee:4.0">
+            <global-modules>
+                <module name="asm.asm" slot="main"/>
+            </global-modules>
             <spec-descriptor-property-replacement>false</spec-descriptor-property-replacement>
             <concurrent>
                 <context-services>
@@ -210,9 +216,6 @@
                 </managed-scheduled-executor-services>
             </concurrent>
             <default-bindings context-service="java:jboss/ee/concurrency/context/default" datasource="java:jboss/datasources/ExampleDS" jms-connection-factory="java:jboss/DefaultJMSConnectionFactory" managed-executor-service="java:jboss/ee/concurrency/executor/default" managed-scheduled-executor-service="java:jboss/ee/concurrency/scheduler/default" managed-thread-factory="java:jboss/ee/concurrency/factory/default"/>
-            <global-modules>
-                <module name="asm.asm" slot="main"/>
-            </global-modules>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:ejb3:4.0">
             <session-bean>
@@ -228,7 +231,6 @@
             </mdb>
             <pools>
                 <bean-instance-pools>
-                    <!-- Automatically configure pools. Alternatively, max-pool-size can be set to a specific value -->
                     <strict-max-pool name="slsb-strict-max-pool" derive-size="from-worker-pools" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
                     <strict-max-pool name="mdb-strict-max-pool" derive-size="from-cpu-count" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
                 </bean-instance-pools>
@@ -306,7 +308,6 @@
             </cache-container>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:iiop-openjdk:1.0">
-            <orb socket-binding="iiop" ssl-socket-binding="iiop-ssl"/>
             <initializers transactions="spec" security="identity"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:jaxrs:1.0"/>
@@ -338,7 +339,6 @@
         <subsystem xmlns="urn:jboss:domain:jpa:1.1">
             <jpa default-datasource="" default-extended-persistence-inheritance="DEEP"/>
         </subsystem>
-        <!--subsystem xmlns="urn:jboss:domain:jsf:1.0"/-->
         <subsystem xmlns="urn:jboss:domain:jsr77:1.0"/>
         <subsystem xmlns="urn:jboss:domain:mail:2.0">
             <mail-session name="default" jndi-name="java:jboss/mail/Default">
@@ -348,11 +348,11 @@
         <subsystem xmlns="urn:jboss:domain:messaging-activemq:1.0">
             <server name="default">
                 <security-setting name="#">
-                    <role name="guest" send="true" consume="true" create-non-durable-queue="true" delete-non-durable-queue="true"/>
+                    <role name="guest" delete-non-durable-queue="true" create-non-durable-queue="true" consume="true" send="true"/>
                 </security-setting>
-                <address-setting name="#" dead-letter-address="jms.queue.DLQ" expiry-address="jms.queue.ExpiryQueue" max-size-bytes="10485760" page-size-bytes="2097152" message-counter-history-day-limit="10"/>
-                <http-connector name="http-connector" socket-binding="http" endpoint="http-acceptor"/>
-                <http-connector name="http-connector-throughput" socket-binding="http" endpoint="http-acceptor-throughput">
+                <address-setting name="#" message-counter-history-day-limit="10" page-size-bytes="2097152" max-size-bytes="10485760" max-delivery-attempts="-1" redelivery-delay="60000" expiry-address="jms.queue.ExpiryQueue" dead-letter-address="jms.queue.DLQ"/>
+                <http-connector name="http-connector" endpoint="http-acceptor" socket-binding="http"/>
+                <http-connector name="http-connector-throughput" endpoint="http-acceptor-throughput" socket-binding="http">
                     <param name="batch-delay" value="50"/>
                 </http-connector>
                 <in-vm-connector name="in-vm" server-id="0"/>
@@ -367,9 +367,9 @@
                 <jms-queue name="bpmMessages" entries="queue/bpmMessages java:jboss/exported/queue/bpmMessages"/>
                 <jms-queue name="email" entries="queue/email java:jboss/exported/queue/email"/>
                 <jms-queue name="nodeAsyncExecution" entries="queue/nodeAsyncExecution java:jboss/exported/queue/nodeAsyncExecution"/>
-                <connection-factory name="InVmConnectionFactory" connectors="in-vm" entries="java:/ConnectionFactory"/>
-                <connection-factory name="RemoteConnectionFactory" connectors="http-connector" entries="java:jboss/exported/jms/RemoteConnectionFactory"/>
-                <pooled-connection-factory name="activemq-ra" transaction="xa" connectors="in-vm" entries="java:/JmsXA java:jboss/DefaultJMSConnectionFactory"/>
+                <connection-factory name="InVmConnectionFactory" entries="java:/ConnectionFactory" connectors="in-vm"/>
+                <connection-factory name="RemoteConnectionFactory" entries="java:jboss/exported/jms/RemoteConnectionFactory" connectors="http-connector"/>
+                <pooled-connection-factory name="activemq-ra" transaction="xa" entries="java:/JmsXA java:jboss/DefaultJMSConnectionFactory" connectors="in-vm"/>
             </server>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:naming:2.0">
@@ -464,6 +464,7 @@
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:weld:3.0"/>
     </profile>
+
     <interfaces>
         <interface name="management">
             <inet-address value="${jboss.bind.address.management:127.0.0.1}"/>
@@ -475,6 +476,7 @@
             <inet-address value="${jboss.bind.address.unsecure:127.0.0.1}"/>
         </interface>
     </interfaces>
+
     <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
         <socket-binding name="management-native" interface="management" port="${jboss.management.native.port:9999}"/>
         <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
@@ -490,4 +492,5 @@
             <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
     </socket-binding-group>
+
 </server>
