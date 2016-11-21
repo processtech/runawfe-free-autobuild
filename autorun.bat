@@ -52,17 +52,17 @@ copy ..\jdk\jdk-7u7-windows-i586.exe source\projects\installer\windows\resources
 
 rem Update projects version
 cd source\projects\installer\windows\
-call mvn versions:set -DnewVersion=%wfeVersion%
+call mvn versions:set -DnewVersion=%wfeVersion% -Dtycho.disableP2Mirrors=true
 cd ../../wfe/wfe-appserver
-call mvn versions:set -DnewVersion=%wfeVersion%
+call mvn versions:set -DnewVersion=%wfeVersion% -Dtycho.disableP2Mirrors=true
 cd ../wfe-webservice-client
-call mvn versions:set -DnewVersion=%wfeVersion%
+call mvn versions:set -DnewVersion=%wfeVersion% -Dtycho.disableP2Mirrors=true
 cd ../wfe-app
-call mvn versions:set -DnewVersion=%wfeVersion%
+call mvn versions:set -DnewVersion=%wfeVersion% -Dtycho.disableP2Mirrors=true
 cd ../../rtn
-call mvn versions:set -DnewVersion=%wfeVersion%
+call mvn versions:set -DnewVersion=%wfeVersion% -Dtycho.disableP2Mirrors=true
 cd ../gpd/plugins
-call mvn versions:set -DnewVersion=%wfeVersion%
+call mvn tycho-versions:set-version -DnewVersion=%wfeVersion% -Dtycho.disableP2Mirrors=true
 
 cd ..\..\..\..\
 jar -cMf source.zip source
