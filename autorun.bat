@@ -18,7 +18,7 @@ rem Create folders for artifacts from new build
 mkdir build
 mkdir %3
 
-rem Copy required zip files and folders (jboss, eclipse and so on) into build directory
+rem Copy required zip files and folders (jboss and so on) into build directory
 move jboss7 jboss
 jar -cMf jboss.zip jboss
 move jboss jboss7
@@ -27,7 +27,6 @@ move jboss.zip build
 jar -cMf wildfly.zip wildfly
 move wildfly.zip build
 
-xcopy /E /Q eclipse build\eclipse\
 copy readme build
 
 
@@ -71,7 +70,7 @@ move source.zip %3\source\source-%4.zip
 
 cd source\projects\installer\windows\
 rem Build distr
-call mvn clean package -Declipse.home.dir=../../../../eclipse -Djdk.dir="%~dp0jdk" -l build.log -Djava.home.7=%1 -Djava.home.8=%2
+call mvn clean package -Djdk.dir="%~dp0jdk" -l build.log -Djava.home.7=%1 -Djava.home.8=%2
 
 xcopy /E /Q target\test-result %3\test-result\
 mkdir %3\Execution\jboss7
