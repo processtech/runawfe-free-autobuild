@@ -83,12 +83,13 @@ mkdir %3\ISO
 copy target\*.iso %3\ISO\
 
 mkdir %3\bin
+mkdir %3\bin\server
 rem Create bin file for jboss server
 jar xf target\artifacts\jboss7\app-simulation\wfe-appserver-full-%4.zip 
 xcopy /E /Q target\artifacts\jboss7\simulation-data jboss
 jar -cMf runawfe-jboss-java7-%4.zip jboss
 rd /S /Q jboss
-move runawfe-jboss-java7-%4.zip %3\bin\runawfe-jboss-java7-%4.zip
+move runawfe-jboss-java7-%4.zip %3\bin\server\runawfe-jboss-java7-%4.zip
 
 rem Create bin file for wildfly server
 jar xf target\artifacts\wildfly\app-simulation\wfe-appserver-full-%4.zip 
@@ -96,4 +97,21 @@ xcopy /E /Q target\artifacts\wildfly\simulation-data jboss
 move jboss wildfly
 jar -cMf runawfe-wildfly-java8-%4.zip wildfly
 rd /S /Q wildfly
-move runawfe-wildfly-java8-%4.zip %3\bin\runawfe-wildfly-java8-%4.zip
+move runawfe-wildfly-java8-%4.zip %3\bin\server\runawfe-wildfly-java8-%4.zip
+
+rem Create bin file for gpd
+xcopy /E /Q target\artifacts\gpd\all %3\bin\gpd\
+
+rem Create bin file for rtn 
+mkdir %3\bin\rtn
+
+xcopy /E /Q target\artifacts\rtn\32 rtn\
+jar -cMf runawfe-rtn-win32-%4.zip rtn
+rd /S /Q rtn
+move runawfe-rtn-win32-%4.zip %3\bin\rtn\runawfe-rtn-win32-%4.zip
+
+xcopy /E /Q target\artifacts\rtn\64 rtn\
+jar -cMf runawfe-rtn-win64-%4.zip rtn
+rd /S /Q rtn
+move runawfe-rtn-win64-%4.zip %3\bin\rtn\runawfe-rtn-win64-%4.zip
+
