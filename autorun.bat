@@ -34,7 +34,7 @@ rem Export source code
 cd /D build
 set SOURCE_URL=https://github.com/processtech
 git clone %SOURCE_URL%/runawfe-server.git source/projects/wfe
-rd /S /Q source\projects\wfe\.git
+rem rd /S /Q source\projects\wfe\.git
 git clone %SOURCE_URL%/runawfe-devstudio.git source/projects/gpd
 rd /S /Q source\projects\gpd\.git
 git clone %SOURCE_URL%/runawfe-notifier-java.git source/projects/rtn
