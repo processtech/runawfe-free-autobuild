@@ -351,6 +351,8 @@
                     <role name="guest" delete-non-durable-queue="true" create-non-durable-queue="true" consume="true" send="true"/>
                 </security-setting>
                 <address-setting name="#" message-counter-history-day-limit="10" page-size-bytes="2097152" max-size-bytes="10485760" max-delivery-attempts="-1" redelivery-delay="60000" expiry-address="jms.queue.ExpiryQueue" dead-letter-address="jms.queue.DLQ"/>
+                <address-setting name="jms.queue.nodeAsyncExecution" max-delivery-attempts="3" redelivery-delay="10000" />
+                <address-setting name="jms.queue.email" max-delivery-attempts="24" redelivery-delay="1800000" />
                 <http-connector name="http-connector" endpoint="http-acceptor" socket-binding="http"/>
                 <http-connector name="http-connector-throughput" endpoint="http-acceptor-throughput" socket-binding="http">
                     <param name="batch-delay" value="50"/>
