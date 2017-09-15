@@ -85,15 +85,13 @@ copy target\*.iso %3\ISO\
 mkdir %3\bin
 mkdir %3\bin\server
 rem Create bin file for jboss server
-jar xf target\artifacts\jboss7\app-simulation\wfe-appserver-full-%4.zip 
-xcopy /E /Q target\artifacts\jboss7\simulation-data jboss
+jar xf target\artifacts\jboss7\app-server\wfe-appserver-full-%4.zip 
 jar -cMf runawfe-jboss-java7-%4.zip jboss
 rd /S /Q jboss
 move runawfe-jboss-java7-%4.zip %3\bin\server\runawfe-jboss-java7-%4.zip
 
 rem Create bin file for wildfly server
-jar xf target\artifacts\wildfly\app-simulation\wfe-appserver-full-%4.zip 
-xcopy /E /Q target\artifacts\wildfly\simulation-data jboss
+jar xf target\artifacts\wildfly\app-server\wfe-appserver-full-%4.zip 
 move jboss wildfly
 jar -cMf runawfe-wildfly-java8-%4.zip wildfly
 rd /S /Q wildfly
