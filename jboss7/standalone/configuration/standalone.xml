@@ -265,7 +265,6 @@
 
                 <address-settings>
                     <address-setting match="#">
-                        <dead-letter-address>jms.queue.DLQ</dead-letter-address>
                         <expiry-address>jms.queue.ExpiryQueue</expiry-address>
                         <redelivery-delay>60000</redelivery-delay>
                         <max-delivery-attempts>-1</max-delivery-attempts>
@@ -275,7 +274,11 @@
                     </address-setting>
                     <address-setting match="jms.queue.email">
                         <redelivery-delay>1800000</redelivery-delay>
-                        <max-delivery-attempts>48</max-delivery-attempts>
+                        <max-delivery-attempts>24</max-delivery-attempts>
+                    </address-setting>
+                    <address-setting match="jms.queue.nodeAsyncExecution">
+                        <redelivery-delay>10000</redelivery-delay>
+                        <max-delivery-attempts>3</max-delivery-attempts>
                     </address-setting>
                 </address-settings>
 
