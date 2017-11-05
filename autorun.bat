@@ -87,6 +87,7 @@ mkdir %3\bin\server
 rem Create bin file for jboss server
 jar xf target\artifacts\jboss7\app-server\wfe-appserver-base-%4.zip 
 jar xf target\artifacts\jboss7\app-server\wfe-appserver-diff-%4.zip 
+xcopy /E /Q ..\simulation\* jboss\
 jar -cMf runawfe-jboss-java7-%4.zip jboss
 rd /S /Q jboss
 move runawfe-jboss-java7-%4.zip %3\bin\server\runawfe-jboss-java7-%4.zip
@@ -94,6 +95,7 @@ move runawfe-jboss-java7-%4.zip %3\bin\server\runawfe-jboss-java7-%4.zip
 rem Create bin file for wildfly server
 jar xf target\artifacts\wildfly\app-server\wfe-appserver-base-%4.zip 
 jar xf target\artifacts\wildfly\app-server\wfe-appserver-diff-%4.zip 
+xcopy /E /Q ..\simulation\* jboss\
 move jboss wildfly
 jar -cMf runawfe-wildfly-java8-%4.zip wildfly
 rd /S /Q wildfly
