@@ -1,12 +1,14 @@
 rem First parameter is a path to JDK7 and second parameter is a path to JDK8
 rem Third parameter is a path to results dir (it will be recreated)
 rem Fourth parameter is a artifacts version
+rem Firth parameter is a tag to checkout
 rem Copy to jdk folder files jre-7u80-windows-i586.exe jre-7u80-windows-x64.exe jre-8u92-windows-i586.exe jre-8u92-windows-x64.exe
 
 if %1 == "" exit
 if %2 == "" exit
 if %3 == "" exit
 if %4 == "" exit
+if %5 == "" exit
 
 set wfeVersion=%4
 
@@ -34,10 +36,19 @@ rem Export source code
 cd /D build
 set SOURCE_URL=https://github.com/processtech
 git clone %SOURCE_URL%/runawfe-server.git source/projects/wfe
-rem rd /S /Q source\projects\wfe\.git
+cd source/projects/wfe
+git checkout tags/%5
+cd ../../../
+rd /S /Q source\projects\wfe\.git
 git clone %SOURCE_URL%/runawfe-devstudio.git source/projects/gpd
+cd source/projects/wfe
+git checkout tags/%5
+cd ../../../
 rd /S /Q source\projects\gpd\.git
 git clone %SOURCE_URL%/runawfe-notifier-java.git source/projects/rtn
+cd source/projects/wfe
+git checkout tags/%5
+cd ../../../
 rd /S /Q source\projects\rtn\.git
 git clone %SOURCE_URL%/runawfe-installer.git source/projects/installer
 rd /S /Q source\projects\installer\.git
