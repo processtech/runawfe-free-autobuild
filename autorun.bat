@@ -39,7 +39,7 @@ git clone %SOURCE_URL%/runawfe-server.git source/projects/wfe
 cd source/projects/wfe
 git checkout tags/%5
 cd ../../../
-rd /S /Q source\projects\wfe\.git
+rem rd /S /Q source\projects\wfe\.git
 git clone %SOURCE_URL%/runawfe-devstudio.git source/projects/gpd
 cd source/projects/wfe
 git checkout tags/%5
