@@ -41,12 +41,12 @@ git checkout tags/%5
 cd ../../../
 rem rd /S /Q source\projects\wfe\.git
 git clone %SOURCE_URL%/runawfe-devstudio.git source/projects/gpd
-cd source/projects/wfe
+cd source/projects/gpd
 git checkout tags/%5
 cd ../../../
 rd /S /Q source\projects\gpd\.git
 git clone %SOURCE_URL%/runawfe-notifier-java.git source/projects/rtn
-cd source/projects/wfe
+cd source/projects/rtn
 git checkout tags/%5
 cd ../../../
 rd /S /Q source\projects\rtn\.git
