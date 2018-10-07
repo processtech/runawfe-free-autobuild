@@ -1,1 +1,14 @@
 see http://www.runawfe.org/About
+
+Prerequisites:
+* Java1.8 installed; JAVA_HOME set, bin directory added to system path
+* Maven installed; bin directory added to system path
+* Git installed
+* Installed additional dependencies (wfe-app/repository/add_dependencies.bat)
+* Download JRE for installer
+
+How to run:
+* Create build directory
+* Place runme.bat and customize variables there
+* Create jdk and place there jre-8u181-windows-x64.exe, jre-8u181-windows-i586.exe from oracle site
+* run runme.bat and wait...

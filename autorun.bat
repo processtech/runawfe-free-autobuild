@@ -1,31 +1,25 @@
-rem First parameter is a path to JDK7 and second parameter is a path to JDK8
-rem Third parameter is a path to results dir (it will be recreated)
-rem Fourth parameter is a artifacts version
-rem Firth parameter is a tag to checkout
-rem Copy to jdk folder files jre-7u80-windows-i586.exe jre-7u80-windows-x64.exe jre-8u92-windows-i586.exe jre-8u92-windows-x64.exe
+rem Copy to jdk folder jre-8u92-windows-i586.exe jre-8u92-windows-x64.exe
 
+rem path to JDK8
 if %1 == "" exit
+rem path to results dir (it will be recreated)
 if %2 == "" exit
+rem artifacts version
 if %3 == "" exit
+rem tag or version to checkout
 if %4 == "" exit
-if %5 == "" exit
 
-set wfeVersion=%4
+set wfeVersion=%3
 
 rem Clean artifacts from previous builds
 rd /S /Q build
-rd /S /Q %3
+rd /S /Q %2
 
 rem Create folders for artifacts from new build
 mkdir build
-mkdir %3
+mkdir %2
 
 rem Copy required zip files and folders (jboss and so on) into build directory
-move jboss7 jboss
-jar -cMf jboss.zip jboss
-move jboss jboss7
-move jboss.zip build
-
 jar -cMf wildfly.zip wildfly
 move wildfly.zip build
 
@@ -37,17 +31,17 @@ cd /D build
 set SOURCE_URL=https://github.com/processtech
 git clone %SOURCE_URL%/runawfe-server.git source/projects/wfe
 cd source/projects/wfe
-git checkout tags/%5
+git checkout %4
 cd ../../../
-rem rd /S /Q source\projects\wfe\.git
+rd /S /Q source\projects\wfe\.git
 git clone %SOURCE_URL%/runawfe-devstudio.git source/projects/gpd
 cd source/projects/gpd
-git checkout tags/%5
+git checkout %4
 cd ../../../
 rd /S /Q source\projects\gpd\.git
 git clone %SOURCE_URL%/runawfe-notifier-java.git source/projects/rtn
 cd source/projects/rtn
-git checkout tags/%5
+git checkout %4
 cd ../../../
 rd /S /Q source\projects\rtn\.git
 git clone %SOURCE_URL%/runawfe-installer.git source/projects/installer
@@ -58,73 +52,60 @@ mkdir source\docs
 mkdir source\docs\guides
 copy readme source\docs\guides\
 
-copy ..\jdk\jdk-7u7-windows-i586.exe source\projects\installer\windows\resources\jdk_setup.exe
-
 rem Update projects version
 cd source\projects\installer\windows\
-call mvn versions:set -DnewVersion=%wfeVersion% -Dtycho.disableP2Mirrors=true
+call mvn versions:set -DnewVersion=%wfeVersion%
 cd ../../wfe/wfe-appserver
-call mvn versions:set -DnewVersion=%wfeVersion% -Dtycho.disableP2Mirrors=true
+call mvn versions:set -DnewVersion=%wfeVersion%
 cd ../wfe-webservice-client
-call mvn versions:set -DnewVersion=%wfeVersion% -Dtycho.disableP2Mirrors=true
+call mvn versions:set -DnewVersion=%wfeVersion%
 cd ../wfe-app
-call mvn versions:set -DnewVersion=%wfeVersion% -Dtycho.disableP2Mirrors=true
+call mvn versions:set -DnewVersion=%wfeVersion%
 cd ../../rtn
-call mvn versions:set -DnewVersion=%wfeVersion% -Dtycho.disableP2Mirrors=true
+call mvn versions:set -DnewVersion=%wfeVersion%
 cd ../gpd/plugins
-call mvn tycho-versions:set-version -DnewVersion=%wfeVersion% -Dtycho.disableP2Mirrors=true
+call mvn tycho-versions:set-version -DnewVersion=%wfeVersion%
 
 cd ..\..\..\..\
 jar -cMf source.zip source
-mkdir %3\source
-move source.zip %3\source\source-%4.zip
+mkdir %2\source
+move source.zip %2\source\source-%3.zip
 
 cd source\projects\installer\windows\
 rem Build distr
-call mvn clean package -Djdk.dir="%~dp0jdk" -l build.log -Djava.home.7=%1 -Djava.home.8=%2
+call mvn clean package -Djdk.dir="%~dp0jdk" -l build.log -Djava.home.8=%1
 
-xcopy /E /Q target\test-result %3\test-result\
-mkdir %3\Execution\jboss7
-copy target\artifacts\Installer32\jboss7\RunaWFE-Installer.exe %3\Execution\jboss7\RunaWFE-%4-Jboss-java7_32.exe
-copy target\artifacts\Installer64\jboss7\RunaWFE-Installer.exe %3\Execution\jboss7\RunaWFE-%4-Jboss-java7_64.exe
-mkdir %3\Execution\wildfly
-copy target\artifacts\Installer32\wildfly\RunaWFE-Installer.exe %3\Execution\wildfly\RunaWFE-%4-Wildfly-java8_32.exe
-copy target\artifacts\Installer64\wildfly\RunaWFE-Installer.exe %3\Execution\wildfly\RunaWFE-%4-Wildfly-java8_64.exe
-mkdir %3\ISO
-copy target\*.iso %3\ISO\
+xcopy /E /Q target\test-result %2\test-result\
+mkdir %2\Execution\wildfly
+copy target\artifacts\Installer32\wildfly\RunaWFE-Installer.exe %2\Execution\wildfly\RunaWFE-%3-Wildfly-java8_32.exe
+copy target\artifacts\Installer64\wildfly\RunaWFE-Installer.exe %2\Execution\wildfly\RunaWFE-%3-Wildfly-java8_64.exe
+mkdir %2\ISO
+copy target\*.iso %2\ISO\
 
-mkdir %3\bin
-mkdir %3\bin\server
-rem Create bin file for jboss server
-jar xf target\artifacts\jboss7\app-server\wfe-appserver-base-%4.zip 
-jar xf target\artifacts\jboss7\app-server\wfe-appserver-diff-%4.zip 
-xcopy /E /Q ..\simulation\* jboss\
-jar -cMf runawfe-jboss-java7-%4.zip jboss
-rd /S /Q jboss
-move runawfe-jboss-java7-%4.zip %3\bin\server\runawfe-jboss-java7-%4.zip
-
+mkdir %2\bin
+mkdir %2\bin\server
 rem Create bin file for wildfly server
-jar xf target\artifacts\wildfly\app-server\wfe-appserver-base-%4.zip 
-jar xf target\artifacts\wildfly\app-server\wfe-appserver-diff-%4.zip 
+jar xf target\artifacts\wildfly\app-server\wfe-appserver-base-%3.zip 
+jar xf target\artifacts\wildfly\app-server\wfe-appserver-diff-%3.zip 
 xcopy /E /Q ..\simulation\* jboss\
 move jboss wildfly
-jar -cMf runawfe-wildfly-java8-%4.zip wildfly
+jar -cMf runawfe-wildfly-java8-%3.zip wildfly
 rd /S /Q wildfly
-move runawfe-wildfly-java8-%4.zip %3\bin\server\runawfe-wildfly-java8-%4.zip
+move runawfe-wildfly-java8-%3.zip %2\bin\server\runawfe-wildfly-java8-%3.zip
 
 rem Create bin file for gpd
-xcopy /E /Q target\artifacts\gpd\all %3\bin\gpd\
+xcopy /E /Q target\artifacts\gpd\all %2\bin\gpd\
 
 rem Create bin file for rtn 
-mkdir %3\bin\rtn
+mkdir %2\bin\rtn
 
 xcopy /E /Q target\artifacts\rtn\32 rtn\
-jar -cMf runawfe-rtn-win32-%4.zip rtn
+jar -cMf runawfe-rtn-win32-%3.zip rtn
 rd /S /Q rtn
-move runawfe-rtn-win32-%4.zip %3\bin\rtn\runawfe-rtn-win32-%4.zip
+move runawfe-rtn-win32-%3.zip %2\bin\rtn\runawfe-rtn-win32-%3.zip
 
 xcopy /E /Q target\artifacts\rtn\64 rtn\
-jar -cMf runawfe-rtn-win64-%4.zip rtn
+jar -cMf runawfe-rtn-win64-%3.zip rtn
 rd /S /Q rtn
-move runawfe-rtn-win64-%4.zip %3\bin\rtn\runawfe-rtn-win64-%4.zip
+move runawfe-rtn-win64-%3.zip %2\bin\rtn\runawfe-rtn-win64-%3.zip
 
