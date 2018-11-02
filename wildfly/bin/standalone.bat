@@ -121,8 +121,8 @@ if "x%JAVA_HOME%" == "x" (
   echo JAVA_HOME is not set. Unexpected results may occur.
   echo Set JAVA_HOME to the directory of your local JDK to avoid this message.
 ) else (
-  if not exist "%JAVA_HOME%" (
-    echo JAVA_HOME "%JAVA_HOME%" path doesn't exist. Ignoring JAVA_HOME.
+  if not exist "%JAVA_HOME%\bin\java.exe" (
+    echo JAVA_HOME "%JAVA_HOME%\bin\java.exe" path doesn't exist. Ignoring JAVA_HOME.
     echo JAVA_HOME is not set. Unexpected results may occur.
     echo Set JAVA_HOME to the directory of your local JDK to avoid this message.
     set  JAVA=java
