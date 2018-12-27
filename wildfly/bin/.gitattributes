@@ -1,2 +1,3 @@
 # http://stackoverflow.com/a/31286842
-* text=auto
+standalone.conf text eol=lf
+standalone.sh text eol=lf
