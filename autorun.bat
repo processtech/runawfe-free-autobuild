@@ -61,6 +61,8 @@ cd ../wfe-webservice-client
 call mvn versions:set -DnewVersion=%wfeVersion%
 cd ../wfe-app
 call mvn versions:set -DnewVersion=%wfeVersion%
+cd ../wfe-remotebots
+call mvn versions:set -DnewVersion=%wfeVersion%
 cd ../../rtn
 call mvn versions:set -DnewVersion=%wfeVersion%
 cd ../gpd/plugins
@@ -73,7 +75,7 @@ move source.zip %2\source\source-%3.zip
 
 cd source\projects\installer\windows\
 rem Build distr
-call mvn clean package -Djdk.dir="%~dp0jdk" -l build.log -Djava.home.8=%1
+call mvn clean package -Djdk.dir="%~dp0jdk" -Djava.home.8=%1
 
 xcopy /E /Q target\test-result %2\test-result\
 mkdir %2\Execution\wildfly

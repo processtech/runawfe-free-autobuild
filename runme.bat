@@ -1,7 +1,7 @@
 set BUILD_DIR=%~dp0
 git clone https://github.com/processtech/runawfe-autobuild.git
-git checkout rc4.4.0
+git checkout master
 rd /S /Q %BUILD_DIR%\.git
 xcopy %~dp0jdk %BUILD_DIR%\runawfe-autobuild\jdk\
 cd /D %BUILD_DIR%/runawfe-autobuild
-call autorun.bat "C:/Dofs/jdk1.8.0_181" %~dp0results 4.4.0 rc4.4.0
+call autorun.bat "C:/jdk1.8.0_191" %~dp0results 4.4.0 master >> autobuild.log 2>&1
