@@ -8,7 +8,7 @@ Prerequisites:
 * Download JRE for installer
 
 How to run:
-* Create build directory
-* Place runme.bat and customize variables there
-* Create jdk and place there jre-8u181-windows-x64.exe, jre-8u181-windows-i586.exe from oracle site
-* run "runme.bat >> autobuild.log 2>&1" and wait...
+* Clone this repository
+* Customize variables in build.bat
+* Download jre-8u181-windows-x64.exe, jre-8u181-windows-i586.exe from oracle site to jdk folder
+* run "build.bat >> build.log 2>&1" and wait...
