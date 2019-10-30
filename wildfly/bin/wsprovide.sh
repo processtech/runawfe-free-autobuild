@@ -14,6 +14,9 @@ while [ -h "$PRG" ] ; do
 done
 DIRNAME=`dirname "$PRG"`
 PROGNAME=`basename "$PRG"`
+GREP="grep"
+
+. "$DIRNAME/common.sh"
 
 # OS specific support (must be 'true' or 'false').
 cygwin=false;
@@ -54,6 +57,10 @@ if [ "x$JAVA" = "x" ]; then
     fi
 fi
 
+# Set default modular JVM options
+setDefaultModularJvmOptions $JAVA_OPTS
+JAVA_OPTS="$JAVA_OPTS $DEFAULT_MODULAR_JVM_OPTIONS"
+
 #JPDA options. Uncomment and modify as appropriate to enable remote debugging .
 #JAVA_OPTS="-classic -Xdebug -Xnoagent -Djava.compiler=NONE -agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=y $JAVA_OPTS"
 
@@ -66,9 +73,27 @@ if $cygwin; then
     JAVA_HOME=`cygpath --path --windows "$JAVA_HOME"`
 fi
 
+if [ "x$JBOSS_MODULEPATH" = "x" ]; then
+    JBOSS_MODULEPATH="$JBOSS_HOME/modules"
+fi
+
+# Process the JAVA_OPTS and fail the script of a java.security.manager was found
+SECURITY_MANAGER_SET=`echo $JAVA_OPTS | $GREP "java\.security\.manager"`
+if [ "x$SECURITY_MANAGER_SET" != "x" ]; then
+    echo "ERROR: The use of -Djava.security.manager has been removed. Please use the -secmgr command line argument or SECMGR=true environment variable."
+    exit 1
+fi
+
+# Set up the module arguments
+MODULE_OPTS=""
+if [ "$SECMGR" = "true" ]; then
+    MODULE_OPTS="-secmgr";
+fi
+
 # Execute the command
 eval \"$JAVA\" $JAVA_OPTS \
     -jar \""$JBOSS_HOME"/jboss-modules.jar\" \
-    -mp \""$JBOSS_HOME"/modules\" \
+    $MODULE_OPTS \
+    -mp \""${JBOSS_MODULEPATH}"\" \
     org.jboss.ws.tools.wsprovide \
     '"$@"'

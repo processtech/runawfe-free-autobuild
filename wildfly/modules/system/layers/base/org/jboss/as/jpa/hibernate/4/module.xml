@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,15 +20,13 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
 <!-- deprecated module that some applications might have a dependency on.
      
      Instead applications should use module org.hibernate:4 which contains the 
      JPA integration classes for Hibernate 4.1.x (Hibernate jars need to be added)
      or use module org.hibernate which contains the JPA integration classes for Hibernate 4.3.x
 -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.as.jpa.hibernate" slot="4">
+<module name="org.jboss.as.jpa.hibernate" slot="4" xmlns="urn:jboss:module:1.5">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
@@ -38,8 +35,6 @@
     </resources>
 
     <dependencies>
-        <module name="org.infinispan" services="import"/>
-        <module name="org.hibernate.infinispan" services="import"/>
         <module name="org.hibernate"/>
     </dependencies>
 </module>

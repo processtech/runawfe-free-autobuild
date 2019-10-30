@@ -20,13 +20,12 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.1" name="org.hibernate.search.serialization-avro">
+<module name="org.hibernate.search.serialization-avro" xmlns="urn:jboss:module:1.5">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
     <resources>
-        <resource-root path="hibernate-search-serialization-avro-5.5.1.Final.jar"/>
+        <resource-root path="hibernate-search-serialization-avro-5.10.5.Final.jar"/>
     </resources>
     <dependencies>
         <module name="org.hibernate.search.engine"/>

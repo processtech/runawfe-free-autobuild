@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,8 +20,7 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.as.security">
+<module name="org.jboss.as.security" xmlns="urn:jboss:module:1.5">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
@@ -32,7 +30,7 @@
     </exports>
 
     <resources>
-        <resource-root path="wildfly-security-10.0.0.Final.jar"/>
+        <resource-root path="wildfly-security-17.0.1.Final.jar"/>
     </resources>
 
     <dependencies>
@@ -40,17 +38,15 @@
         <module name="javax.security.jacc.api"/>
         <module name="javax.servlet.api"/>
         <module name="javax.transaction.api"/>
+        <module name="org.apache.commons.cli" optional="true"/>
         <module name="org.infinispan" optional="true"/>
         <module name="org.infinispan.commons" optional="true"/>
-        <module name="org.wildfly.clustering.infinispan.spi" optional="true"/>
         <module name="org.jboss.as.core-security"/>
         <module name="org.jboss.as.controller"/>
         <module name="org.jboss.as.domain-management"/>
         <module name="org.jboss.as.ee"/>
-        <module name="org.wildfly.security.elytron"/>
         <module name="org.jboss.as.server"/>
         <module name="org.jboss.as.naming"/>
-        <module name="org.jboss.as.transactions" optional="true"/>
         <module name="org.jboss.logging"/>
         <module name="org.jboss.metadata.common"/>
         <module name="org.jboss.metadata.web"/>
@@ -58,11 +54,14 @@
         <module name="org.jboss.modules"/>
         <module name="org.jboss.msc"/>
         <module name="org.jboss.remoting"/>
-        <module name="org.jboss.sasl"/>
         <module name="org.jboss.security.negotiation" optional="true"/>
         <module name="org.jboss.staxmapper"/>
         <module name="org.picketbox"/>
-        <module name="org.apache.commons.cli" optional="true"/>
+        <module name="org.wildfly.common"/>
+        <module name="org.wildfly.clustering.infinispan.spi" optional="true"/>
+        <module name="org.wildfly.clustering.service" optional="true"/>
+        <module name="org.wildfly.security.elytron-private"/>
+        <module name="org.wildfly.extension.undertow"/>
         <module name="sun.jdk"/>
     </dependencies>
 </module>

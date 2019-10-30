@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2011, Red Hat, Inc., and individual contributors
@@ -21,19 +20,18 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="com.sun.xsom">
+<module name="com.sun.xsom" xmlns="urn:jboss:module:1.5">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
 
     <resources>
-        <resource-root path="xsom-20140925.jar"/>
+        <resource-root path="xsom-2.3.1.jar"/>
     </resources>
 
     <dependencies>
         <module name="com.github.relaxng"/>
-        <module name="javax.api" />
+        <module name="javax.api"/>
     </dependencies>
 
 </module>

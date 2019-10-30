@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,14 +20,15 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.jandex">
+<module name="org.jboss.jandex" xmlns="urn:jboss:module:1.6">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
 
+    <main-class name="org.jboss.jandex.Main"/>
+
     <resources>
-        <resource-root path="jandex-2.0.1.Final.jar"/>
+        <resource-root path="jandex-2.0.5.Final.jar"/>
     </resources>
 
     <dependencies>

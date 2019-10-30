@@ -20,18 +20,4 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.remote-naming">
-
-    <resources>
-        <resource-root path="jboss-remote-naming-2.0.4.Final.jar"/>
-    </resources>
-
-    <dependencies>
-        <module name="javax.api"/>
-        <module name="org.jboss.ejb-client" optional="true"/>
-        <module name="org.jboss.remoting"/>
-        <module name="org.jboss.logging"/>
-        <module name="org.jboss.marshalling"/>
-        <module name="org.jboss.marshalling.river"/>
-    </dependencies>
-</module>
+<module-alias name="org.jboss.remote-naming" target-name="org.wildfly.naming-client" xmlns="urn:jboss:module:1.5"/>

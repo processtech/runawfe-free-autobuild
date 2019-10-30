@@ -5,6 +5,8 @@ PROGNAME=`basename "$0"`
 GREP="grep"
 SERVER_OPTS=""
 
+. "$DIRNAME/common.sh"
+
 # Parsing incoming parameters
 while [ "$#" -gt 0 ]
 do
@@ -88,6 +90,10 @@ if [ "x$JAVA" = "x" ]; then
     fi
 fi
 
+# Set default modular JVM options
+setDefaultModularJvmOptions $JAVA_OPTS
+JAVA_OPTS="$JAVA_OPTS $DEFAULT_MODULAR_JVM_OPTIONS"
+
 # Check for -d32/-d64 in JAVA_OPTS
 JVM_OPTVERSION="-version"
 JVM_D64_OPTION=`echo $JAVA_OPTS | $GREP "\-d64"`
@@ -105,12 +111,12 @@ if [ "x$SERVER_SET" = "x" ]; then
     fi
 
     # Check for OpenJDK JVM w/server support
-    if [ "x$HAS_OPENJDK_" = "x" ]; then
+    if [ "x$HAS_OPENJDK" = "x" ]; then
         HAS_OPENJDK=`"$JAVA" $JVM_OPTVERSION 2>&1 | $GREP -i OpenJDK`
     fi
 
     # Enable -server if we have Hotspot or OpenJDK, unless we can't
-    if [ "x$HAS_HOTSPOT" != "x" -o "x$HAS_OPENJDK" != "x" ]; then
+    if [ "x$HAS_HOTSPOT" != "x" ] || [ "x$HAS_OPENJDK" != "x" ]; then
         # MacOS does not support -server flag
         if [ "$darwin" != "true" ]; then
             JAVA_OPTS="-server $JAVA_OPTS"

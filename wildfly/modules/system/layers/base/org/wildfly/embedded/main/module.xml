@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,8 +20,7 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.wildfly.embedded">
+<module name="org.wildfly.embedded" xmlns="urn:jboss:module:1.6">
     <properties>
         <!-- Core version of the embedded API is currently only meant
         for use by the CLI -->
@@ -34,24 +32,19 @@
     </exports>
 
     <resources>
-        <resource-root path="wildfly-embedded-2.0.10.Final.jar"/>
+        <resource-root path="wildfly-embedded-9.0.2.Final.jar"/>
     </resources>
 
     <dependencies>
-        <module name="org.wildfly.security.elytron"/>
+        <module name="org.wildfly.security.elytron-private"/>
+        <module name="org.wildfly.common"/>
         <module name="org.jboss.as.server"/>
         <module name="org.jboss.as.controller"/>
         <module name="org.jboss.as.controller-client"/>
         <module name="org.jboss.as.host-controller"/>
-        <!--module name="org.jboss.as.naming"/-->
-        <module name="org.jboss.jandex"/>
         <module name="org.jboss.logging"/>
         <module name="org.jboss.modules"/>
-        <module name="org.jboss.staxmapper"/>
         <module name="org.jboss.stdio"/>
-        <module name="org.jboss.vfs"/>
-        <module name="org.jboss.as.protocol"/>
-        <module name="org.jboss.as.version"/>
         <module name="org.jboss.threads"/>
     </dependencies>
 </module>

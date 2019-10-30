@@ -4,9 +4,10 @@
 # Usage : standalone.sh --debug
 #         standalone.sh --debug 9797
 
-# By default debug mode is disable.
+# By default debug mode is disabled.
 DEBUG_MODE="${DEBUG:-false}"
 DEBUG_PORT="${DEBUG_PORT:-8787}"
+GC_LOG="$GC_LOG"
 SERVER_OPTS=""
 while [ "$#" -gt 0 ]
 do
@@ -39,8 +40,14 @@ DIRNAME=`dirname "$0"`
 PROGNAME=`basename "$0"`
 GREP="grep"
 
+. "$DIRNAME/common.sh"
+
 # Use the maximum available, or set MAX_FD != -1 to use that
 MAX_FD="maximum"
+
+# tell linux glibc how many memory pools can be created that are used by malloc
+MALLOC_ARENA_MAX="${MALLOC_ARENA_MAX:-1}"
+export MALLOC_ARENA_MAX
 
 # OS specific support (must be 'true' or 'false').
 cygwin=false;
@@ -124,55 +131,6 @@ if [ "x$JAVA" = "x" ]; then
     else
         JAVA="java"
     fi
-fi
-
-if [ "$PRESERVE_JAVA_OPTS" != "true" ]; then
-    # Check for -d32/-d64 in JAVA_OPTS
-    JVM_D64_OPTION=`echo $JAVA_OPTS | $GREP "\-d64"`
-    JVM_D32_OPTION=`echo $JAVA_OPTS | $GREP "\-d32"`
-
-    # Check If server or client is specified
-    SERVER_SET=`echo $JAVA_OPTS | $GREP "\-server"`
-    CLIENT_SET=`echo $JAVA_OPTS | $GREP "\-client"`
-
-    if [ "x$JVM_D32_OPTION" != "x" ]; then
-        JVM_OPTVERSION="-d32"
-    elif [ "x$JVM_D64_OPTION" != "x" ]; then
-        JVM_OPTVERSION="-d64"
-    elif $darwin && [ "x$SERVER_SET" = "x" ]; then
-        # Use 32-bit on Mac, unless server has been specified or the user opts are incompatible
-        "$JAVA" -d32 $JAVA_OPTS -version > /dev/null 2>&1 && PREPEND_JAVA_OPTS="-d32" && JVM_OPTVERSION="-d32"
-    fi
-
-    if [ "x$CLIENT_SET" = "x" -a "x$SERVER_SET" = "x" ]; then
-        # neither -client nor -server is specified
-        if $darwin && [ "$JVM_OPTVERSION" = "-d32" ]; then
-            # Prefer client for Macs, since they are primarily used for development
-            PREPEND_JAVA_OPTS="$PREPEND_JAVA_OPTS -client"
-        else
-            PREPEND_JAVA_OPTS="$PREPEND_JAVA_OPTS -server"
-        fi
-    fi
-
-    # EAP6-121 feature disabled
-    # Enable rotating GC logs if the JVM supports it and GC logs are not already enabled
-    #NO_GC_LOG_ROTATE=`echo $JAVA_OPTS | $GREP "\-verbose:gc"`
-    #if [ "x$NO_GC_LOG_ROTATE" = "x" ]; then
-        # backup prior gc logs
-        #mv "$JBOSS_LOG_DIR/gc.log.0" "$JBOSS_LOG_DIR/backupgc.log.0" >/dev/null 2>&1
-        #mv "$JBOSS_LOG_DIR/gc.log.1" "$JBOSS_LOG_DIR/backupgc.log.1" >/dev/null 2>&1
-        #mv "$JBOSS_LOG_DIR/gc.log.2" "$JBOSS_LOG_DIR/backupgc.log.2" >/dev/null 2>&1
-        #mv "$JBOSS_LOG_DIR/gc.log.3" "$JBOSS_LOG_DIR/backupgc.log.3" >/dev/null 2>&1
-        #mv "$JBOSS_LOG_DIR/gc.log.4" "$JBOSS_LOG_DIR/backupgc.log.4" >/dev/null 2>&1
-        #mv "$JBOSS_LOG_DIR/gc.log.*.current" "$JBOSS_LOG_DIR/backupgc.log.current" >/dev/null 2>&1
-        #"$JAVA" $JVM_OPTVERSION -verbose:gc -Xloggc:"$JBOSS_LOG_DIR/gc.log" -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -version >/dev/null 2>&1 && mkdir -p $JBOSS_LOG_DIR && PREPEND_JAVA_OPTS="$PREPEND_JAVA_OPTS -verbose:gc -Xloggc:\"$JBOSS_LOG_DIR/gc.log\" -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading"
-    #fi
-
-    JAVA_OPTS="$PREPEND_JAVA_OPTS $JAVA_OPTS"
-fi
-
-if [ "x$JBOSS_MODULEPATH" = "x" ]; then
-    JBOSS_MODULEPATH="$JBOSS_HOME/modules"
 fi
 
 if $linux; then
@@ -260,6 +218,10 @@ if [ "x$JBOSS_CONFIG_DIR" = "x" ]; then
    JBOSS_CONFIG_DIR="$JBOSS_BASE_DIR/configuration"
 fi
 
+if [ "x$JBOSS_MODULEPATH" = "x" ]; then
+    JBOSS_MODULEPATH="$JBOSS_HOME/modules"
+fi
+
 # For Cygwin, switch paths to Windows format before running java
 if $cygwin; then
     JBOSS_HOME=`cygpath --path --windows "$JBOSS_HOME"`
@@ -270,8 +232,69 @@ if $cygwin; then
     JBOSS_CONFIG_DIR=`cygpath --path --windows "$JBOSS_CONFIG_DIR"`
 fi
 
-if [ "x$JBOSS_MODULEPATH" = "x" ]; then
-    JBOSS_MODULEPATH="$JBOSS_HOME/modules"
+
+
+if [ "$PRESERVE_JAVA_OPTS" != "true" ]; then
+    # Check for -d32/-d64 in JAVA_OPTS
+    JVM_D64_OPTION=`echo $JAVA_OPTS | $GREP "\-d64"`
+    JVM_D32_OPTION=`echo $JAVA_OPTS | $GREP "\-d32"`
+
+    # Check If server or client is specified
+    SERVER_SET=`echo $JAVA_OPTS | $GREP "\-server"`
+    CLIENT_SET=`echo $JAVA_OPTS | $GREP "\-client"`
+
+    if [ "x$JVM_D32_OPTION" != "x" ]; then
+        JVM_OPTVERSION="-d32"
+    elif [ "x$JVM_D64_OPTION" != "x" ]; then
+        JVM_OPTVERSION="-d64"
+    elif $darwin && [ "x$SERVER_SET" = "x" ]; then
+        # Use 32-bit on Mac, unless server has been specified or the user opts are incompatible
+        "$JAVA" -d32 $JAVA_OPTS -version > /dev/null 2>&1 && PREPEND_JAVA_OPTS="-d32" && JVM_OPTVERSION="-d32"
+    fi
+
+    if [ "x$CLIENT_SET" = "x" -a "x$SERVER_SET" = "x" ]; then
+        # neither -client nor -server is specified
+        if $darwin && [ "$JVM_OPTVERSION" = "-d32" ]; then
+            # Prefer client for Macs, since they are primarily used for development
+            PREPEND_JAVA_OPTS="$PREPEND_JAVA_OPTS -client"
+        else
+            PREPEND_JAVA_OPTS="$PREPEND_JAVA_OPTS -server"
+        fi
+    fi
+
+    # Set flag if JVM is modular
+    setModularJdk
+
+    if [ "$GC_LOG" = "true" ]; then
+        # Enable rotating GC logs if the JVM supports it and GC logs are not already enabled
+        mkdir -p $JBOSS_LOG_DIR
+        NO_GC_LOG_ROTATE=`echo $JAVA_OPTS | $GREP "\-Xlog\:\?gc"`
+        if [ "x$NO_GC_LOG_ROTATE" = "x" ]; then
+            # backup prior gc logs
+            mv -f "$JBOSS_LOG_DIR/gc.log" "$JBOSS_LOG_DIR/backupgc.log" >/dev/null 2>&1
+            mv -f "$JBOSS_LOG_DIR/gc.log.0" "$JBOSS_LOG_DIR/backupgc.log.0" >/dev/null 2>&1
+            mv -f "$JBOSS_LOG_DIR/gc.log.1" "$JBOSS_LOG_DIR/backupgc.log.1" >/dev/null 2>&1
+            mv -f "$JBOSS_LOG_DIR/gc.log.2" "$JBOSS_LOG_DIR/backupgc.log.2" >/dev/null 2>&1
+            mv -f "$JBOSS_LOG_DIR/gc.log.3" "$JBOSS_LOG_DIR/backupgc.log.3" >/dev/null 2>&1
+            mv -f "$JBOSS_LOG_DIR/gc.log.4" "$JBOSS_LOG_DIR/backupgc.log.4" >/dev/null 2>&1
+            mv -f "$JBOSS_LOG_DIR"/gc.log.*.current "$JBOSS_LOG_DIR/backupgc.log.current" >/dev/null 2>&1
+            if [ "$MODULAR_JDK" = "true" ]; then
+                TMP_PARAM="-Xlog:gc*:file=\"$JBOSS_LOG_DIR/gc.log\":time,uptimemillis:filecount=5,filesize=3M"
+            else
+                TMP_PARAM="-verbose:gc -Xloggc:\"$JBOSS_LOG_DIR/gc.log\" -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading"
+            fi
+
+            eval "$JAVA" $JVM_OPTVERSION $TMP_PARAM -version >/dev/null 2>&1 && PREPEND_JAVA_OPTS="$PREPEND_JAVA_OPTS $TMP_PARAM"
+            # Remove the gc.log file from the -version check
+            rm -f "$JBOSS_LOG_DIR/gc.log" >/dev/null 2>&1
+        fi
+    fi
+
+    # Set default modular JVM options
+    setDefaultModularJvmOptions $JAVA_OPTS
+    JAVA_OPTS="$JAVA_OPTS $DEFAULT_MODULAR_JVM_OPTIONS"
+
+    JAVA_OPTS="$PREPEND_JAVA_OPTS $JAVA_OPTS"
 fi
 
 # Process the JAVA_OPTS and fail the script of a java.security.manager was found

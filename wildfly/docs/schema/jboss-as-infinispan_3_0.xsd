@@ -135,11 +135,6 @@
                 <xs:documentation>Defines the jgroups stack used by the transport.</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="cluster" type="xs:string">
-            <xs:annotation>
-                <xs:documentation>Defines the name for the underlying group communication cluster.</xs:documentation>
-            </xs:annotation>
-        </xs:attribute>
         <xs:attribute name="executor" type="xs:string">
             <xs:annotation>
                 <xs:documentation>Defines the executor used for asynchronous transport communication.</xs:documentation>
@@ -275,7 +270,7 @@
     </xs:complexType>
 
     <xs:complexType name="locking">
-        <xs:attribute name="isolation" type="tns:isolation" default="REPEATABLE_READ">
+        <xs:attribute name="isolation" type="tns:isolation" default="READ_COMMITTED">
             <xs:annotation>
                 <xs:documentation>Sets the cache locking isolation level.</xs:documentation>
             </xs:annotation>
@@ -300,15 +295,15 @@
     <xs:complexType name="transaction">
         <xs:attribute name="mode" type="tns:transaction-mode" default="NONE">
             <xs:annotation>
-                <xs:documentation>Sets the cache transaction mode to one of NONE, NON_XA, NON_DURABLE_XA, FULL_XA.</xs:documentation>
+                <xs:documentation>Defines the transaction mode of the cache.</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="stop-timeout" type="xs:long" default="30000">
+        <xs:attribute name="stop-timeout" type="xs:long" default="10000">
             <xs:annotation>
                 <xs:documentation>If there are any ongoing transactions when a cache is stopped, Infinispan waits for ongoing remote and local transactions to finish. The amount of time to wait for is defined by the cache stop timeout.</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="locking" type="tns:locking-mode" default="OPTIMISTIC">
+        <xs:attribute name="locking" type="tns:locking-mode" default="PESSIMISTIC">
             <xs:annotation>
                 <xs:documentation>The locking mode for this cache, one of OPTIMISTIC or PESSIMISTIC.</xs:documentation>
             </xs:annotation>
@@ -371,7 +366,7 @@
                         <xs:documentation>In ASYNC mode, this attribute controls how often the asynchronous thread used to flush the replication queue runs. This should be a positive integer which represents thread wakeup time in milliseconds.</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
-                <xs:attribute name="remote-timeout" type="xs:long" default="17500">
+                <xs:attribute name="remote-timeout" type="xs:long" default="10000">
                     <xs:annotation>
                         <xs:documentation>In SYNC mode, the timeout (in ms) used to wait for an acknowledgment when making a remote call, after which the call is aborted and an exception is thrown.</xs:documentation>
                     </xs:annotation>
@@ -395,7 +390,7 @@
                             <xs:documentation>The state transfer configuration for distribution and replicated caches.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:choice minOccurs="0">
+                    <xs:sequence minOccurs="0">
                         <xs:element name="backups" type="tns:backups" minOccurs="0">
                             <xs:annotation>
                                 <xs:documentation>A list of backup sites for this cache (for use with cross-site replication).</xs:documentation>
@@ -406,7 +401,7 @@
                                 <xs:documentation>Configures this cache as a backup for a cache on a remote site (for use with cross-site replication).</xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                    </xs:choice>
+                    </xs:sequence>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -426,9 +421,9 @@
                         <xs:documentation>Number of cluster-wide replicas for each cache entry.</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
-                <xs:attribute name="segments" type="xs:int" default="80">
+                <xs:attribute name="segments" type="xs:int" default="256">
                     <xs:annotation>
-                        <xs:documentation>Number of hash space segments (per cluster). The recommended value is 10 * cluster size.</xs:documentation>
+                        <xs:documentation>Number of hash space segments (per cluster).</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="l1-lifespan" type="xs:long" default="600000">
@@ -441,7 +436,7 @@
                         <xs:documentation>Controls the proportion of entries that will reside on the local node, compared to the other nodes in the cluster.</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
-                <xs:attribute name="consistent-hash-strategy" type="tns:consistent-hash-strategy" default="INTRA_CACHE">
+                <xs:attribute name="consistent-hash-strategy" type="tns:consistent-hash-strategy" default="INTER_CACHE">
                     <xs:annotation>
                         <xs:documentation>
                             Defines the consistent hash strategy for the cache.

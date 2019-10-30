@@ -4,6 +4,8 @@ DIRNAME=`dirname "$0"`
 PROGNAME=`basename "$0"`
 GREP="grep"
 
+. "$DIRNAME/common.sh"
+
 # Use the maximum available, or set MAX_FD != -1 to use that
 MAX_FD="maximum"
 
@@ -46,14 +48,13 @@ if $cygwin ; then
 fi
 
 # Setup JBOSS_HOME
-# Setup JBOSS_HOME
 RESOLVED_JBOSS_HOME=`cd "$DIRNAME/.."; pwd`
 if [ "x$JBOSS_HOME" = "x" ]; then
     # get the full path (without any relative bits)
     JBOSS_HOME=$RESOLVED_JBOSS_HOME
 else
- SANITIZED_JBOSS_HOME=`cd "$JBOSS_HOME/.."; pwd`
- if [ "$RESOLVED_JBOSS" != "$SANITIZED_JBOSS_HOME" ]; then
+ SANITIZED_JBOSS_HOME=`cd "$JBOSS_HOME"; pwd`
+ if [ "$RESOLVED_JBOSS_HOME" != "$SANITIZED_JBOSS_HOME" ]; then
    echo "WARNING JBOSS_HOME may be pointing to a different installation - unpredictable results may occur."
    echo ""
  fi
@@ -68,6 +69,10 @@ if [ "x$JAVA" = "x" ]; then
         JAVA="java"
     fi
 fi
+
+# Set default modular JVM options
+setDefaultModularJvmOptions $JAVA_OPTS
+JAVA_OPTS="$JAVA_OPTS $DEFAULT_MODULAR_JVM_OPTIONS"
 
 if [ "x$JBOSS_MODULEPATH" = "x" ]; then
     JBOSS_MODULEPATH="$JBOSS_HOME/modules"

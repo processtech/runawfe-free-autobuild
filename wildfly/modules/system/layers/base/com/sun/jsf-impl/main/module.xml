@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2011, Red Hat, Inc., and individual contributors
@@ -21,8 +20,7 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="com.sun.jsf-impl">
+<module name="com.sun.jsf-impl" xmlns="urn:jboss:module:1.8">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
@@ -41,10 +39,9 @@
              reexported by javaee.api. -->
         <module name="javax.xml.rpc.api"/>
         <module name="javax.rmi.api"/>
-        <module name="org.omg.api"/>
     </dependencies>
 
     <resources>
-        <resource-root path="jsf-impl-2.2.12-jbossorg-2.jar"/>
+        <resource-root path="jsf-impl-2.3.9.SP02.jar"/>
     </resources>
 </module>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,16 +20,15 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.picketbox">
+<module name="org.picketbox" xmlns="urn:jboss:module:1.5">
     <!-- This module is deprecated and subject to being removed in a subsequent release. -->
     <properties>
       <property name="jboss.api" value="deprecated"/>
     </properties>
 
     <resources>
-        <resource-root path="picketbox-4.9.4.Final.jar"/>
-        <resource-root path="picketbox-infinispan-4.9.4.Final.jar"/>
+        <resource-root path="picketbox-5.0.3.Final.jar"/>
+        <resource-root path="picketbox-infinispan-5.0.3.Final.jar"/>
         <resource-root path="picketbox-commons-1.0.0.final.jar"/>
     </resources>
 
@@ -41,12 +39,13 @@
         <module name="javax.security.auth.message.api" optional="true"/>
         <module name="javax.security.jacc.api"/>
         <module name="javax.servlet.api"/>
-        <module name="javax.transaction.api"  optional="true"/>
-        <module name="javax.xml.bind.api"  optional="true"/>
-        <module name="javax.xml.stream.api"  optional="true"/>
+        <module name="javax.transaction.api" optional="true"/>
+        <module name="javax.xml.bind.api" optional="true"/>
+        <module name="javax.xml.stream.api" optional="true"/>
         <module name="org.jboss.logging"/>
-        <module name="org.infinispan"  optional="true"/>
-        <module name="org.jboss.security.xacml"  optional="true"/>
+        <module name="org.infinispan" optional="true"/>
+        <module name="org.jboss.security.xacml" optional="true"/>
         <module name="org.jboss.modules" optional="true"/>
+        <module name="sun.jdk"/>
     </dependencies>
 </module>

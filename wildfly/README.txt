@@ -1,10 +1,3 @@
- _       ___ __    __________         _______
-| |     / (_) /___/ / ____/ /_  __   <  / __ \
-| | /| / / / / __  / /_  / / / / /   / / / / /
-| |/ |/ / / / /_/ / __/ / / /_/ /   / / /_/ /
-|__/|__/_/_/\__,_/_/   /_/\__, /   /_/\____/
-                         /____/
-
 Welcome to WildFly (formerly known as JBoss Application Server)
 http://www.wildfly.org/
 
@@ -16,19 +9,18 @@ for additional information.
 
 Key Features
 ------------
-* Java EE 7 support
+* Java EE 8 support
 * Fast Startup
 * Small Footprint
 * Modular Design
 * Unified Configuration and Management
 * Distributed Domain Management
-* OSGi
 
 Release Notes
 -------------
-You can obtain the 10.0.0.Beta1 release notes here:
+You can obtain the 14.0.1.Final release notes here:
 
-https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12313721&version=12327160
+http://wildfly.org/news/2018/08/30/WildFly14-Final-Released/
 
 Getting Started
 ---------------
@@ -39,7 +31,7 @@ WildFly has two modes of operation: Standalone and Domain. For more
 information regarding these modes, please refer to the documentation 
 available on the JBoss.org site:
 
-https://docs.jboss.org/author/display/WFLY10/Documentation
+http://docs.wildfly.org/15/
 
 
 Starting a Standalone Server

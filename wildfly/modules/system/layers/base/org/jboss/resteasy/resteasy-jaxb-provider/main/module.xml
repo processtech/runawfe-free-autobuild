@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,11 +20,10 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.resteasy.resteasy-jaxb-provider">
+<module name="org.jboss.resteasy.resteasy-jaxb-provider" xmlns="urn:jboss:module:1.5">
 
     <resources>
-        <resource-root path="resteasy-jaxb-provider-3.0.14.Final.jar"/>
+        <resource-root path="resteasy-jaxb-provider-3.7.0.Final.jar"/>
     </resources>
 
     <dependencies>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,14 +20,13 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.wildfly.iiop-openjdk">
+<module name="org.wildfly.iiop-openjdk" xmlns="urn:jboss:module:1.5">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
 
     <resources>
-        <resource-root path="wildfly-iiop-openjdk-10.0.0.Final.jar"/>
+        <resource-root path="wildfly-iiop-openjdk-17.0.1.Final.jar"/>
     </resources>
 
     <dependencies>
@@ -38,7 +36,7 @@
         <module name="org.jboss.as.controller"/>
         <module name="org.jboss.as.naming"/>
         <module name="org.jboss.as.network"/>
-        <module name="org.wildfly.security.elytron"/>
+        <module name="org.wildfly.security.elytron-private"/>
         <module name="org.jboss.as.server"/>
         <module name="org.jboss.logging"/>
         <module name="org.jboss.metadata.common"/>
@@ -46,7 +44,7 @@
         <module name="org.jboss.modules"/>
         <module name="org.jboss.msc"/>
         <module name="org.jboss.staxmapper"/>
-        <module name="org.jboss.jts" />
+        <module name="org.jboss.jts"/>
         <module name="org.jboss.jts.integration"/>
         <module name="org.picketbox"/>
     </dependencies>

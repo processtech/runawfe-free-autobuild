@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,22 +20,22 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.as.transactions">
+<module name="org.jboss.as.transactions" xmlns="urn:jboss:module:1.5">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
 
     <exports>
-        <exclude path="org/jboss/as/txn/logging" />
+        <exclude path="org/jboss/as/txn/logging"/>
     </exports>
 
     <resources>
-        <resource-root path="wildfly-transactions-10.0.0.Final.jar"/>
+        <resource-root path="wildfly-transactions-17.0.1.Final.jar"/>
     </resources>
 
     <dependencies>
         <module name="javax.api"/>
+        <module name="javax.resource.api"/>
         <module name="javax.transaction.api"/>
         <module name="javax.enterprise.concurrent.api"/>
         <module name="org.glassfish.javax.enterprise.concurrent"/>
@@ -53,8 +52,22 @@
         <module name="org.jboss.jts.integration"/>
         <module name="org.omg.api"/>
         <module name="org.wildfly.iiop-openjdk"/>
+        <module name="org.wildfly.common"/>
+        <module name="org.wildfly.transaction.client"/>
         <module name="org.jboss.jandex"/>
         <module name="org.jboss.modules"/>
-        <module name="org.jboss.narayana.compensations"/>
+        <module name="org.wildfly.security.manager"/>
+
+        <!-- Only used if the org.wildfly.undertow.http-invoker capability is present,
+             in which case this module will also be present.
+             TODO Work out how to mark http-client.transaction as 'passive' so we
+             can make it optional here but have it provisioned if http is available
+        -->
+        <module name="io.undertow.core"/>
+        <module name="org.wildfly.http-client.transaction"/>
+
+        <!-- Only used if the org.jboss.remoting.endpoint capability is present,
+             in which case this module will also be present. -->
+        <module name="org.jboss.remoting" optional="true"/>
     </dependencies>
 </module>

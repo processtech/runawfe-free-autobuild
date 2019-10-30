@@ -20,16 +20,21 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-<module xmlns="urn:jboss:module:1.3" name="io.undertow.core">
+<module name="io.undertow.core" xmlns="urn:jboss:module:1.6">
     <resources>
-        <resource-root path="undertow-core-1.3.15.Final.jar"/>
+        <resource-root path="undertow-core-2.0.21.Final.jar"/>
     </resources>
 
     <dependencies>
+        <module name="java.naming"/>
+        <module name="java.security.jgss"/>
+        <module name="java.sql"/>
+        <module name="jdk.unsupported"/>
         <module name="org.jboss.xnio"/>
         <module name="org.jboss.xnio.nio" services="import"/>
         <module name="org.jboss.logging"/>
-        <module name="javax.api"/>
+        <module name="org.wildfly.openssl" optional="true"/>
+        <module name="org.wildfly.security.elytron-web.undertow-server" services="import"/>
         <module name="sun.jdk"/>
             <system export="true">
                 <paths>

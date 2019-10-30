@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2011, Red Hat, Inc., and individual contributors
@@ -21,14 +20,13 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.as.domain-http-error-context">
+<module name="org.jboss.as.domain-http-error-context" xmlns="urn:jboss:module:1.6">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
 
     <resources>
-        <resource-root path="wildfly-domain-http-error-context-2.0.10.Final.jar"/>
+        <resource-root path="wildfly-domain-http-error-context-9.0.2.Final.jar"/>
     </resources>
 
     <dependencies>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,24 +20,20 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="io.undertow.js">
-    <properties>
-        <property name="jboss.api" value="unsupported"/>
-    </properties>
+<module name="io.undertow.js" xmlns="urn:jboss:module:1.5">
 
     <resources>
-        <resource-root path="undertow-js-1.0.1.Final.jar"/>
+        <resource-root path="undertow-js-1.0.2.Final.jar"/>
     </resources>
 
     <dependencies>
         <module name="javax.api"/>
         <module name="javax.servlet.api"/>
-        <module name="javax.enterprise.api" />
+        <module name="javax.enterprise.api"/>
         <module name="org.jboss.logging"/>
         <module name="io.undertow.core"/>
         <module name="io.undertow.servlet"/>
         <module name="org.jboss.xnio"/>
-        <module name="com.github.spullara.mustache" />
+        <module name="com.github.spullara.mustache"/>
     </dependencies>
 </module>

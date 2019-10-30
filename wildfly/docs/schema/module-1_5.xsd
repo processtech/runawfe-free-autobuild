@@ -415,7 +415,7 @@
         <xsd:attribute name="name" type="xsd:string" use="optional">
             <annotation xmlns="http://www.w3.org/2001/XMLSchema">
                 <documentation>
-                    The name of this resource root (optional). If not specified, defaults to the value of the path
+                    DEPRECATED. The name of this resource root (optional). If not specified, defaults to the value of the path
                     attribute.
                 </documentation>
             </annotation>
@@ -423,7 +423,7 @@
         <xsd:attribute name="path" type="xsd:string" use="required">
             <annotation xmlns="http://www.w3.org/2001/XMLSchema">
                 <documentation>
-                    The path of this resource root, relative to the path in which the module.xml file is found.
+                    The path of this resource root, either absolute or relative.  Relative paths are resolved with respect to the location at which the module.xml file is found.
                 </documentation>
             </annotation>
         </xsd:attribute>
