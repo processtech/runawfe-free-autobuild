@@ -84,7 +84,7 @@ if "x%LOGGING_CONFIG%" == "x" (
 
 set /A RC=%errorlevel%
 :END
-if "x%NOPAUSE%" == "x" pause
+rem if "x%NOPAUSE%" == "x" pause
 
 if "x%RC%" == "x" (
   set /A RC=0
