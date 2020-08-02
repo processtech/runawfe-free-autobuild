@@ -1,3 +1,13 @@
 # http://stackoverflow.com/a/31286842
 standalone.conf text eol=lf
 standalone.sh text eol=lf
+add-user.sh text eol=lf
+appclient.conf text eol=lf
+appclient.sh text eol=lf
+domain.conf text eol=lf
+domain.sh text eol=lf
+jboss-cli.sh text eol=lf
+jconsole.sh text eol=lf
+vault.sh text eol=lf
+wsconsume.sh text eol=lf
+wsprovide.sh text eol=lf
