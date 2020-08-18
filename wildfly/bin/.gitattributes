@@ -8,6 +8,7 @@ domain.conf text eol=lf
 domain.sh text eol=lf
 jboss-cli.sh text eol=lf
 jconsole.sh text eol=lf
+jdr.sh text eol=lf
 vault.sh text eol=lf
 wsconsume.sh text eol=lf
 wsprovide.sh text eol=lf
