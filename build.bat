@@ -1,5 +1,6 @@
 set JDK8_HOME=C:/jdk1.8.0_191
 set WFE_VERSION=4.4.0
+set WFE_EDITION=Free
 set RESULTS_DIR=%~dp0results
 set GIT_SOURCE_URL=https://github.com/processtech
 set GIT_BRANCH_NAME=master
@@ -26,6 +27,11 @@ cd /D build
 git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-server.git source/projects/wfe
 cd source/projects/wfe
 git checkout %GIT_BRANCH_NAME%
+
+git rev-parse HEAD > tmp-hash.txt
+set /p BUILD_HASH=<tmp-hash.txt
+del tmp-hash.txt
+
 cd ../../../
 rd /S /Q source\projects\wfe\.git
 git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-devstudio.git source/projects/gpd
@@ -71,7 +77,7 @@ move source.zip %RESULTS_DIR%\source\source-%WFE_VERSION%.zip
 
 cd source\projects\installer\windows\
 rem Build distr
-call mvn clean package -Djdk.dir="%~dp0jdk" -Djava.home.8=%JDK8_HOME%
+call mvn clean package -Dwfe.edition=%WFE_EDITION% -Dwfe.buildhash=%BUILD_HASH% -Djdk.dir="%~dp0jdk" -Djava.home.8=%JDK8_HOME%
 
 xcopy /E /Q target\test-result %RESULTS_DIR%\test-result\
 mkdir %RESULTS_DIR%\Execution\wildfly
