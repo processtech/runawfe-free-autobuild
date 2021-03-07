@@ -5,6 +5,8 @@ set RESULTS_DIR=%~dp0results
 set GIT_SOURCE_URL=git@gitlab.processtech.ru:shared
 set GIT_BRANCH_NAME=master
 set GIT_PROJECT_EDITION=professional
+set STATISTIC_REPORT_URL=https://usagereport.runawfe.org:8094
+set STATISTIC_REPORT_DAYS_AFTER_ERROR=7
 
 
 rem Clean artifacts from previous builds
@@ -77,7 +79,7 @@ move source.zip %RESULTS_DIR%\source\source-%WFE_VERSION%.zip
 
 cd source\projects\installer\windows\
 rem Build distr
-call mvn clean package -Dwfe.edition=%WFE_EDITION% -Dwfe.buildhash=%BUILD_HASH% -Djdk.dir="%~dp0jdk" -Djava.home.8=%JDK8_HOME%
+call mvn clean package -Dwfe.edition=%WFE_EDITION% -Dwfe.buildhash=%BUILD_HASH% -Djdk.dir="%~dp0jdk" -Djava.home.8=%JDK8_HOME% -Dstatistic.report.url=%STATISTIC_REPORT_URL% -Dstatistic.report.days.after.error=%STATISTIC_REPORT_DAYS_AFTER_ERROR%
 
 xcopy /E /Q target\test-result %RESULTS_DIR%\test-result\
 mkdir %RESULTS_DIR%\Execution\wildfly
