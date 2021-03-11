@@ -5,7 +5,7 @@ set RESULTS_DIR=%~dp0results
 set GIT_SOURCE_URL=git@gitlab.processtech.ru:shared
 set GIT_BRANCH_NAME=master
 set GIT_PROJECT_EDITION=professional
-set STATISTIC_REPORT_URL=https://usagereport.runawfe.org:8094
+set STATISTIC_REPORT_URL=https://usagereport.runawfe.org
 set STATISTIC_REPORT_DAYS_AFTER_ERROR=7
 
 
