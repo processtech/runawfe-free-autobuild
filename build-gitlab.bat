@@ -1,5 +1,5 @@
 set JDK8_HOME=C:/jdk1.8.0_191
-set WFE_VERSION=4.4.1m
+set WFE_VERSION=4.4.2
 set WFE_EDITION=Free
 set RESULTS_DIR=%~dp0results
 set GIT_SOURCE_URL=git@gitlab.processtech.ru:shared
