@@ -1,10 +1,13 @@
 set JDK8_HOME=C:/jdk1.8.0_191
-set WFE_VERSION=4.4.2
-set WFE_EDITION=Free
+set WFE_VERSION=4.5.0
+# "Free", "Industrial", "Professional"
+set WFE_EDITION=Professional
 set RESULTS_DIR=%~dp0results
-set GIT_SOURCE_URL=https://github.com/processtech
-set GIT_BRANCH_NAME=master
-set GIT_PROJECT_EDITION=free
+set GIT_SOURCE_URL=git@gitlab.processtech.ru:shared
+set PRO_GIT_SOURCE_URL=git@gitlab.processtech.ru:private
+set GIT_BRANCH_NAME=industrial
+set PRO_GIT_BRANCH_NAME=professional
+set GIT_PROJECT_EDITION=professional
 set STATISTIC_REPORT_URL=https://usagereport.runawfe.org
 set STATISTIC_REPORT_DAYS_AFTER_ERROR=7
 
@@ -26,9 +29,9 @@ copy readme build
 
 rem Export source code
 cd /D build
-git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-server.git source/projects/wfe
+git clone %PRO_GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-server.git source/projects/wfe
 cd source/projects/wfe
-git checkout %GIT_BRANCH_NAME%
+git checkout %PRO_GIT_BRANCH_NAME%
 
 git rev-parse HEAD > tmp-hash.txt
 set /p BUILD_HASH=<tmp-hash.txt
@@ -36,9 +39,9 @@ del tmp-hash.txt
 
 cd ../../../
 rd /S /Q source\projects\wfe\.git
-git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-devstudio.git source/projects/gpd
+git clone %PRO_GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-devstudio.git source/projects/gpd
 cd source/projects/gpd
-git checkout %GIT_BRANCH_NAME%
+git checkout %PRO_GIT_BRANCH_NAME%
 cd ../../../
 rd /S /Q source\projects\gpd\.git
 git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-notifier-java.git source/projects/rtn
@@ -79,7 +82,7 @@ move source.zip %RESULTS_DIR%\source\source-%WFE_VERSION%.zip
 
 cd source\projects\installer\windows\
 rem Build distr
-call mvn clean package -Dwfe.edition=%WFE_EDITION% -Dwfe.buildhash=%BUILD_HASH% -Djdk.dir="%~dp0jdk" -Djava.home.8=%JDK8_HOME% -Dstatistic.report.url=%STATISTIC_REPORT_URL% -Dstatistic.report.days.after.error=%STATISTIC_REPORT_DAYS_AFTER_ERROR% 
+call mvn clean package -Dwfe.edition=%WFE_EDITION% -Dwfe.buildhash=%BUILD_HASH% -Djdk.dir="%~dp0jdk" -Djava.home.8=%JDK8_HOME% -Dstatistic.report.url=%STATISTIC_REPORT_URL% -Dstatistic.report.days.after.error=%STATISTIC_REPORT_DAYS_AFTER_ERROR%
 
 xcopy /E /Q target\test-result %RESULTS_DIR%\test-result\
 mkdir %RESULTS_DIR%\Execution\wildfly

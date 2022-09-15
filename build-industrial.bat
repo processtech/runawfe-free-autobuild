@@ -1,9 +1,10 @@
 set JDK8_HOME=C:/jdk1.8.0_191
-set WFE_VERSION=4.4.2
-set WFE_EDITION=Free
+set WFE_VERSION=4.5.0
+# "Free", "Industrial", "Professional"
+set WFE_EDITION=Industrial
 set RESULTS_DIR=%~dp0results
 set GIT_SOURCE_URL=git@gitlab.processtech.ru:shared
-set GIT_BRANCH_NAME=master
+set GIT_BRANCH_NAME=industrial
 set GIT_PROJECT_EDITION=professional
 set STATISTIC_REPORT_URL=https://usagereport.runawfe.org
 set STATISTIC_REPORT_DAYS_AFTER_ERROR=7

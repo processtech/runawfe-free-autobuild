@@ -12,3 +12,6 @@ How to run:
 * Customize variables in build.bat
 * Download jre-8u181-windows-x64.exe, jre-8u181-windows-i586.exe from oracle site to jdk folder
 * run "build.bat >> build.log 2>&1" and wait...
+
+Where to place results:
+scp -P 553 * dofs197@files.processtech.ru:/var/www/files/free4.5.0
