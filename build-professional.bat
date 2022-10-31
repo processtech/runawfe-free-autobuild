@@ -3,11 +3,9 @@ set WFE_VERSION=4.5.0
 # "Free", "Industrial", "Professional"
 set WFE_EDITION=Professional
 set RESULTS_DIR=%~dp0results
-set GIT_SOURCE_URL=git@gitlab.processtech.ru:shared
-set PRO_GIT_SOURCE_URL=git@gitlab.processtech.ru:private
-set GIT_BRANCH_NAME=industrial
-set PRO_GIT_BRANCH_NAME=professional
+set GIT_SOURCE_URL=git@gitlab.processtech.ru:private
 set GIT_PROJECT_EDITION=professional
+set GIT_BRANCH_NAME=professional
 set STATISTIC_REPORT_URL=https://usagereport.runawfe.org
 set STATISTIC_REPORT_DAYS_AFTER_ERROR=7
 
@@ -29,9 +27,9 @@ copy readme build
 
 rem Export source code
 cd /D build
-git clone %PRO_GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-server.git source/projects/wfe
+git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-server.git source/projects/wfe
 cd source/projects/wfe
-git checkout %PRO_GIT_BRANCH_NAME%
+git checkout %GIT_BRANCH_NAME%
 
 git rev-parse HEAD > tmp-hash.txt
 set /p BUILD_HASH=<tmp-hash.txt
@@ -39,9 +37,9 @@ del tmp-hash.txt
 
 cd ../../../
 rd /S /Q source\projects\wfe\.git
-git clone %PRO_GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-devstudio.git source/projects/gpd
+git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-devstudio.git source/projects/gpd
 cd source/projects/gpd
-git checkout %PRO_GIT_BRANCH_NAME%
+git checkout %GIT_BRANCH_NAME%
 cd ../../../
 rd /S /Q source\projects\gpd\.git
 git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-notifier-java.git source/projects/rtn
