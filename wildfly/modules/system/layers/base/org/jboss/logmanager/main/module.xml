@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,14 +20,18 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.logmanager">
+<module name="org.jboss.logmanager" xmlns="urn:jboss:module:1.8">
     <resources>
-        <resource-root path="jboss-logmanager-2.0.3.Final.jar"/>
+        <resource-root path="jboss-logmanager-2.1.11.Final.jar"/>
     </resources>
 
     <dependencies>
-        <module name="javax.api"/>
+        <!-- for java.beans -->
+        <module name="java.desktop"/>
+        <module name="java.logging"/>
+        <module name="java.xml"/>
+        <module name="javax.json.api"/>
         <module name="org.jboss.modules"/>
+        <module name="org.wildfly.common"/>
     </dependencies>
 </module>

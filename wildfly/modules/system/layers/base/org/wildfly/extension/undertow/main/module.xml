@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,8 +20,7 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.wildfly.extension.undertow">
+<module name="org.wildfly.extension.undertow" xmlns="urn:jboss:module:1.5">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
@@ -32,7 +30,7 @@
     </exports>
 
     <resources>
-        <resource-root path="wildfly-undertow-10.0.0.Final.jar"/>
+        <resource-root path="wildfly-undertow-17.0.1.Final.jar"/>
     </resources>
 
     <dependencies>
@@ -49,9 +47,11 @@
         <module name="javax.websocket.api"/>
         <module name="org.jboss.jandex"/>
         <module name="org.jboss.staxmapper"/>
-        <module name="org.wildfly.clustering.web.api" optional="true"/>
+        <module name="org.jboss.as.clustering.common"/>
+        <module name="org.wildfly.clustering.service"/>
+        <module name="org.wildfly.clustering.web.container"/>
         <module name="org.wildfly.clustering.web.undertow" services="import" optional="true"/>
-        <module name="org.wildfly.extension.request-controller" />
+        <module name="org.wildfly.extension.request-controller"/>
         <module name="org.jboss.as.controller"/>
         <module name="org.jboss.as.domain-management"/>
         <module name="org.jboss.as.ee"/>
@@ -59,10 +59,12 @@
         <module name="org.wildfly.extension.io"/>
         <module name="org.jboss.as.naming"/>
         <module name="org.jboss.as.network"/>
-        <module name="org.jboss.as.security"/>
-        <module name="org.wildfly.security.elytron"/>
+        <!-- Only needed if capability 'org.wildfly.legacy-security' is present -->
+        <module name="org.jboss.as.security" optional="true"/>
+        <module name="org.wildfly.security.elytron-private"/>
+        <module name="org.wildfly.security.elytron-web.undertow-server"/>
+        <module name="org.wildfly.security.elytron-web.undertow-server-servlet"/>
         <module name="org.jboss.as.server"/>
-        <module name="org.jboss.as.threads"/>
         <module name="org.jboss.common-beans" services="import"/>
         <module name="org.jboss.marshalling"/>
         <module name="org.jboss.marshalling.river" services="import"/>
@@ -78,9 +80,15 @@
         <module name="org.jboss.vfs"/>
         <module name="org.jboss.as.version"/>
         <module name="org.jboss.logging"/>
-        <module name="org.picketbox"/>
+        <!-- Only needed if capability 'org.wildfly.legacy-security' is present -->
+        <module name="org.picketbox" optional="true"/>
         <module name="javax.security.jacc.api"/>
         <module name="org.jboss.xnio"/>
         <module name="org.jboss.xnio.nio" services="import"/>
+        <module name="org.wildfly.http-client.common"/>
+        <!-- Only needed if using access logging -->
+        <module name="javax.json.api" optional="true"/>
+        <module name="org.wildfly.event.logger" optional="true"/>
+        <module name="org.wildfly.common" optional="true"/>
     </dependencies>
 </module>

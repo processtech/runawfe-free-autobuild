@@ -34,7 +34,7 @@ $global:SECMGR = Get-Env-Boolean SECMGR $false
 $global:DEBUG_MODE=Get-Env DEBUG $false
 $global:DEBUG_PORT=Get-Env DEBUG_PORT 8787
 $global:RUN_IN_BACKGROUND=$false
-$global:GC_LOG=$false
+$GC_LOG=Get-Env GC_LOG
 #module opts that are passed to jboss modules
 $global:MODULE_OPTS = @()
 
@@ -62,7 +62,14 @@ Function String-To-Array($value) {
 }
 
 Function Display-Environment {
-$JAVA_OPTS = Get-Java-Opts
+Param(
+   [string[]]$javaOpts
+) #end param
+
+if (-Not $javaOpts){
+	$javaOpts = Get-Java-Opts
+}
+
 # Display our environment
 Write-Host "================================================================================="
 Write-Host ""
@@ -74,7 +81,7 @@ Write-Host "  JAVA: $JAVA"
 Write-Host ""
 Write-Host "  MODULE_OPTS: $MODULE_OPTS"
 Write-Host ""
-Write-Host "  JAVA_OPTS: $JAVA_OPTS"
+Write-Host "  JAVA_OPTS: $javaOpts"
 Write-Host ""
 Write-Host "================================================================================="
 Write-Host ""
@@ -92,6 +99,41 @@ Function Get-Java-Opts {
 		}
 	}
 	return $JAVA_OPTS
+}
+
+Function SetModularJDK {
+    $MODULAR_JDK = $false
+    & $JAVA --add-modules java.se -version >$null 2>&1
+    if ($LastExitCode -eq 0){
+        $MODULAR_JDK = $true
+    }
+    return $MODULAR_JDK
+}
+
+Function Get-Default-Modular-Jvm-Options {
+Param(
+   [string[]]$opts,
+   [bool]$modularJDK
+
+) #end param
+    if($PRESERVE_JAVA_OPTS -eq 'true') {
+        return $null
+    }
+    $DEFAULT_MODULAR_JVM_OPTIONS = @()
+    if ($modularJDK) {
+        if ($opts -ne $null) {
+              for($i=0; $i -lt $opts.Count; $i++) {
+                  $arg = $opts[$i]
+                  if ($arg -contains "--add-modules") {
+                      return $DEFAULT_MODULAR_JVM_OPTIONS
+                  }
+              }
+        }
+        $DEFAULT_MODULAR_JVM_OPTIONS += "--add-exports=java.base/sun.nio.ch=ALL-UNNAMED"
+        $DEFAULT_MODULAR_JVM_OPTIONS += "--add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED"
+        $DEFAULT_MODULAR_JVM_OPTIONS += "--add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED"
+    }
+    return $DEFAULT_MODULAR_JVM_OPTIONS
 }
 
 Function Display-Array($array){
@@ -112,11 +154,16 @@ Param(
 
 
 ) #end param
+  $MODULAR_JDK = SetModularJDK
   $JAVA_OPTS = Get-Java-Opts #takes care of looking at defind settings and/or using env:JAVA_OPTS
+  $DEFAULT_MODULAR_JVM_OPTS = Get-Default-Modular-Jvm-Options -opts $JAVA_OPTS -modularJDK $MODULAR_JDK
 
   $PROG_ARGS = @()
   if ($JAVA_OPTS -ne $null){
   	$PROG_ARGS += $JAVA_OPTS
+  }
+  if ($DEFAULT_MODULAR_JVM_OPTS -ne $null){
+  	$PROG_ARGS += $DEFAULT_MODULAR_JVM_OPTS
   }
   if ($logFile){
   	$PROG_ARGS += "-Dorg.jboss.boot.log.file=$logFile"
@@ -127,6 +174,29 @@ Param(
   $PROG_ARGS += "-Djboss.home.dir=$JBOSS_HOME"
   $PROG_ARGS += "-Djboss.server.base.dir=$global:JBOSS_BASE_DIR"
   $PROG_ARGS += "-Djboss.server.config.dir=$global:JBOSS_CONFIG_DIR"
+
+  if ($GC_LOG -eq $true){
+    $dir = New-Item $JBOSS_LOG_DIR -type directory -ErrorAction SilentlyContinue
+    if ($PROG_ARGS -notmatch "-Xlog:?gc"){
+        Rotate-GC-Logs
+
+        if ($MODULAR_JDK -eq $true)
+        {
+            $PROG_ARGS += "-Xlog:gc*:file=`\`"$JBOSS_LOG_DIR\gc.log`\`":time,uptimemillis:filecount=5,filesize=3M"
+        } else {
+            $PROG_ARGS += "-verbose:gc"
+            $PROG_ARGS += "-XX:+PrintGCDetails"
+            $PROG_ARGS += "-XX:+PrintGCDateStamps"
+            $PROG_ARGS += "-XX:+UseGCLogFileRotation"
+            $PROG_ARGS += "-XX:NumberOfGCLogFiles=5"
+            $PROG_ARGS += "-XX:GCLogFileSize=3M"
+            $PROG_ARGS += "-XX:-TraceClassUnloading"
+            $PROG_ARGS += "-Xloggc:$JBOSS_LOG_DIR\gc.log"
+        }
+    }
+  }
+
+  $global:FINAL_JAVA_OPTS = $PROG_ARGS
 
   $PROG_ARGS += "-jar"
   $PROG_ARGS += "$JBOSS_HOME\jboss-modules.jar"
@@ -165,6 +235,25 @@ Param(
 			$global:SECMGR = $true
 		}elseif ($arg -eq '--background'){
 			$global:RUN_IN_BACKGROUND = $true
+		}else{
+			$res+=$arg
+		}
+	}
+	return $res
+}
+
+Function Process-Java-Opts-Parameters {
+Param(
+   [Parameter(Mandatory=$false)]
+   [string[]]$Params
+
+) #end param
+    $res = @()
+	for($i=0; $i -lt $Params.Count; $i++){
+		$arg = $Params[$i]
+		if ($arg -contains '-Djava.security.manager'){
+			Write-Warning "ERROR: The use of -Djava.security.manager has been removed. Please use the -secmgr command line argument or SECMGR=true environment variable."
+			exit
 		}else{
 			$res+=$arg
 		}
@@ -245,23 +334,17 @@ Function Set-Global-Variables-Domain {
 }
 
 Function Env-Clean-Up {
-	[Environment]::SetEnvironmentVariable("JBOSS_HOME", $null, "Process")
+	[Environment]::SetEnvironmentVariable("JBOSS_HOME", $PRE_JBOSS_HOME, "Process")
 }
 
 Function Rotate-GC-Logs {
+	mv -ErrorAction SilentlyContinue $JBOSS_LOG_DIR/gc.log $JBOSS_LOG_DIR/backupgc.log
 	mv -ErrorAction SilentlyContinue $JBOSS_LOG_DIR/gc.log.0 $JBOSS_LOG_DIR/backupgc.log.0
 	mv -ErrorAction SilentlyContinue $JBOSS_LOG_DIR/gc.log.1 $JBOSS_LOG_DIR/backupgc.log.1
 	mv -ErrorAction SilentlyContinue $JBOSS_LOG_DIR/gc.log.2 $JBOSS_LOG_DIR/backupgc.log.2
 	mv -ErrorAction SilentlyContinue $JBOSS_LOG_DIR/gc.log.3 $JBOSS_LOG_DIR/backupgc.log.3
 	mv -ErrorAction SilentlyContinue $JBOSS_LOG_DIR/gc.log.4 $JBOSS_LOG_DIR/backupgc.log.4
 	mv -ErrorAction SilentlyContinue $JBOSS_LOG_DIR/gc.log.*.current $JBOSS_LOG_DIR/backupgc.log.current
-}
-
-Function Check-For-GC-Log {
-	if ($global:GC_LOG){
-		$args = (,'-verbose:gc',"-Xloggc:$JBOSS_LOG_DIR/gc.log","-XX:+PrintGCDetails","-XX:+PrintGCDateStamps","-XX:+UseGCLogFileRotation","-XX:NumberOfGCLogFiles=5","-XX:GCLogFileSize=3M","-XX:-TraceClassUnloading",'-version')
-		$OutputVariable = (&$JAVA $args )  | Out-String
-	}
 }
 
 # Setup JBOSS_HOME
@@ -294,5 +377,8 @@ Set-Global-Variables-Standalone
 
 # Determine the default JBoss PID file
 $JBOSS_PIDFILE = Get-Env JBOSS_PIDFILE $SCRIPTS_HOME\process.pid
+
+# Set the PRE_JBOSS_HOME variable as the $env:JBOSS_HOME or $null, used in function: Env-Clean-Up
+$PRE_JBOSS_HOME = Get-Env JBOSS_HOME $null
 
 [Environment]::SetEnvironmentVariable("JBOSS_HOME", $JBOSS_HOME, "Process")

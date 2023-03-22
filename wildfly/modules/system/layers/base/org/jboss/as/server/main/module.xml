@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,8 +20,7 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.as.server">
+<module name="org.jboss.as.server" xmlns="urn:jboss:module:1.8">
     <properties>
         <property name="jboss.api" value="private"/>
         <property name="jboss.require-java-version" value="1.8"/>
@@ -31,11 +29,20 @@
     <main-class name="org.jboss.as.server.DomainServerMain"/>
 
     <resources>
-        <resource-root path="wildfly-server-2.0.10.Final.jar"/>
+        <resource-root path="wildfly-server-9.0.2.Final.jar"/>
     </resources>
 
     <dependencies>
-        <module name="javax.api"/>
+        <!-- for java.beans -->
+        <module name="java.desktop"/>
+        <module name="java.instrument"/>
+        <module name="java.logging"/>
+        <module name="java.management"/>
+        <module name="java.naming"/>
+        <module name="java.security.sasl"/>
+        <module name="java.xml"/>
+        <!-- Workaround for ELY-1561 -->
+        <module name="jdk.security.auth"/>
 
         <!-- JAXP default dependencies. DO NOT REMOVE!!!
              These are loaded by the JAXP redirect facility in jboss-modules when this module is used
@@ -61,6 +68,7 @@
 
         <module name="org.jboss.staxmapper"/>
         <module name="org.jboss.dmr"/>
+        <module name="org.jboss.classfilewriter"/>
         <module name="org.jboss.invocation"/>
         <module name="org.jboss.jandex"/>
         <module name="org.jboss.marshalling"/>
@@ -69,9 +77,7 @@
         <module name="org.jboss.msc" export="true"/>
         <module name="org.jboss.logging"/>
         <module name="org.jboss.logmanager" services="import"/>
-        <module name="org.jboss.log4j.logmanager"/>
         <module name="org.jboss.remoting"/>
-        <module name="org.jboss.sasl"/>
         <module name="org.jboss.stdio"/>
         <module name="org.jboss.threads"/>
         <module name="org.jboss.vfs" services="import"/>
@@ -84,13 +90,18 @@
         <module name="org.jboss.as.patching" optional="true" services="import"/>
         <module name="org.jboss.as.platform-mbean"/>
         <module name="org.jboss.as.process-controller"/>
-        <module name="org.jboss.as.protocol"/>
+        <module name="org.jboss.as.protocol">
+            <imports>
+                <include path="**"/>
+            </imports> 
+        </module>
         <module name="org.jboss.as.remoting"/>
-        <module name="org.jboss.as.self-contained" optional="true"/>
-        <module name="org.wildfly.security.elytron" services="import"/>
+        <module name="org.wildfly.security.elytron-private" services="import"/>
+        <module name="org.jboss.as.security" optional="true" services="import"/>
         <module name="org.jboss.as.version"/>
         <module name="org.picketbox" optional="true"/>
-        <module name="io.undertow.core" />
+        <module name="io.undertow.core"/>
         <module name="org.wildfly.common"/>
+        <module name="org.wildfly.extension.core-management-client"/>
     </dependencies>
 </module>

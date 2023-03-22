@@ -70,8 +70,6 @@ if exist "%DOMAIN_CONF%" (
    echo Config file not found "%DOMAIN_CONF%"
 )
 
-set DIRNAME=
-
 if "%OS%" == "Windows_NT" (
   set "PROGNAME=%~nx0%"
 ) else (
@@ -89,11 +87,23 @@ if "x%JAVA_HOME%" == "x" (
   if not exist "%JAVA_HOME%" (
     echo JAVA_HOME "%JAVA_HOME%" path doesn't exist
     goto END
-  ) else (
-    echo Setting JAVA property to "%JAVA_HOME%\bin\java"
+   ) else (
+     if not exist "%JAVA_HOME%\bin\java.exe" (
+       echo "%JAVA_HOME%\bin\java.exe" does not exist
+       goto END_NO_PAUSE
+     )
+      echo Setting JAVA property to "%JAVA_HOME%\bin\java"
     set "JAVA=%JAVA_HOME%\bin\java"
   )
 )
+
+rem set default modular jvm parameters
+setlocal EnableDelayedExpansion
+call "!DIRNAME!common.bat" :setDefaultModularJvmOptions "!PROCESS_CONTROLLER_JAVA_OPTS!"
+set "PROCESS_CONTROLLER_JAVA_OPTS=!PROCESS_CONTROLLER_JAVA_OPTS! !DEFAULT_MODULAR_JVM_OPTIONS!"
+call "!DIRNAME!common.bat" :setDefaultModularJvmOptions "!HOST_CONTROLLER_JAVA_OPTS!"
+set "HOST_CONTROLLER_JAVA_OPTS=!HOST_CONTROLLER_JAVA_OPTS! !DEFAULT_MODULAR_JVM_OPTIONS!"
+setlocal DisableDelayedExpansion
 
 rem Add -server to the JVM options, if supported
 "%JAVA%" -server -version 2>&1 | findstr /I hotspot > nul
@@ -207,7 +217,9 @@ echo.
     -default-jvm "%JAVA%" ^
     %*
 
-if ERRORLEVEL 10 goto RESTART
+if %errorlevel% equ 10 (
+	goto RESTART
+)
 
 :END
 if "x%NOPAUSE%" == "x" pause

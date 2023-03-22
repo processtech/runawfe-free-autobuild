@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,8 +20,7 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="javax.faces.api">
+<module name="javax.faces.api" xmlns="urn:jboss:module:1.8">
     <dependencies>
         <module name="com.sun.jsf-impl"/>
         <module name="javax.enterprise.api" export="true"/>
@@ -30,11 +28,12 @@
         <module name="javax.servlet.jsp.api" export="true"/>
         <module name="javax.servlet.jstl.api" export="true"/>
         <module name="javax.validation.api" export="true"/>
-        <module name="org.glassfish.javax.el" export="true"/>
+        <module name="org.glassfish.jakarta.el" export="true"/>
         <module name="javax.api"/>
+        <module name="javax.websocket.api"/>
     </dependencies>
 
     <resources>
-        <resource-root path="jboss-jsf-api_2.2_spec-2.2.12.jar"/>
+        <resource-root path="jboss-jsf-api_2.3_spec-2.3.9.SP02.jar"/>
     </resources>
 </module>

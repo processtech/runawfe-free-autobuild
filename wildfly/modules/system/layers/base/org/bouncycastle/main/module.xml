@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,22 +20,27 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.bouncycastle">
+<module name="org.bouncycastle" xmlns="urn:jboss:module:1.8">
 
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
 
     <resources>
-        <resource-root path="bcprov-jdk15on-1.52.jar"/>
-        <resource-root path="bcmail-jdk15on-1.52.jar"/>
-        <resource-root path="bcpkix-jdk15on-1.52.jar"/>
+        <resource-root path="bcprov-jdk15on-1.60.jar"/>
+        <resource-root path="bcmail-jdk15on-1.60.jar"/>
+        <resource-root path="bcpkix-jdk15on-1.60.jar"/>
     </resources>
     <dependencies>
         <module name="javax.api"/>
         <module name="javax.mail.api" optional="true"/>
         <module name="javax.activation.api" optional="true"/>
     </dependencies>
+    <provides>
+        <service name="java.security.Provider">
+            <with-class name="org.bouncycastle.jce.provider.BouncyCastleProvider"/>
+            <with-class name="org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider"/>
+        </service>
+    </provides>
 
 </module>

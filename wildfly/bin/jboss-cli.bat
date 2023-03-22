@@ -1,5 +1,11 @@
 @echo off
 setlocal ENABLEEXTENSIONS
+
+rem WARNING: Delayed expansion is enabled prior to execute JVM.
+rem Do not enable delayed expansion until the JVM execution.
+rem '!' contained in JBOSS_HOME or JAVA_HOME paths would be removed from variables.
+
+
 rem -------------------------------------------------------------------------
 rem JBoss Admin CLI Script for Windows
 rem -------------------------------------------------------------------------
@@ -44,6 +50,12 @@ if "x%JAVA_HOME%" == "x" (
   set "JAVA=%JAVA_HOME%\bin\java"
 )
 
+rem set default modular jvm parameters
+setlocal EnableDelayedExpansion
+call "!DIRNAME!common.bat" :setDefaultModularJvmOptions "!JAVA_OPTS!"
+set "JAVA_OPTS=!JAVA_OPTS! !DEFAULT_MODULAR_JVM_OPTIONS!"
+setlocal DisableDelayedExpansion
+
 rem Find jboss-modules.jar, or we can't continue
 set "JBOSS_RUNJAR=%JBOSS_HOME%\jboss-modules.jar"
 if not exist "%JBOSS_RUNJAR%" (
@@ -61,32 +73,41 @@ if "x%JBOSS_MODULEPATH%" == "x" (
 rem Add base package for L&F
 set "JAVA_OPTS=%JAVA_OPTS% -Djboss.modules.system.pkgs=com.sun.java.swing"
 
+rem Override ibm JRE behavior
+set "JAVA_OPTS=%JAVA_OPTS% -Dcom.ibm.jsse2.overrideDefaultTLS=true"
+
 set LOGGING_CONFIG=
 echo "%JAVA_OPTS%" | findstr /I "logging.configuration" > nul
 if errorlevel == 1 (
-  set "LOGGING_CONFIG=-Dlogging.configuration=file:%JBOSS_HOME%\bin\jboss-cli-logging.properties"
+  rem It must be quoted in case JBOSS_HOME contains whitespaces 
+  set LOGGING_CONFIG="-Dlogging.configuration=file:%JBOSS_HOME%\bin\jboss-cli-logging.properties"
 ) else (
   echo logging.configuration already set in JAVA_OPTS
 )
-if "x%LOGGING_CONFIG%" == "x" (
-  "%JAVA%" %JAVA_OPTS% ^
-      -jar "%JBOSS_RUNJAR%" ^
-      -mp "%JBOSS_MODULEPATH%" ^
-       org.jboss.as.cli ^
-         %*
-) else (
-  "%JAVA%" %JAVA_OPTS% "%LOGGING_CONFIG%" ^
-      -jar "%JBOSS_RUNJAR%" ^
-      -mp "%JBOSS_MODULEPATH%" ^
-       org.jboss.as.cli ^
-       %*
-)
 
-set /A RC=%errorlevel%
-:END
-rem if "x%NOPAUSE%" == "x" pause
+rem No variable that can contain '!' character can be handled once 
+rem delayed expansion has been enabled.
+set ARGS=%*
 
-if "x%RC%" == "x" (
-  set /A RC=0
+rem the arguments can contain ')' character, this breaks parser. Delaying 
+rem argument evaluation at script execution fixes it.
+setlocal ENABLEDELAYEDEXPANSION
+
+rem Force following commands to be loaded in memory.
+rem This protects the running script from being rewritten.
+(
+    "!JAVA!" !JAVA_OPTS! !LOGGING_CONFIG! ^
+        -jar "!JBOSS_RUNJAR!" ^
+        -mp "!JBOSS_MODULEPATH!" ^
+         org.jboss.as.cli ^
+         !ARGS!
+
+    set /A RC=!errorlevel!
+    :END
+    if "x!NOPAUSE!" == "x" pause
+
+    if "x!RC!" == "x" (
+      set /A RC=0
+    )
+    exit /B !RC!
 )
-exit /B %RC%

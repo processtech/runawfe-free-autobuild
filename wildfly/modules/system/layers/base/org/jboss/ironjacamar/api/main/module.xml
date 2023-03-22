@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,16 +20,15 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.ironjacamar.api">
+<module name="org.jboss.ironjacamar.api" xmlns="urn:jboss:module:1.5">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
 
     <resources>
-        <resource-root path="ironjacamar-common-api-1.3.2.Final.jar"/>
-        <resource-root path="ironjacamar-common-spi-1.3.2.Final.jar"/>
-        <resource-root path="ironjacamar-core-api-1.3.2.Final.jar"/>
+        <resource-root path="ironjacamar-common-api-1.4.16.Final.jar"/>
+        <resource-root path="ironjacamar-common-spi-1.4.16.Final.jar"/>
+        <resource-root path="ironjacamar-core-api-1.4.16.Final.jar"/>
     </resources>
 
     <dependencies>

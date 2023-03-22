@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,16 +20,20 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="javax.xml.stream.api">
+<module name="javax.xml.stream.api" xmlns="urn:jboss:module:1.8">
+    <properties>
+        <property name="jboss.api" value="deprecated"/>
+    </properties>
 
     <dependencies>
-        <system export="true">
-            <paths>
-                <path name="javax/xml/stream"/>
-                <path name="javax/xml/stream/events"/>
-                <path name="javax/xml/stream/util"/>
-            </paths>
-        </system>
+        <module name="java.xml">
+            <exports>
+                <include-set>
+                    <path name="java/xml/stream"/>
+                    <path name="java/xml/stream/events"/>
+                    <path name="java/xml/stream/util"/>
+                </include-set>
+            </exports>
+        </module>
     </dependencies>
 </module>

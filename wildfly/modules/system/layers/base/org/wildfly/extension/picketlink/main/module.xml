@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!-- ~ JBoss, Home of Professional Open Source. ~ Copyright 2012, Red Hat,
         Inc., and individual contributors ~ as indicated by the @author tags. See
         the copyright.txt file in the ~ distribution for a full listing of individual
@@ -14,8 +13,7 @@
         this software; if not, write to the Free ~ Software Foundation, Inc., 51
         Franklin St, Fifth Floor, Boston, MA ~ 02110-1301 USA, or see the FSF site:
         http://www.fsf.org. -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.wildfly.extension.picketlink">
+<module name="org.wildfly.extension.picketlink" xmlns="urn:jboss:module:1.5">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
@@ -25,18 +23,17 @@
     </exports>
 
     <resources>
-        <resource-root path="wildfly-picketlink-10.0.0.Final.jar"/>
+        <resource-root path="wildfly-picketlink-17.0.1.Final.jar"/>
     </resources>
 
     <dependencies>
-        <module name="sun.jdk" />
+        <module name="sun.jdk"/>
         <module name="org.jboss.as.server"/>
         <module name="org.jboss.as.controller"/>
         <module name="org.jboss.as.naming"/>
         <module name="org.wildfly.extension.undertow"/>
         <module name="org.jboss.as.security"/>
         <module name="org.jboss.as.jpa"/>
-        <module name="org.jboss.as.transactions"/>
         <module name="org.jboss.jboss-transaction-spi"/>
         <module name="org.jboss.staxmapper"/>
         <module name="org.jboss.msc"/>
@@ -56,5 +53,7 @@
         <module name="org.picketlink.idm.schema"/>
         <module name="org.picketlink.federation"/>
         <module name="org.picketlink.federation.bindings"/>
+
+        <module name="org.wildfly.transaction.client"/>
     </dependencies>
 </module>

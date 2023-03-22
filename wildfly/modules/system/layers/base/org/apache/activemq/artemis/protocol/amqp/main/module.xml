@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,17 +20,17 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.apache.activemq.artemis.protocol.amqp">
+<module name="org.apache.activemq.artemis.protocol.amqp" xmlns="urn:jboss:module:1.5">
     <resources>
-        <resource-root path="artemis-amqp-protocol-1.1.0.wildfly-011.jar"/>
-        <resource-root path="artemis-proton-plug-1.1.0.wildfly-011.jar"/>
+        <resource-root path="artemis-amqp-protocol-2.8.1.jar"/>
     </resources>
 
     <dependencies>
         <module name="javax.jms.api"/>
         <module name="org.apache.qpid.proton"/>
+        <module name="io.netty"/>
         <!-- required to load ActiveMQ protocol SPI -->
         <module name="org.apache.activemq.artemis"/>
+        <module name="org.jboss.logging"/>
     </dependencies>
 </module>

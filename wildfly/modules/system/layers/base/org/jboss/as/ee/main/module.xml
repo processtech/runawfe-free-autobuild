@@ -20,8 +20,7 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.as.ee">
+<module name="org.jboss.as.ee" xmlns="urn:jboss:module:1.5">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
@@ -32,24 +31,22 @@
     <!-- /exports -->
 
     <resources>
-        <resource-root path="wildfly-ee-10.0.0.Final.jar"/>
+        <resource-root path="wildfly-ee-17.0.1.Final.jar"/>
     </resources>
 
     <dependencies>
         <module name="javax.annotation.api"/>
         <module name="javax.api"/>
         <module name="javax.enterprise.concurrent.api"/>
+        <module name="javax.el.api"/>
         <module name="javax.interceptor.api"/>
-        <module name="javax.transaction.api"/>
-        <module name="javax.xml.ws.api" optional="true"/>
         <module name="org.glassfish.javax.enterprise.concurrent"/>
         <module name="org.jboss.staxmapper"/>
         <module name="org.jboss.as.controller"/>
         <module name="org.jboss.as.naming" optional="true"/>
-        <module name="org.wildfly.security.elytron"/>
-        <module name="org.wildfly.extension.request-controller" />
-        <module name="org.wildfly.extension.undertow" />
-        <module name="org.jboss.as.server" />
+        <module name="org.wildfly.security.elytron-private"/>
+        <module name="org.wildfly.extension.request-controller"/>
+        <module name="org.jboss.as.server"/>
         <module name="org.jboss.invocation"/>
         <module name="org.jboss.jandex"/>
         <module name="org.jboss.modules"/>
@@ -58,7 +55,6 @@
         <module name="org.jboss.metadata.common"/>
         <module name="org.jboss.metadata.ear"/>
         <module name="org.jboss.vfs"/>
-        <module name="org.picketbox"/>
         <module name="org.wildfly.common"/>
     </dependencies>
 </module>

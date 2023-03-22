@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,14 +20,13 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.wildfly.mod_cluster.undertow">
+<module name="org.wildfly.mod_cluster.undertow" xmlns="urn:jboss:module:1.5">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
 
     <resources>
-        <resource-root path="wildfly-mod_cluster-undertow-10.0.0.Final.jar"/>
+        <resource-root path="wildfly-mod_cluster-undertow-17.0.1.Final.jar"/>
     </resources>
 
     <dependencies>
@@ -48,7 +46,7 @@
         <module name="org.wildfly.clustering.service"/>
         <module name="org.wildfly.extension.mod_cluster"/>
         <module name="org.wildfly.extension.undertow"/>
-        <module name="org.wildfly.security.elytron"/>
+        <module name="org.wildfly.security.elytron-private"/>
         <module name="sun.jdk"/>
     </dependencies>
 </module>

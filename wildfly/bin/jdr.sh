@@ -9,11 +9,14 @@
 #
 
 DIRNAME=`dirname "$0"`
+GREP="grep"
+
+. "$DIRNAME/common.sh"
 
 # OS specific support (must be 'true' or 'false').
 cygwin=false;
-if  [ `uname|grep -i CYGWIN` ]; then
-    cygwin = true;
+if uname | grep --ignore-case --quiet "CYGWIN"; then
+    cygwin=true;
 fi
 
 # For Cygwin, ensure paths are in UNIX format before anything is touched
@@ -48,6 +51,10 @@ if [ "x$JAVA" = "x" ]; then
         JAVA="java"
     fi
 fi
+
+# Set default modular JVM options
+setDefaultModularJvmOptions $JAVA_OPTS
+JAVA_OPTS="$JAVA_OPTS $DEFAULT_MODULAR_JVM_OPTIONS"
 
 if [ "x$JBOSS_MODULEPATH" = "x" ]; then
     JBOSS_MODULEPATH="$JBOSS_HOME/modules"

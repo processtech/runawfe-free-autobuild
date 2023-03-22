@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2012, Red Hat, Inc., and individual contributors
@@ -21,8 +20,7 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.remoting3.remoting-jmx">
+<module name="org.jboss.remoting3.remoting-jmx" xmlns="urn:jboss:module:1.5">
     <!-- This module is deprecated and subject to being removed in a subsequent release.      -->
     
     <!-- Any use of the Remoting JMX library should now reference the org.jboss.remoting-jmx  -->
@@ -32,6 +30,6 @@
     </resources>
 
     <dependencies>
-        <module name="org.jboss.remoting-jmx" export="true" />
+        <module name="org.jboss.remoting-jmx" export="true"/>
     </dependencies>
 </module>

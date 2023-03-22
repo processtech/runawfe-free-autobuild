@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,24 +20,27 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.wildfly.clustering.infinispan.spi">
+<module name="org.wildfly.clustering.infinispan.spi" xmlns="urn:jboss:module:1.5">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
 
     <resources>
-        <resource-root path="wildfly-clustering-infinispan-spi-10.0.0.Final.jar"/>
+        <resource-root path="wildfly-clustering-infinispan-spi-17.0.1.Final.jar"/>
     </resources>
 
     <dependencies>
         <module name="javax.api"/>
-        <module name="org.infinispan.commons"/>
+        <module name="com.github.ben-manes.caffeine"/>
         <module name="org.infinispan"/>
+        <module name="org.infinispan.commons"/>
+        <module name="org.jboss.as.clustering.common"/>
+        <module name="org.jboss.as.controller"/>
         <module name="org.jboss.logging"/>
         <module name="org.wildfly.clustering.marshalling.api"/>
+        <module name="org.wildfly.clustering.marshalling.spi"/>
         <module name="org.wildfly.clustering.service"/>
-        <module name="org.wildfly.security.elytron"/>
+        <module name="org.wildfly.security.elytron-private"/>
         <module name="org.jboss.msc"/>
     </dependencies>
 </module>

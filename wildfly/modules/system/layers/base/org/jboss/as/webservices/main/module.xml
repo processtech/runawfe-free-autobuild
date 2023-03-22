@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,8 +20,7 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.as.webservices">
+<module name="org.jboss.as.webservices" xmlns="urn:jboss:module:1.5">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
@@ -32,8 +30,8 @@
     </exports>
 
     <resources>
-        <resource-root path="wildfly-webservices-server-integration-10.0.0.Final.jar"/>
-        <resource-root path="jbossws-cxf-resources-5.1.3.Final-wildfly1000.jar"/>
+        <resource-root path="wildfly-webservices-server-integration-17.0.1.Final.jar"/>
+        <resource-root path="jbossws-cxf-resources-5.3.0.Final-wildfly1400.jar"/>
     </resources>
 
     <dependencies>
@@ -43,7 +41,6 @@
         <module name="javax.jws.api"/>
         <module name="javax.servlet.api"/>
         <module name="javax.xml.ws.api"/>
-        <module name="org.jboss.ejb3"/>
         <module name="org.jboss.invocation"/>
         <module name="org.jboss.jandex"/>
         <module name="org.jboss.metadata.common"/>
@@ -58,24 +55,21 @@
         <module name="org.jboss.as.naming"/>
         <module name="org.jboss.as.network"/>
         <module name="org.jboss.as.security"/>
-        <module name="org.wildfly.security.elytron"/>
+        <module name="org.wildfly.security.elytron-private"/>
         <module name="org.jboss.as.web-common"/>
-        <module name="org.jboss.threads"/>
         <module name="org.jboss.modules"/>
         <module name="org.jboss.msc"/>
         <module name="org.jboss.vfs"/>
         <module name="org.jboss.logging"/>
-        <module name="org.jboss.ws.api" />
-        <module name="org.jboss.ws.common" services="import" />
-        <module name="org.jboss.ws.spi" />
-        <module name="org.picketbox" />
-        <module name="org.wildfly.extension.undertow" />
-
-        <!-- TODO WFLY-5966 validate the need for these and remove if not needed.
-             Prior to WFLY-5922 they were exported by javax.ejb.api. -->
+        <module name="org.jboss.ws.api"/>
+        <module name="org.jboss.ws.common" services="import"/>
+        <module name="org.jboss.ws.spi"/>
+        <module name="org.picketbox"/>
+        <module name="org.wildfly.extension.undertow"/>
+        <module name="io.undertow.core"/>
+        <module name="io.undertow.servlet"/>
+        <module name="org.wildfly.transaction.client"/>
         <module name="javax.transaction.api"/>
         <module name="javax.xml.rpc.api"/>
-        <module name="javax.rmi.api"/>
-        <module name="org.omg.api"/>
     </dependencies>
 </module>

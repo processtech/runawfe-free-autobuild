@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,8 +20,7 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.as.connector">
+<module name="org.jboss.as.connector" xmlns="urn:jboss:module:1.5">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
@@ -32,10 +30,11 @@
     </exports>
 
     <resources>
-        <resource-root path="wildfly-connector-10.0.0.Final.jar"/>
+        <resource-root path="wildfly-connector-17.0.1.Final.jar"/>
     </resources>
 
     <dependencies>
+        <module name="javax.security.auth.message.api"/>
         <module name="sun.jdk"/>
         <module name="javax.api"/>
         <module name="javax.resource.api"/>
@@ -45,10 +44,11 @@
         <module name="org.hibernate.validator" services="import"/>
         <module name="org.jboss.as.controller"/>
         <module name="org.jboss.as.naming"/>
-        <module name="org.jboss.as.server" />
-        <module name="org.wildfly.security.elytron"/>
-        <module name="org.jboss.as.security" />
-        <module name="org.jboss.as.ee" />
+        <module name="org.jboss.as.server"/>
+        <module name="org.wildfly.security.elytron-private"/>
+        <module name="org.jboss.as.security"/>
+        <module name="org.jboss.as.core-security"/>
+        <module name="org.jboss.as.ee"/>
         <module name="org.jboss.as.threads"/>
         <module name="org.jboss.as.transactions"/>
         <module name="org.jboss.invocation"/>
@@ -59,6 +59,7 @@
         <module name="org.jboss.jandex"/>
         <module name="org.jboss.jts"/>
         <module name="org.jboss.jts.integration"/>
+        <module name="org.wildfly.transaction.client"/>
         <module name="org.jboss.logging"/>
         <module name="org.jboss.metadata.common"/>
         <module name="org.jboss.modules"/>
@@ -67,9 +68,12 @@
         <module name="org.jboss.threads"/>
         <module name="org.jboss.vfs"/>
         <module name="org.picketbox"/>
-        <module name="org.jgroups" optional="true"/>
-        <module name="org.wildfly.clustering.jgroups.api" optional="true"/>
-        <module name="org.wildfly.clustering.jgroups.spi" optional="true"/>
+        <module name="org.wildfly.clustering.api"/>
+        <module name="org.wildfly.clustering.marshalling.jboss"/>
+        <module name="org.wildfly.clustering.spi"/>
+        <module name="org.wildfly.clustering.service"/>
+        <module name="org.wildfly.common"/>
+        <module name="org.glassfish.jakarta.el"/>
     </dependencies>
 
 </module>

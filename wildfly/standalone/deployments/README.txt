@@ -36,12 +36,12 @@ of command telling the scanner to deploy, undeploy or redeploy content.
 
 
 Auto-deploy mode and manual deploy mode can be independently configured for
-zipped deployment content and exploded deployment content. This is done
-via the "auto-deploy" attributes on the deployment-scanner element in the
-standalone.xml configuration file:
+zipped deployment content and exploded deployment content. This is done by
+editing the appropriate "auto-deploy" attributes on the deployment-scanner
+element in the standalone.xml configuration file:
 
-<deployment-scanner scan-interval="5000" relative-to="jboss.server.base.dir"
-    path="deployments" auto-deploy-zipped="true" auto-deploy-exploded="false"/>
+<deployment-scanner path="deployment" relative-to="jboss.server.base.dir"
+    scan-interval="5000" auto-deploy-zipped="true" auto-deploy-exploded="false"/>
 
 By default, auto-deploy of zipped content is enabled, and auto-deploy of
 exploded content is disabled. Manual deploy mode is strongly recommended for

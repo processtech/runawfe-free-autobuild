@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,8 +20,7 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.as.appclient">
+<module name="org.jboss.as.appclient" xmlns="urn:jboss:module:1.5">
     <properties>
         <property name="jboss.api" value="private"/>
         <property name="jboss.require-java-version" value="1.7"/>
@@ -35,7 +33,7 @@
     <main-class name="org.jboss.as.appclient.subsystem.Main"/>
 
     <resources>
-        <resource-root path="wildfly-appclient-10.0.0.Final.jar"/>
+        <resource-root path="wildfly-appclient-17.0.1.Final.jar"/>
     </resources>
 
     <dependencies>
@@ -44,7 +42,6 @@
         <module name="org.apache.xerces" services="import"/>
         <module name="org.codehaus.woodstox" services="import"/>
         <module name="org.jboss.as.server" export="true"/>
-        <module name="javax.api"/>
         <module name="org.jboss.dmr"/>
         <module name="org.jboss.ejb-client"/>
         <module name="org.jboss.invocation"/>
@@ -71,10 +68,11 @@
         <module name="org.jboss.as.protocol"/>
         <module name="org.jboss.as.remoting"/>
         <module name="org.jboss.as.security"/>
-        <module name="org.wildfly.security.elytron" services="import"/>
+        <module name="org.wildfly.security.elytron-private" services="import"/>
         <module name="org.jboss.as.version"/>
         <module name="org.picketbox"/>
         <module name="org.jboss.metadata.common"/>
         <module name="org.jboss.metadata.appclient"/>
+        <module name="org.wildfly.common"/>
     </dependencies>
 </module>

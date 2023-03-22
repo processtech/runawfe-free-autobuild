@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2010, Red Hat, Inc., and individual contributors
@@ -21,8 +20,7 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.as.remoting">
+<module name="org.jboss.as.remoting" xmlns="urn:jboss:module:1.8">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
@@ -32,29 +30,29 @@
     </exports>
 
     <resources>
-        <resource-root path="wildfly-remoting-2.0.10.Final.jar"/>
+        <resource-root path="wildfly-remoting-9.0.2.Final.jar"/>
     </resources>
 
     <dependencies>
+        <module name="java.logging"/>
+        <module name="java.security.sasl"/>
+        <module name="java.xml"/>
         <module name="org.jboss.staxmapper"/>
         <module name="org.jboss.as.controller"/>
-        <module name="org.jboss.as.core-security"/>
         <module name="org.jboss.as.domain-management"/>
         <module name="org.jboss.as.network"/>
         <module name="org.jboss.as.protocol"/>
         <module name="org.jboss.as.server"/>
-        <module name="org.wildfly.security.elytron"/>
+        <module name="org.wildfly.security.elytron-private"/>
         <module name="org.jboss.as.security" optional="true"/>
-        <module name="org.jboss.as.threads"/>
         <module name="org.jboss.logging"/>
         <module name="org.jboss.modules"/>
         <module name="org.jboss.msc"/>
         <module name="org.jboss.remoting"/>
-        <module name="org.jboss.sasl"/>
-        <module name="org.jboss.threads"/>
+        <module name="org.wildfly.common"/>
         <module name="org.picketbox" optional="true"/>
-        <module name="io.undertow.core" optional="true" />
-        <module name="org.wildfly.extension.io"  />
-        <module name="javax.api" />
+        <module name="io.undertow.core" optional="true"/>
+        <module name="org.wildfly.common"/>
+        <module name="org.wildfly.extension.io"/>
     </dependencies>
 </module>

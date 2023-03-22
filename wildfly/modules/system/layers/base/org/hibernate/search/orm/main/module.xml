@@ -20,21 +20,21 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
 <!-- Hibernate Search ORM: integrates org.hibernate.search.engine with
      Hibernate ORM to provide Hibernate Search functionality to
      JPA Applications -->
-<module xmlns="urn:jboss:module:1.3" name="org.hibernate.search.orm">
+<module name="org.hibernate.search.orm" xmlns="urn:jboss:module:1.7">
     <resources>
-        <resource-root path="hibernate-search-orm-5.5.1.Final.jar"/>
+        <resource-root path="hibernate-search-orm-5.10.5.Final.jar"/>
     </resources>
 
     <dependencies>
-        <module name="javax.transaction.api" />
-        <module name="org.hibernate" />
-        <module name="org.hibernate.commons-annotations" />
-        <module name="org.hibernate.search.engine" export="true" services="import" />
-        <module name="org.jboss.logging" />
-        <module name="javax.persistence.api" />
+        <module name="javax.transaction.api"/>
+        <module name="org.hibernate"/>
+        <module name="org.hibernate.commons-annotations"/>
+        <module name="org.hibernate.search.engine" export="true" services="import"/>
+        <module name="org.jboss.logging"/>
+        <module name="javax.persistence.api"/>
+        <module name="javax.enterprise.api"/>
     </dependencies>
 </module>

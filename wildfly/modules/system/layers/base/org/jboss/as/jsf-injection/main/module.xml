@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2012, Red Hat, Inc., and individual contributors
@@ -21,20 +20,20 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-
-<module xmlns="urn:jboss:module:1.3" name="org.jboss.as.jsf-injection">
+<module name="org.jboss.as.jsf-injection" xmlns="urn:jboss:module:1.8">
     <properties>
         <property name="jboss.api" value="private"/>
     </properties>
 
     <resources>
-        <resource-root path="wildfly-jsf-injection-10.0.0.Final.jar"/>
-        <resource-root path="weld-core-jsf-2.3.2.Final.jar"/>
+        <resource-root path="wildfly-jsf-injection-17.0.1.Final.jar"/>
+        <resource-root path="weld-jsf-3.1.1.Final.jar"/>
     </resources>
 
     <dependencies>
         <module name="com.sun.jsf-impl"/>
-        <module name="javax.api"/>
+        <module name="java.naming"/>
+        <module name="java.desktop"/>
         <module name="org.jboss.as.ee"/>
         <module name="org.jboss.as.jsf"/>
         <module name="org.jboss.as.web-common"/>
@@ -42,6 +41,7 @@
         <module name="javax.enterprise.api"/>
         <module name="org.jboss.logging"/>
         <module name="org.jboss.weld.core"/>
+        <module name="org.jboss.weld.api"/>
 
         <!-- added this for MyFacesAnnotationProvider -->
         <module name="javax.faces.api"/>
