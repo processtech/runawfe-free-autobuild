@@ -1,12 +1,14 @@
 set JDK8_HOME=C:/jdk1.8.0_191
-set WFE_VERSION=4.6.0
+set WFE_VERSION=4.6.0rc
+# "Free", "Industrial", "Professional"
 set WFE_EDITION=Free
 set RESULTS_DIR=%~dp0results
-set GIT_SOURCE_URL=https://github.com/processtech
-set GIT_BRANCH_NAME=github
-set GIT_PROJECT_EDITION=free
+set GIT_SOURCE_URL=git@gitlab.processtech.ru:shared
+set GIT_BRANCH_NAME=develop
+set GIT_PROJECT_EDITION=professional
 set STATISTIC_REPORT_URL=https://usagereport.runawfe.org
-set STATISTIC_REPORT_DAYS_AFTER_ERROR=11
+set STATISTIC_REPORT_DAYS_AFTER_ERROR=7
+set 
 
 
 rem Clean artifacts from previous builds
@@ -35,22 +37,22 @@ set /p BUILD_HASH=<tmp-hash.txt
 del tmp-hash.txt
 
 cd ../../../
-rd /S /Q source\projects\wfe\.git
+rem rd /S /Q source\projects\wfe\.git
 git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-devstudio.git source/projects/gpd
 cd source/projects/gpd
 git checkout %GIT_BRANCH_NAME%
 cd ../../../
-rd /S /Q source\projects\gpd\.git
+rem rd /S /Q source\projects\gpd\.git
 git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-notifier-java.git source/projects/rtn
 cd source/projects/rtn
-git checkout %GIT_BRANCH_NAME%
+git checkout %GIT_BRANCH_NAME%-win32build
 cd ../../../
-rd /S /Q source\projects\rtn\.git
+rem rd /S /Q source\projects\rtn\.git
 git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-installer.git source/projects/installer
 cd source/projects/installer
 git checkout %GIT_BRANCH_NAME%
 cd ../../../
-rd /S /Q source\projects\installer\.git
+rem rd /S /Q source\projects\installer\.git
 
 mkdir source\docs
 mkdir source\docs\guides
@@ -83,7 +85,7 @@ call mvn clean package -Dwfe.edition=%WFE_EDITION% -Dwfe.buildhash=%BUILD_HASH% 
 
 xcopy /E /Q target\test-result %RESULTS_DIR%\test-result\
 mkdir %RESULTS_DIR%\Execution\wildfly
-copy target\artifacts\Installer64\wildfly\RunaWFE-Installer.exe %RESULTS_DIR%\Execution\wildfly\RunaWFE-%WFE_VERSION%.exe
+copy target\artifacts\Installer64\wildfly\RunaWFE-Installer.exe %RESULTS_DIR%\Execution\wildfly\RunaWFE-%WFE_VERSION%-x64.exe
 
 mkdir %RESULTS_DIR%\bin
 mkdir %RESULTS_DIR%\bin\server
@@ -92,9 +94,9 @@ jar xf target\artifacts\wildfly\app-server\wfe-appserver-base-%WFE_VERSION%.zip
 jar xf target\artifacts\wildfly\app-server\wfe-appserver-diff-%WFE_VERSION%.zip 
 xcopy /E /Q ..\simulation\* jboss\
 move jboss wildfly
-jar -cMf runawfe-wildfly-%WFE_VERSION%.zip wildfly
+jar -cMf runawfe-%WFE_VERSION%.zip wildfly
 rd /S /Q wildfly
-move runawfe-wildfly-%WFE_VERSION%.zip %RESULTS_DIR%\bin\server\runawfe-wildfly-%WFE_VERSION%.zip
+move runawfe-%WFE_VERSION%.zip %RESULTS_DIR%\bin\server\runawfe-%WFE_VERSION%.zip
 
 rem Create bin file for gpd
 xcopy /E /Q target\artifacts\gpd\all %RESULTS_DIR%\bin\gpd\
@@ -103,7 +105,7 @@ rem Create bin file for rtn
 mkdir %RESULTS_DIR%\bin\rtn
 
 xcopy /E /Q target\artifacts\rtn\64 rtn\
-jar -cMf runawfe-rtn-win64-%WFE_VERSION%.zip rtn
+jar -cMf runawfe-rtn-%WFE_VERSION%-x64.zip rtn
 rd /S /Q rtn
-move runawfe-rtn-win64-%WFE_VERSION%.zip %RESULTS_DIR%\bin\rtn\runawfe-rtn-win64-%WFE_VERSION%.zip
+move runawfe-rtn-%WFE_VERSION%-x64.zip %RESULTS_DIR%\bin\rtn\runawfe-rtn-%WFE_VERSION%-x64.zip
 

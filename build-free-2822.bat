@@ -1,10 +1,10 @@
 set JDK8_HOME=C:/jdk1.8.0_191
-set WFE_VERSION=4.6.0
+set WFE_VERSION=4.6.0rm2822
 set WFE_EDITION=Free
 set RESULTS_DIR=%~dp0results
-set GIT_SOURCE_URL=https://github.com/processtech
+set GIT_SOURCE_URL=git@gitlab.processtech.ru:shared
 set GIT_BRANCH_NAME=github
-set GIT_PROJECT_EDITION=free
+set GIT_PROJECT_EDITION=professional
 set STATISTIC_REPORT_URL=https://usagereport.runawfe.org
 set STATISTIC_REPORT_DAYS_AFTER_ERROR=11
 
@@ -48,9 +48,9 @@ cd ../../../
 rd /S /Q source\projects\rtn\.git
 git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-installer.git source/projects/installer
 cd source/projects/installer
-git checkout %GIT_BRANCH_NAME%
+git checkout %GIT_BRANCH_NAME%2282-test
 cd ../../../
-rd /S /Q source\projects\installer\.git
+rem rd /S /Q source\projects\installer\.git
 
 mkdir source\docs
 mkdir source\docs\guides
@@ -79,7 +79,7 @@ move source.zip %RESULTS_DIR%\source\source-%WFE_VERSION%.zip
 
 cd source\projects\installer\windows\
 rem Build distr
-call mvn clean package -Dwfe.edition=%WFE_EDITION% -Dwfe.buildhash=%BUILD_HASH% -Djdk.dir="%~dp0jdk" -Dstatistic.report.url=%STATISTIC_REPORT_URL% -Dstatistic.report.days.after.error=%STATISTIC_REPORT_DAYS_AFTER_ERROR%
+call mvn clean package -Dwfe.edition=%WFE_EDITION% -Dwfe.buildhash=%BUILD_HASH% -Djdk.dir="%~dp0jdk" -Djava.home.8=%JDK8_HOME% -Dstatistic.report.url=%STATISTIC_REPORT_URL% -Dstatistic.report.days.after.error=%STATISTIC_REPORT_DAYS_AFTER_ERROR%
 
 xcopy /E /Q target\test-result %RESULTS_DIR%\test-result\
 mkdir %RESULTS_DIR%\Execution\wildfly

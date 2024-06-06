@@ -1,5 +1,5 @@
 set JDK8_HOME=C:/jdk1.8.0_191
-set WFE_VERSION=4.5.0
+set WFE_VERSION=4.5.1
 # "Free", "Industrial", "Professional"
 set WFE_EDITION=Industrial
 set RESULTS_DIR=%~dp0results
@@ -39,12 +39,12 @@ cd ../../../
 rd /S /Q source\projects\wfe\.git
 git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-devstudio.git source/projects/gpd
 cd source/projects/gpd
-git checkout %GIT_BRANCH_NAME%
+git checkout %GIT_BRANCH_NAME%_v4.5.1
 cd ../../../
 rd /S /Q source\projects\gpd\.git
 git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-notifier-java.git source/projects/rtn
 cd source/projects/rtn
-git checkout %GIT_BRANCH_NAME%
+git checkout %GIT_BRANCH_NAME%_v4.5.1
 cd ../../../
 rd /S /Q source\projects\rtn\.git
 git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-installer.git source/projects/installer

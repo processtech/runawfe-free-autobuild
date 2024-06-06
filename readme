@@ -16,3 +16,5 @@ How to run:
 Where to place results (q1w2e3):
 scp * root@10.3.0.120:/home/releases/free4.5.0
 scp * root@10.3.0.120:/home/releases/professional4.5.0
+scp * root@10.3.0.120:/home/releases/industrial4.5.1
+scp * root@10.3.0.120:/home/releases/free4.6.0rc
