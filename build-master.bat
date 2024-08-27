@@ -1,5 +1,4 @@
-set JDK8_HOME=C:/jdk1.8.0_191
-set WFE_VERSION=4.5.0
+set WFE_VERSION=4.6.0.qualifier
 # "Free", "Industrial", "Professional"
 set WFE_EDITION=Free
 set RESULTS_DIR=%~dp0results

@@ -1,6 +1,5 @@
-set JDK8_HOME=C:/jdk1.8.0_191
-set WFE_VERSION=4.6.0rc
-# "Free", "Industrial", "Professional"
+set WFE_VERSION=4.6.0.qualifier
+rem  "Free", "Industrial", "Professional"
 set WFE_EDITION=Free
 set RESULTS_DIR=%~dp0results
 set GIT_SOURCE_URL=git@gitlab.processtech.ru:shared
@@ -45,7 +44,7 @@ cd ../../../
 rem rd /S /Q source\projects\gpd\.git
 git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-notifier-java.git source/projects/rtn
 cd source/projects/rtn
-git checkout %GIT_BRANCH_NAME%-win32build
+git checkout %GIT_BRANCH_NAME%
 cd ../../../
 rem rd /S /Q source\projects\rtn\.git
 git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-installer.git source/projects/installer
