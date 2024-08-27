@@ -1,19 +1,20 @@
-see http://www.runawfe.org/About
+см. http://www.runawfe.org/About
 
-Prerequisites:
-* Java1.8 installed; JAVA_HOME set, bin directory added to system path
-* Maven installed; bin directory added to system path
-* Git installed
-* Installed additional dependencies (wfe-app/repository/add_dependencies.bat)
-* Download JRE for installer
+Предварительные требования:
+* Наличие Java не ниже 1.8; Установленная переменная среды JAVA_HOME; Папка bin добавлена в PATH
+* Установленный Maven; Папка bin добавлена в PATH
+* Установленный Git, настроенный на работу с длинными путями: git config "--global" core.longpaths true
+* Установлены дополнительные зависимости (wfe-app/repository/add_dependencies.bat)
+* Настроен SSH
+* Есть доступ к https://gitlab.processtech.ru/shared или к https://gitlab.processtech.ru/private (для professional)
 
-How to run:
-* Clone this repository
-* Customize variables in build.bat
-* Download jre-8u181-windows-x64.exe, jre-8u181-windows-i586.exe from oracle site to jdk folder
-* run "build-professional.bat >> build.log 2>&1" and wait...
+Запуск:
+* Клонируйте репозиторий. Желательно использовать папку в корне диска, чтобы не превысить ограничение Windows на длину пути.
+* При необходимости отредактируйте переменные в build.bat
+* Загрузите jre-8u181-windows-x64.exe, jre-8u181-windows-i586.exe с сайта oracle или https://www.java.com/ru/download в папку jdk. Упакуйте их в jdk-64.zip
+* Запустите "build-XXX.bat >> build.log 2>&1" и ждите... Сборка может занять порядка получаса.
 
-Where to place results (q1w2e3):
+Куда поместить результаты (q1w2e3):
 scp * root@10.3.0.120:/home/releases/free4.5.0
 scp * root@10.3.0.120:/home/releases/professional4.5.0
 scp * root@10.3.0.120:/home/releases/industrial4.5.1
