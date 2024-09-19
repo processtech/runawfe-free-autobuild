@@ -1,7 +1,7 @@
 см. http://www.runawfe.org/About
 
 Предварительные требования:
-* Наличие Java не ниже 11; Установленная переменная среды JAVA_HOME; Папка bin добавлена в PATH
+* Наличие Java не ниже 1.8; Установленная переменная среды JAVA_HOME; Папка bin добавлена в PATH
 * Установленный Maven; Папка bin добавлена в PATH
 * Установленный Git, настроенный на работу с длинными путями: git config "--global" core.longpaths true
 * Установлены дополнительные зависимости (wfe-app/repository/add_dependencies.bat)
