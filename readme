@@ -6,16 +6,11 @@
 * Установленный Git, настроенный на работу с длинными путями: git config "--global" core.longpaths true
 * Установлены дополнительные зависимости (wfe-app/repository/add_dependencies.bat)
 * Настроен SSH
-* Есть доступ к https://gitlab.processtech.ru/shared или к https://gitlab.processtech.ru/private (для professional)
+* Есть доступ к https://github.com/processtech
 
 Запуск:
 * Клонируйте репозиторий. Желательно использовать папку в корне диска, чтобы не превысить ограничение Windows на длину пути.
 * При необходимости отредактируйте переменные в build.bat
 * Загрузите amazon-corretto-11.0.24.8.1-windows-x64-jdk.zip с сайта amazon или https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html в папку jdk. Упакуйте в jdk-64.zip
-* Запустите "build-XXX.bat >> build.log 2>&1" и ждите... Сборка может занять порядка получаса.
+* Запустите "build-free.bat >> build.log 2>&1" и ждите... Сборка может занять порядка получаса.
 
-Куда поместить результаты (q1w2e3):
-scp * root@10.3.0.120:/home/releases/free4.5.0
-scp * root@10.3.0.120:/home/releases/professional4.5.0
-scp * root@10.3.0.120:/home/releases/industrial4.5.1
-scp * root@10.3.0.120:/home/releases/free4.6.0rc
