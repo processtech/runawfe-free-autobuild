@@ -11,6 +11,6 @@
 Запуск:
 * Клонируйте репозиторий. Желательно использовать папку в корне диска, чтобы не превысить ограничение Windows на длину пути.
 * При необходимости отредактируйте переменные в build.bat
-* Загрузите amazon-corretto-11.0.24.8.1-windows-x64-jdk.zip с сайта amazon или https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html в папку jdk. Упакуйте в jdk-64.zip
+* Загрузите JRE 11 x64 zip с сайта https://adoptium.net/temurin/releases?version=11 в папку jdk. Переименуйте в jdk-64.zip
 * Запустите "build-free.bat >> build.log 2>&1" и ждите... Сборка может занять порядка получаса.
-
+* Собранный инсталлятор будет в папке %RESULTS_DIR%\Execution\wildfly
