@@ -1,2 +1,3 @@
 jdk/jre-8u181-windows-x64.exe
 jdk/jre-8u181-windows-i586.exe
+build/*/**
