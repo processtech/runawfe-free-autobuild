@@ -102,7 +102,14 @@ rem Create bin file for rtn
 mkdir %RESULTS_DIR%\bin\rtn
 
 xcopy /E /Q target\artifacts\rtn\64 rtn\
-jar -cMf runawfe-rtn-win64-%WFE_VERSION%.zip rtn
+jar -cMf runawfe-rtn-win64-%WFE_VERSION%.zip rtn\
 rd /S /Q rtn
 move runawfe-rtn-win64-%WFE_VERSION%.zip %RESULTS_DIR%\bin\rtn\runawfe-rtn-win64-%WFE_VERSION%.zip
 
+
+xcopy /E /Q target\artifacts\rtn\linux64 rtn\
+jar -cMf runawfe-rtn-linux64-%WFE_VERSION%.zip rtn\
+rd /S /Q rtn
+move runawfe-rtn-linux64-%WFE_VERSION%.zip %RESULTS_DIR%\bin\rtn\runawfe-rtn-linux64-%WFE_VERSION%.zip
+
+echo Autobuild finished.
