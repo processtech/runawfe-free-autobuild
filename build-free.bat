@@ -1,6 +1,7 @@
 set WFE_VERSION=4.6.0
 set WFE_EDITION=Free
 set RESULTS_DIR=%~dp0results
+set BUILD_DIR=%~dp0build
 set GIT_SOURCE_URL=https://github.com/processtech
 set GIT_BRANCH_NAME=master
 set GIT_PROJECT_EDITION=free
@@ -34,7 +35,6 @@ set /p BUILD_HASH=<tmp-hash.txt
 del tmp-hash.txt
 
 cd ../../../ || exit /b 1
-rd /S /Q source\projects\wfe\.git || exit /b 1
 git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-devstudio.git source/projects/gpd || exit /b 1
 cd source/projects/gpd || exit /b 1
 git checkout %GIT_BRANCH_NAME% || exit /b 1
@@ -79,6 +79,13 @@ move source.zip %RESULTS_DIR%\source\source-%WFE_VERSION%.zip || exit /b 1
 cd source\projects\installer\windows\ || exit /b 1
 rem Build distr
 call mvn clean package -Dwfe.edition=%WFE_EDITION% -Dwfe.buildhash=%BUILD_HASH% -Djdk.dir="%~dp0jdk" -Dstatistic.report.url=%STATISTIC_REPORT_URL% -Dstatistic.report.days.after.error=%STATISTIC_REPORT_DAYS_AFTER_ERROR% || exit /b 1
+
+rem Remove .git after build
+cd /D %BUILD_DIR% || exit /b 1
+rd /S /Q source\projects\wfe\.git  || exit /b 1
+
+cd source\projects\installer\windows\ || exit /b 1
+
 
 xcopy /E /Q target\test-result %RESULTS_DIR%\test-result\ || exit /b 1
 mkdir %RESULTS_DIR%\Execution\wildfly || exit /b 1
