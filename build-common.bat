@@ -1,5 +1,8 @@
-echo Clean artifacts from previous builds
-rd /S /Q build
+@echo Starting autobuild at %TIME%
+@for /f "usebackq" %%i in (`powershell -NoProfile -Command "(Get-Date).Ticks"`) do @set "START_TICKS=%%i"
+
+@echo Clean artifacts from previous builds
+rd /S /Q build 
 rd /S /Q %RESULTS_DIR%
 
 echo Create folders for artifacts from new build
@@ -104,9 +107,10 @@ rd /S /Q rtn
 move runawfe-rtn-win64-%WFE_VERSION%.zip %RESULTS_DIR%\bin\rtn\runawfe-rtn-win64-%WFE_VERSION%.zip || exit /b 1
 
 
-xcopy /E /Q target\artifacts\rtn\linux64 rtn\ || exit /b 1
-jar -cMf runawfe-rtn-linux64-%WFE_VERSION%.zip rtn\ || exit /b 1
-rd /S /Q rtn || exit /b 1
-move runawfe-rtn-linux64-%WFE_VERSION%.zip %RESULTS_DIR%\bin\rtn\runawfe-rtn-linux64-%WFE_VERSION%.zip || exit /b 1
+xcopy /E /Q target\artifacts\rtn\linux64 rtn\  || exit /b 1
+jar -cMf runawfe-rtn-linux64-%WFE_VERSION%.zip rtn  || exit /b 1
+rd /S /Q rtn  || exit /b 1
+move runawfe-rtn-linux64-%WFE_VERSION%.zip %RESULTS_DIR%\bin\rtn\runawfe-rtn-linux64-%WFE_VERSION%.zip  || exit /b 1
 
-echo Autobuild finished.
+@echo Autobuild finished at %TIME%
+@powershell -NoProfile -Command "$d = [TimeSpan]::FromTicks((Get-Date).Ticks - %START_TICKS%); Write-Host ('Total build time: {0} hours, {1} minutes, {2} seconds' -f $d.Hours, $d.Minutes, $d.Seconds)"
