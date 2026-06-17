@@ -18,28 +18,27 @@ copy readme build
 
 echo Export source code
 cd /D build || exit /b 1
-git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-server.git source/projects/wfe
+:: 1. Сервер
+git clone -b %GIT_BRANCH_NAME% %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-server.git source/projects/wfe  || exit /b 1
 cd source/projects/wfe || exit /b 1
-git checkout %GIT_BRANCH_NAME% || exit /b 1
 
 git rev-parse HEAD > tmp-hash.txt
 set /p BUILD_HASH=<tmp-hash.txt
 del tmp-hash.txt
 
 cd ../../../ || exit /b 1
-git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-devstudio.git source/projects/gpd || exit /b 1
+:: 2. GPD
+git clone --depth 1 -b %GIT_BRANCH_NAME% %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-devstudio.git source/projects/gpd  || exit /b 1
 cd source/projects/gpd || exit /b 1
-git checkout %GIT_BRANCH_NAME% || exit /b 1
 cd ../../../ || exit /b 1
 rd /S /Q source\projects\gpd\.git
 git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-notifier-java.git source/projects/rtn || exit /b 1
 cd source/projects/rtn || exit /b 1
-git checkout %GIT_BRANCH_NAME% || exit /b 1
 cd ../../../ || exit /b 1
 rd /S /Q source\projects\rtn\.git
-git clone %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-installer.git source/projects/installer || exit /b 1
+:: 4. Installer
+git clone --depth 1 -b %GIT_BRANCH_NAME% %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-installer.git source/projects/installer  || exit /b 1
 cd source/projects/installer || exit /b 1
-git checkout %GIT_BRANCH_NAME% || exit /b 1
 cd ../../../ || exit /b 1
 rd /S /Q source\projects\installer\.git
 
