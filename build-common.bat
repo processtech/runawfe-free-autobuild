@@ -90,7 +90,7 @@ echo Create bin file for wildfly server
 jar xf target\artifacts\wildfly\app-server\wfe-appserver-base-%WFE_VERSION%.zip || exit /b 1
 jar xf target\artifacts\wildfly\app-server\wfe-appserver-diff-%WFE_VERSION%.zip || exit /b 1
 xcopy /E /Q ..\simulation\* jboss\ || exit /b 1
-move jboss wildfly || exit /b 1
+ren jboss wildfly || exit /b 1
 jar -cMf runawfe-wildfly-%WFE_VERSION%.zip wildfly || exit /b 1
 rd /S /Q wildfly || exit /b 1
 move runawfe-wildfly-%WFE_VERSION%.zip %RESULTS_DIR%\bin\server\runawfe-wildfly-%WFE_VERSION%.zip || exit /b 1
