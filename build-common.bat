@@ -29,17 +29,24 @@ del tmp-hash.txt
 
 cd ../../../ || exit /b 1
 
+:: Чтобы не было блокировки .git/config.lock
+timeout /t 2 /nobreak >nul
+
 :: 2. GPD
 git clone --depth 1 -b %GIT_BRANCH_NAME% %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-devstudio.git source/projects/gpd || exit /b 1
 cd source/projects/gpd || exit /b 1
 cd ../../../ || exit /b 1
 rd /S /Q source\projects\gpd\.git
 
+timeout /t 2 /nobreak >nul
+
 :: 3. RTN
 git clone --depth 1 -b %GIT_BRANCH_NAME% %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-notifier-java.git source/projects/rtn || exit /b 1
 cd source/projects/rtn || exit /b 1
 cd ../../../ || exit /b 1
 rd /S /Q source\projects\rtn\.git
+
+timeout /t 2 /nobreak >nul
 
 :: 4. Installer
 git clone --depth 1 -b %GIT_BRANCH_NAME% %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_EDITION%-installer.git source/projects/installer || exit /b 1
@@ -94,6 +101,9 @@ echo Create bin file for wildfly server
 jar xf target\artifacts\wildfly\app-server\wfe-appserver-base-%WFE_VERSION%.zip || exit /b 1
 jar xf target\artifacts\wildfly\app-server\wfe-appserver-diff-%WFE_VERSION%.zip || exit /b 1
 xcopy /E /Q ..\simulation\* jboss\ || exit /b 1
+
+timeout /t 5 /nobreak >nul
+
 ren jboss wildfly || exit /b 1
 jar -cMf runawfe-wildfly-%WFE_VERSION%.zip wildfly || exit /b 1
 rd /S /Q wildfly || exit /b 1
