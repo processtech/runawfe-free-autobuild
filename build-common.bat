@@ -4,8 +4,10 @@
 @powershell -NoProfile -Command "Write-Host '=== Stage 1/6: Prepare ===' -ForegroundColor Blue"
 
 @echo Clean artifacts from previous builds
-rd /S /Q build 
+rd /S /Q build
+if exist "build" exit /b 1
 rd /S /Q %RESULTS_DIR%
+if exist "%RESULTS_DIR%" exit /b 1
 
 echo Create folders for artifacts from new build
 mkdir build
@@ -41,6 +43,7 @@ git clone --depth 1 -b %GIT_BRANCH_NAME% %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_E
 cd source/projects/gpd || exit /b 1
 cd ../../../ || exit /b 1
 rd /S /Q source\projects\gpd\.git
+if exist "source\projects\gpd\.git" exit /b 1
 
 timeout /t 2 /nobreak >nul
 
@@ -49,6 +52,7 @@ git clone --depth 1 -b %GIT_BRANCH_NAME% %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_E
 cd source/projects/rtn || exit /b 1
 cd ../../../ || exit /b 1
 rd /S /Q source\projects\rtn\.git
+if exist "source\projects\rtn\.git" exit /b 1
 
 timeout /t 2 /nobreak >nul
 
@@ -57,6 +61,7 @@ git clone --depth 1 -b %GIT_BRANCH_NAME% %GIT_SOURCE_URL%/runawfe-%GIT_PROJECT_E
 cd source/projects/installer || exit /b 1
 cd ../../../ || exit /b 1
 rd /S /Q source\projects\installer\.git
+if exist "source\projects\installer\.git" exit /b 1
 
 mkdir source\docs || exit /b 1
 mkdir source\docs\guides || exit /b 1
@@ -97,7 +102,8 @@ call mvn clean package -Dwfe.edition=%WFE_EDITION% -Dwfe.buildhash=%BUILD_HASH% 
 @powershell -NoProfile -Command "Write-Host '=== Stage 6/6: Post-process ===' -ForegroundColor Blue"
 echo Remove .git after build
 cd /D %BUILD_DIR% || exit /b 1
-rd /S /Q source\projects\wfe\.git  || exit /b 1
+rd /S /Q source\projects\wfe\.git
+if exist "source\projects\wfe\.git" exit /b 1
 
 cd source\projects\installer\windows\ || exit /b 1
 
@@ -117,7 +123,8 @@ timeout /t 5 /nobreak >nul
 
 ren jboss wildfly || exit /b 1
 jar -cMf runawfe-wildfly-%WFE_VERSION%.zip wildfly || exit /b 1
-rd /S /Q wildfly || exit /b 1
+rd /S /Q wildfly
+if exist "wildfly" exit /b 1
 move runawfe-wildfly-%WFE_VERSION%.zip %RESULTS_DIR%\bin\server\runawfe-wildfly-%WFE_VERSION%.zip || exit /b 1
 
 echo Create bin file for gpd
@@ -129,12 +136,14 @@ mkdir %RESULTS_DIR%\bin\rtn || exit /b 1
 xcopy /E /Q target\artifacts\rtn\64 rtn\ || exit /b 1
 jar -cMf runawfe-rtn-win64-%WFE_VERSION%.zip rtn\ || exit /b 1
 rd /S /Q rtn
+if exist "rtn" exit /b 1
 move runawfe-rtn-win64-%WFE_VERSION%.zip %RESULTS_DIR%\bin\rtn\runawfe-rtn-win64-%WFE_VERSION%.zip || exit /b 1
 
 
 xcopy /E /Q target\artifacts\rtn\linux64 rtn\  || exit /b 1
 jar -cMf runawfe-rtn-linux64-%WFE_VERSION%.zip rtn  || exit /b 1
-rd /S /Q rtn  || exit /b 1
+rd /S /Q rtn
+if exist "rtn" exit /b 1
 move runawfe-rtn-linux64-%WFE_VERSION%.zip %RESULTS_DIR%\bin\rtn\runawfe-rtn-linux64-%WFE_VERSION%.zip  || exit /b 1
 
 @echo ========================================
