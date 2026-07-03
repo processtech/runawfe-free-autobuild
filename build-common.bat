@@ -3,6 +3,20 @@
 @for /f "usebackq" %%i in (`powershell -NoProfile -Command "(Get-Date).Ticks"`) do @set "STAGE1_TICKS=%%i"
 @powershell -NoProfile -Command "Write-Host '=== Stage 1/6: Prepare ===' -ForegroundColor Blue"
 
+@echo Check for orphaned Wildfly/JBoss processes from previous builds
+@powershell -NoProfile -Command ^
+  "$buildDir = '%BUILD_DIR%';" ^
+  "$procs = Get-WmiObject Win32_Process -Filter \"Name='java.exe'\" | Where-Object { $_.CommandLine -like '*jboss-modules.jar*' -and $_.CommandLine -like '*' + $buildDir + '*' };" ^
+  "if ($procs) {" ^
+  "  Write-Host 'WARNING: Found orphaned Wildfly/JBoss process from previous build!' -ForegroundColor Yellow;" ^
+  "  foreach ($p in $procs) {" ^
+  "    Write-Host ('  PID: {0}' -f $p.ProcessId) -ForegroundColor Yellow;" ^
+  "    Write-Host ('  Cmd: {0}' -f $p.CommandLine) -ForegroundColor Gray;" ^
+  "  };" ^
+  "  Write-Host 'Please terminate this process manually (e.g. taskkill /F /PID <PID>) and restart the build.' -ForegroundColor Red;" ^
+  "  exit 1" ^
+  "}" || exit /b 1
+
 @echo Clean artifacts from previous builds
 rd /S /Q build
 if exist "build" exit /b 1
