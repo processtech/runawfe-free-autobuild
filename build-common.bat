@@ -97,7 +97,7 @@ rem call mvn versions:set -DnewVersion=%WFE_VERSION%
 cd ../../rtn || exit /b 1
 call mvn versions:set -DnewVersion=%WFE_VERSION% || exit /b 1
 cd ../gpd/plugins || exit /b 1
-call mvn tycho-versions:set-version -DnewVersion=%WFE_VERSION% || exit /b 1
+call mvn tycho-versions:set-version -DnewVersion=%WFE_VERSION%.qualifier || exit /b 1
 
 @for /f "usebackq" %%i in (`powershell -NoProfile -Command "(Get-Date).Ticks"`) do @set "STAGE4_TICKS=%%i"
 @powershell -NoProfile -Command "Write-Host '=== Stage 4/6: Package src ===' -ForegroundColor Blue"
